@@ -1,5 +1,7 @@
 # Analyse de marché — [Nom du SaaS]
 
+*Livrable du jour 3.*
+
 ## Concurrents
 [Une ligne par concurrent. Le modèle détaillé est dans la Boîte à outils.]
 

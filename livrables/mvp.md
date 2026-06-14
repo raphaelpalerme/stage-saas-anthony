@@ -1,5 +1,7 @@
 # MVP — [Nom du SaaS]
 
+*Livrable du jour 7.*
+
 Mes 3 features clés — **exactement 3, pas plus**.
 
 ## Feature 1 — [nom]

@@ -1,5 +1,7 @@
 # Mon idée — [Nom du SaaS]
 
+*Livrable du jour 2.*
+
 ## One-liner
 > [Nom] aide [public cible] à [bénéfice] sans [problème actuel].
 

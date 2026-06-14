@@ -1,5 +1,7 @@
 # Bugs et retours — [Nom du SaaS]
 
+*Livrable du jour 9.*
+
 Liste tout ce qui cloche, du plus grave au plus léger. Coche quand c'est corrigé.
 
 | État | Gravité | Ce qui cloche | Où | Corrigé comment |

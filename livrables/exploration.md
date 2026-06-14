@@ -1,4 +1,6 @@
-# Exploration — jour 1
+# Exploration
+
+*Livrable du jour 1.*
 
 ## Mes ambitions
 [Discuté avec le tuteur : métier visé, revenu/mois souhaité, projets en cours.]

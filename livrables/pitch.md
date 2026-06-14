@@ -1,5 +1,7 @@
 # Pitch — [Nom du SaaS]
 
+*Livrable du jour 10.*
+
 Structure de ta présentation de 5 minutes au tuteur (évaluée à la grille d'investisseur).
 
 ## Le problème

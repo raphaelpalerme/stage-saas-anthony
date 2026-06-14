@@ -1,5 +1,7 @@
 # Design system — [Nom du SaaS]
 
+*Livrable du jour 5.*
+
 [Le modèle détaillé est dans la Boîte à outils (« Modèle de fichier design-system.md »). Remplis chaque section avec TES choix.]
 
 ## Couleurs
