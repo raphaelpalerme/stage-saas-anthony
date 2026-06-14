@@ -7,6 +7,8 @@ Poser tes ambitions, comprendre ce qu'est un SaaS, et préparer tout ton environ
 - [ ] Point ambitions avec le tuteur (métier visé, revenu/mois souhaité, projets en cours)
 - [ ] Lis « Qu'est-ce qu'un SaaS ? » dans la Boîte à outils, puis liste 10 SaaS que tu utilises
 - [ ] Explore Product Hunt et note 5 SaaS récents qui t'intriguent
+- [ ] Note 3 problèmes concrets de ton quotidien (ils nourriront ton idée demain)
+- [ ] Rassemble ambitions, 10 SaaS, 5 Product Hunt et 3 problèmes dans `livrables/exploration.md` (le squelette est déjà là)
 - [ ] Crée tes comptes : GitHub, Vercel, Supabase, Stripe (mode test), Claude.ai, Toggl
 - [ ] Installe VS Code, Claude Code et Docker Desktop
 - [ ] Clone ton repo de stage déjà prêt (Makerkit + guides + branche `develop`). Emplacement : **Mac** → ton dossier perso (`~/`). **Windows** → un dossier court à la racine du disque (ex. `C:\dev\`), surtout PAS sur le Bureau ni dans Documents (souvent synchronisés OneDrive : ça casse `node_modules` et ralentit tout)
@@ -17,7 +19,7 @@ Poser tes ambitions, comprendre ce qu'est un SaaS, et préparer tout ton environ
 - [ ] (Si le setup est terminé) regarde 2-3 vidéos d'indie hackers
 
 ## Livrable
-Ce fichier `jour1.md` rempli (ambitions, 10 SaaS, 5 Product Hunt, 3 problèmes du quotidien) + setup prêt (comptes, installs, repo avec branche `develop`, stack qui démarre en local).
+`livrables/exploration.md` rempli (ambitions, 10 SaaS, 5 Product Hunt, 3 problèmes du quotidien) + setup prêt (comptes, installs, repo avec branche `develop`, stack qui démarre en local).
 
 ## Clôture du jour (ton premier commit et ta première PR sur ce repo)
 - [ ] Branche `jour1-lancement-setup` créée

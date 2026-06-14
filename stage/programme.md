@@ -126,7 +126,7 @@ Tu retrouveras le détail de chacun dans la Boîte à outils. L'avantage de part
 - 15h-16h : Présente tes 3 idées à ton binôme. Choisis-en une.
 - 16h-17h : Rédige ta one-liner « [Nom] aide [public cible] à [bénéfice] sans [problème actuel] » + ton business case en 5 lignes (cible, prix, seuil de viabilité, premiers clients possibles).
 
-**Livrable du jour** — Un fichier idee.md avec : ta one-liner, le problème résolu, le public cible, le business case (qui paie / combien / objectif 1 000 €/mois en X clients), et 3 raisons pour lesquelles tu crois en cette idée. + Clôture du jour : branche jour2-idee, un jour2.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir), temps suivi sur Toggl.
+**Livrable du jour** — Un fichier livrables/idee.md avec : ta one-liner, le problème résolu, le public cible, le business case (qui paie / combien / objectif 1 000 €/mois en X clients), et 3 raisons pour lesquelles tu crois en cette idée. + Clôture du jour : branche jour2-idee, un jour2.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir), temps suivi sur Toggl.
 
 **Prompts à utiliser**
 
@@ -153,7 +153,7 @@ Tu retrouveras le détail de chacun dans la Boîte à outils. L'avantage de part
 - 15h-16h : Définis ta « value proposition » en suivant le canevas fourni.
 - 16h-17h : Rédige ton positionnement et fais-le relire par ton binôme.
 
-**Livrable du jour** — Un fichier marche.md avec : tableau des concurrents, ton angle différenciant, et ta value proposition formulée en 2-3 phrases. + Clôture du jour : branche jour3-marche, un jour3.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir), temps suivi sur Toggl.
+**Livrable du jour** — Un fichier livrables/marche.md avec : tableau des concurrents, ton angle différenciant, et ta value proposition formulée en 2-3 phrases. + Clôture du jour : branche jour3-marche, un jour3.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir), temps suivi sur Toggl.
 
 **Prompts à utiliser**
 
@@ -198,16 +198,16 @@ Tu retrouveras le détail de chacun dans la Boîte à outils. L'avantage de part
 **Déroulé**
 
 - 9h-10h30 : Lis la section « Design system » de la Boîte à outils. Inspire-toi de shadcn/ui (ui.shadcn.com).
-- 10h30-12h : Documente ton design system dans un fichier design-system.md : palette de couleurs (avec codes hex), typographie (police + tailles), espacements, style des boutons, des cartes, des inputs.
+- 10h30-12h : Documente ton design system dans un fichier livrables/design-system.md : palette de couleurs (avec codes hex), typographie (police + tailles), espacements, style des boutons, des cartes, des inputs.
 - 13h30-15h : Applique rigoureusement ton design system à ta landing page.
 - 15h-16h : Teste ton site sur mobile (chrome devtools) et corrige les problèmes responsive.
 - 16h-17h : Récap de la semaine 1. Présente à ton binôme et au tuteur ce que tu as fait. Prépare la transition vers la semaine 2.
 
-**Livrable du jour** — design-system.md documenté, landing page finalisée et responsive, repo prêt à recevoir le code applicatif. + Clôture du jour : branche jour5-design-system, un jour5.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir), temps suivi sur Toggl.
+**Livrable du jour** — livrables/design-system.md documenté, landing page finalisée et responsive, repo prêt à recevoir le code applicatif. + Clôture du jour : branche jour5-design-system, un jour5.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir), temps suivi sur Toggl.
 
 **Prompts à utiliser**
 
-- Voici ma landing page : [colle le HTML]. Génère-moi un fichier design-system.md complet documentant les couleurs, polices, espacements, et composants utilisés. Format clair, prêt à être réutilisé pour la suite du produit.
+- Voici ma landing page : [colle le HTML]. Génère-moi un fichier livrables/design-system.md complet documentant les couleurs, polices, espacements, et composants utilisés. Format clair, prêt à être réutilisé pour la suite du produit.
 - Améliore le responsive de cette page : sur mobile (320-480px), le hero doit rester lisible et le CTA cliquable sans scroll horizontal.
 
 ## 4. Semaine 2 — Construire le produit
@@ -253,7 +253,7 @@ Tu retrouveras le détail de chacun dans la Boîte à outils. L'avantage de part
 
 **Déroulé**
 
-- 9h-10h : Liste les features de ton MVP. Garde-en exactement 3 (pas plus). Écris-les dans un fichier mvp.md.
+- 9h-10h : Liste les features de ton MVP. Garde-en exactement 3 (pas plus). Écris-les dans un fichier livrables/mvp.md.
 - 10h-11h : Explore la structure du projet. Identifie où vivent les pages, les composants, les routes API. Demande à Claude Code de t'expliquer ce que fait chaque dossier.
 - 11h-12h30 : Première feature. Crée la page dans apps/web/app/[locale]/home/(user)/[ta-feature]/page.tsx (l'espace compte personnel). Pour aujourd'hui, stocke les données en mémoire React — on branchera Supabase demain.
 - 13h30-15h : Deuxième feature. Push sur GitHub à chaque étape qui marche.
@@ -306,7 +306,7 @@ Tu retrouveras le détail de chacun dans la Boîte à outils. L'avantage de part
 
 **Déroulé**
 
-- 9h-11h : Fais le tour complet de ton produit avec un œil critique. Note tout ce qui cloche dans une liste bugs.md.
+- 9h-11h : Fais le tour complet de ton produit avec un œil critique. Note tout ce qui cloche dans une liste livrables/bugs.md.
 - 11h-13h : Corrige les bugs (en ordre de gravité). Push à chaque fix.
 - 14h-15h30 : Applique systématiquement ton design system : marges, tailles de police, couleurs cohérentes, états de hover.
 - 15h30-16h30 : Améliore les états vides (« vous n'avez encore rien créé ») et les messages d'erreur.

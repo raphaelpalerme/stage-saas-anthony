@@ -10,10 +10,10 @@ Générer un maximum d'idées, en choisir une, et bâtir un mini business case.
 - [ ] Filtre sur 5 critères, garde les 3 meilleures
 - [ ] Calcule : combien de clients pour atteindre 1 000 €/mois ?
 - [ ] Choisis ton idée, écris ta one-liner + ton business case
-- [ ] Écris `idee.md`
+- [ ] Écris `livrables/idee.md`
 
 ## Livrable
-`idee.md` : one-liner, problème résolu, public cible, business case, 3 raisons d'y croire.
+`livrables/idee.md` : one-liner, problème résolu, public cible, business case, 3 raisons d'y croire.
 
 ## Clôture du jour
 - [ ] Branche `jour2-idee` créée

@@ -29,7 +29,7 @@ Ce repo est utilisé par un·e **stagiaire débutant·e** (lycéen/étudiant, pr
 - `stage/boite-a-outils.md` — les explications (SaaS, Git, Supabase, design…), les modèles de livrables et des prompts prêts à l'emploi.
 - `GUIDE.md` — la vue d'ensemble et le rituel quotidien ; `README.md` — deviendra la présentation du produit au jour 10.
 - `check-setup.sh` — vérifie l'outillage installé (se lance dans un terminal bash).
-- Les livrables que le/la stagiaire produit (`idee.md`, `marche.md`, `design-system.md`, `mvp.md`, `bugs.md`, la maquette `index.html`) vont à la racine du repo, sauf indication contraire de la fiche.
+- Les livrables texte sont des **squelettes Markdown déjà présents dans `livrables/`** (`exploration.md` j1, `idee.md` j2, `marche.md` j3, `design-system.md` j5, `mvp.md` j7, `bugs.md` j9, `pitch.md` j10) : le/la stagiaire les **remplit**, il/elle ne les recrée pas à la racine. La maquette `index.html`/`style.css` (jour 4-5) va à la racine. Les récaps quotidiens se remplissent dans `stage/jourX.md`.
 
 ## Pannes locales : coache la découverte, ne déballe pas la réponse
 

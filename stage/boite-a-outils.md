@@ -175,7 +175,7 @@ Faire une analyse de marché à ton niveau ne veut pas dire produire un rapport 
 
 ### Étape 2 : remplir la matrice de concurrents
 
-Pour chaque concurrent, remplis ce tableau (mets-le dans ton fichier marche.md) :
+Pour chaque concurrent, remplis ce tableau (mets-le dans ton fichier livrables/marche.md) :
 
 | Nom | URL | Prix | Point fort | Point faible |
 |---|---|---|---|---|
@@ -251,7 +251,7 @@ Définis le style de chaque composant qu'on retrouvera partout : bouton primaire
 
 Pour chaque composant interactif, définis son état hover (au survol), focus (clavier), disabled (inactif), et loading (chargement). Sinon ton produit fera bricolé.
 
-### Modèle de fichier design-system.md
+### Modèle de fichier livrables/design-system.md
 
 ```
 # Design System — [Nom du produit]

@@ -9,10 +9,10 @@ Identifier tes concurrents, te positionner, écrire ta value proposition.
 - [ ] Construis le tableau comparatif
 - [ ] Définis ton angle différenciant
 - [ ] Écris ta value proposition (2-3 phrases)
-- [ ] Écris `marche.md`
+- [ ] Écris `livrables/marche.md`
 
 ## Livrable
-`marche.md` : tableau des concurrents + angle différenciant + value proposition.
+`livrables/marche.md` : tableau des concurrents + angle différenciant + value proposition.
 
 ## Clôture du jour
 - [ ] Branche `jour3-marche` créée
