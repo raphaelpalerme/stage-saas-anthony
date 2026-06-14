@@ -1,0 +1,25 @@
+# Réconcilie Windows et Mac : un seul format de fin de ligne dans le repo (LF).
+# Évite les "faux" fichiers modifiés (CRLF) et protège le hook pre-commit,
+# qui casserait sur Windows si git y injectait des retours chariot (\r).
+
+# Par défaut : LF partout, sur les deux OS, à la sortie comme à l'entrée.
+* text=auto eol=lf
+
+# Hook git et scripts shell : LF obligatoire (un CRLF empêche l'exécution).
+.githooks/* text eol=lf
+*.sh text eol=lf
+
+# Fichiers spécifiques Windows : eux gardent CRLF.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Binaires : git ne touche pas aux fins de ligne.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.pdf binary

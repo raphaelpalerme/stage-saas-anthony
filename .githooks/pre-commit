@@ -1,0 +1,72 @@
+#!/bin/sh
+# Garde-fous du stage — vérifie chaque commit.
+# Trois règles : pas de commit sur main/develop, pas de zone interdite, pas de secret.
+# (Le tuteur peut contourner avec : git commit --no-verify)
+
+fail=0
+
+say() { printf '%s\n' "$1" >&2; }
+
+# ── Règle 1 : jamais de commit direct sur main ou develop ────────────────────
+branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+if [ "$branch" = "main" ] || [ "$branch" = "develop" ]; then
+  say ""
+  say "🚫 Tu es sur la branche '$branch' — on ne committe jamais directement dessus."
+  say "   Crée d'abord ta branche du jour (le nom exact est dans ta fiche stage/jourN.md) :"
+  say "   git checkout -b jourN-etape"
+  say "   Ton travail en cours te suivra sur la nouvelle branche, rien n'est perdu."
+  exit 1
+fi
+
+staged=$(git diff --cached --name-only --diff-filter=ACMR)
+[ -z "$staged" ] && exit 0
+
+# ── Règle 2 : zones interdites du boilerplate ────────────────────────────────
+blocked=""
+
+z=$(printf '%s\n' "$staged" | grep -F 'app/[locale]/home/[account]')
+[ -n "$z" ] && blocked="$blocked$z (comptes d'équipe — désactivés pour le stage)\n"
+
+z=$(printf '%s\n' "$staged" | grep -F 'app/[locale]/admin')
+[ -n "$z" ] && blocked="$blocked$z (back-office super-admin — hors sujet pour le stage)\n"
+
+z=$(printf '%s\n' "$staged" | grep -E '^packages/' | grep -v '^packages/ui/')
+[ -n "$z" ] && blocked="$blocked$z (packages du boilerplate — on lit, on ne modifie pas)\n"
+
+z=$(printf '%s\n' "$staged" | grep -E '(^|/)(middleware\.ts|next\.config\.[a-z]+|tailwind\.config\.[a-z]+|eslint\.config\.[a-z]+|\.eslintrc.*)$')
+[ -n "$z" ] && blocked="$blocked$z (config du framework — laisse-la telle quelle)\n"
+
+if [ -n "$blocked" ]; then
+  say ""
+  say "🚫 Commit refusé : des fichiers en zone interdite sont stagés."
+  printf '%b' "$blocked" | sed 's/^/   - /' >&2
+  say ""
+  say "   Pour les retirer du commit :   git restore --staged <fichier>"
+  say "   Pour annuler la modification : git checkout -- <fichier>"
+  say "   Si tu penses avoir une bonne raison d'y toucher, parles-en au tuteur d'abord."
+  fail=1
+fi
+
+# ── Règle 3 : secrets ────────────────────────────────────────────────────────
+envfiles=$(printf '%s\n' "$staged" | grep -E '(^|/)\.env[^/]*\.local$')
+if [ -n "$envfiles" ]; then
+  say ""
+  say "🚫 Commit refusé : un fichier d'environnement local est stagé (il contient des secrets)."
+  printf '%s\n' "$envfiles" | sed 's/^/   - /' >&2
+  say "   Retire-le :  git restore --staged $envfiles"
+  say "   Puis vérifie qu'il est bien couvert par le .gitignore."
+  fail=1
+fi
+
+secrets=$(git diff --cached -U0 -- . ":(exclude)pnpm-lock.yaml" ":(exclude)apps/web/.env.development" | grep '^+' \
+  | grep -E 'sk_(live|test)_[A-Za-z0-9]{8,}|sb_secret_[A-Za-z0-9_-]{8,}|eyJ[A-Za-z0-9_-]{20,}\.eyJ' | head -5)
+if [ -n "$secrets" ]; then
+  say ""
+  say "🚫 Commit refusé : on dirait qu'une clé secrète (Stripe ou Supabase) est en clair dans le code."
+  say "   Les clés vont dans .env.local (jamais commité), jamais dans le code."
+  say "   Lignes suspectes :"
+  printf '%s\n' "$secrets" | cut -c1-80 | sed 's/^/   /' >&2
+  fail=1
+fi
+
+exit $fail
