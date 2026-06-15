@@ -21,7 +21,7 @@ Ce repo est utilisé par un·e **stagiaire débutant·e** (lycéen/étudiant, pr
 ## Le workflow du stage
 - Une branche par jour : `jourX-etape`. On ne committe jamais sur `main` ni `develop` (un hook le bloque).
 - Le soir : commit, Pull Request vers `develop`. Le tuteur relit et merge — **toi, tu ne merges jamais**. Temps loggé sur Toggl.
-- Commandes prêtes : `/jour` (fiche du jour), `/explique` (vulgarise un fichier/concept), `/garde-fous` (vérifie avant commit), `/cloture` (rituel du soir).
+- Commandes prêtes : `/setup` (vérifie l'outillage), `/identite` (règle ton identité git), `/jour` (fiche du jour), `/explique` (vulgarise un fichier/concept), `/garde-fous` (vérifie avant commit), `/cloture` (rituel du soir).
 
 ## Les fichiers du stage (consulte-les au lieu d'improviser)
 - `stage/jour1.md` … `stage/jour10.md` — la fiche de chaque jour : objectif, checklist, livrable, et le récap que le/la stagiaire remplit le soir. Quand on te demande « quoi faire aujourd'hui » ou qu'on bloque, **lis la fiche du jour concerné** avant de répondre.

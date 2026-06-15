@@ -6,10 +6,11 @@ Tu vas vivre l'aventure complète d'un fondateur de SaaS : trouver une idée, co
 Chaque matin, ouvre la fiche du jour dans `stage/` (ex. `stage/jour3.md`). Suis la checklist, produis ton livrable, et **remplis le récap le soir**. Le détail complet de chaque étape est dans le **[Programme](stage/programme.md)** et la **[Boîte à outils](stage/boite-a-outils.md)**. Tes livrables texte (de l'exploration du jour 1 au pitch du jour 10) sont des **fichiers déjà prêts à remplir dans `livrables/`** — tu les complètes, tu n'as pas à les créer.
 
 ## Tes commandes Claude Code
-Dans le terminal, ouvre `claude` à la racine du repo. Cinq commandes sont prêtes pour toi :
+Dans le terminal, ouvre `claude` à la racine du repo. Six commandes sont prêtes pour toi :
 | Commande | Quand l'utiliser |
 |---|---|
 | `/setup` | Au tout début — vérifie que Node, Docker, etc. sont bien installés et t'aide à réparer ce qui manque |
+| `/identite` | Jour 1, avant ton premier commit — règle ton identité git pour que tes commits soient signés à TON nom |
 | `/jour 3` | Le matin — affiche la fiche du jour, fait le point sur la checklist, t'aide à démarrer |
 | `/explique apps/web/app` | Quand tu ne comprends pas un fichier, un dossier ou un mot technique |
 | `/garde-fous` | Avant de committer — vérifie que tu n'as pas touché aux zones sensibles du boilerplate |
