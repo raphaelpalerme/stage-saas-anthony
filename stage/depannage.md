@@ -4,6 +4,9 @@ Cette fiche couvre les soucis **purement techniques** (l'environnement, pas ton 
 
 > Les vrais bugs de TES features ne sont pas ici — ça, tu les résous avec Claude. Cette fiche, c'est juste la plomberie.
 
+## « License check failed » au `pnpm dev`
+Makerkit vérifie la licence via une clé git `user.username`. Normalement c'est réglé tout seul au `pnpm install` (le projet la configure). Si l'erreur apparaît quand même : tu as sûrement lancé `pnpm dev` **avant** que `pnpm install` finisse. Lance `pnpm install` jusqu'au bout, puis réessaie. Si ça persiste, dans le repo : `git config user.username raphaelpalerme`. ⚠️ N'utilise **pas** `user.name` pour ça (`user.name` sert à signer tes commits à TON nom) — au besoin, lance `/identite`.
+
 ## « Cannot connect to the Docker daemon »
 Docker Desktop n'est pas lancé. Ouvre-le, attends que son icône soit verte (« running »), puis relance ta commande.
 
