@@ -28,7 +28,7 @@ Poser tes ambitions, comprendre ce qu'est un SaaS, et préparer tout ton environ
 - [ ] Temps de la journée loggé sur Toggl
 
 ## Récap (à remplir le soir)
-- **Fait :**
-- **Bloqué (et comment débloqué) :**
-- **Appris :**
-- **Temps (Toggl) :**
+- **Fait :** Ambitions, découverte du SaaS (7 SaaS utilisés + 5 Product Hunt + 3 problèmes du quotidien), setup technique (pnpm install, pnpm supabase:start, pnpm dev lancés et fonctionnels)
+- **Bloqué (et comment débloqué) :** Rien
+- **Appris :** À peu près tout — ce qu'est un SaaS, comment explorer pour trouver des idées, setup du projet
+- **Temps (Toggl) :** Non utilisé (tuteur a décidé de ne pas l'utiliser)
