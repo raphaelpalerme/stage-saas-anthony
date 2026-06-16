@@ -152,8 +152,9 @@ Tu retrouveras le détail de chacun dans la Boîte à outils. L'avantage de part
 - 14h-15h : Identifie ton angle différenciant. Réponds à : « Pourquoi un utilisateur me choisirait-il plutôt qu'un concurrent ? »
 - 15h-16h : Définis ta « value proposition » en suivant le canevas fourni.
 - 16h-17h : Rédige ton positionnement et fais-le relire par ton binôme.
+- En parallèle (les réponses arrivent pendant les jours 4-6) : **lance ta discovery** — contacte 3-5 personnes qui ont vraiment le problème (en écrit dans des communautés, ou en vrai si ce sont des proches). Pose des questions sur leur passé, ne pitche pas. Démarre livrables/discovery.md.
 
-**Livrable du jour** — Un fichier livrables/marche.md avec : tableau des concurrents, ton angle différenciant, et ta value proposition formulée en 2-3 phrases. + Clôture du jour : branche jour3-marche, un jour3.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir), temps suivi sur Toggl.
+**Livrable du jour** — livrables/marche.md (concurrents + angle + value proposition) + livrables/discovery.md lancé (outreach parti vers de vrais utilisateurs). + Clôture du jour : branche jour3-marche, un jour3.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir), temps suivi sur Toggl.
 
 **Prompts à utiliser**
 
@@ -253,7 +254,8 @@ Tu retrouveras le détail de chacun dans la Boîte à outils. L'avantage de part
 
 **Déroulé**
 
-- 9h-10h : Liste les features de ton MVP. Garde-en exactement 3 (pas plus). Écris-les dans un fichier livrables/mvp.md.
+- 9h-9h30 : Relis ta livrables/discovery.md — qu'est-ce que tes échanges avec de vrais humains changent à ton idée ? Ajuste avant de figer.
+- 9h30-10h : Liste les features de ton MVP. Garde-en exactement 3 (pas plus). Écris-les dans livrables/mvp.md (= ton wedge du jour 2).
 - 10h-11h : Explore la structure du projet. Identifie où vivent les pages, les composants, les routes API. Demande à Claude Code de t'expliquer ce que fait chaque dossier.
 - 11h-12h30 : Première feature. Crée la page dans apps/web/app/[locale]/home/(user)/[ta-feature]/page.tsx (l'espace compte personnel). Pour aujourd'hui, stocke les données en mémoire React — on branchera Supabase demain.
 - 13h30-15h : Deuxième feature. Push sur GitHub à chaque étape qui marche.
