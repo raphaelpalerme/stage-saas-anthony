@@ -1,19 +1,20 @@
-# Jour 4 — Maquette de la landing page
+# Jour 4 — Landing page : design system brouillon + copy + génération
 
 ## Objectif du jour
-Écrire le contenu de ta landing, puis générer une première maquette HTML.
+Fixer un premier design system (couleurs + polices), écrire le copy de ta landing à partir de ton positionnement, et générer une première version avec Claude Design.
 
-> ⚠️ Cette landing est ta **maquette**, pas ton produit final. Son code HTML ne partira jamais en production : en semaine 2 (jour 6), Claude Code la convertira dans ton vrai projet. Ce qui se réutilise à 100 % : tes textes, ton design, tes couleurs. Travailler le design dans un fichier HTML simple d'abord, c'est exactement comme ça que bossent les pros (maquette → intégration) — rien n'est jeté.
+> 💡 Tu ne codes PAS de HTML à la main. Claude Design assemble la page. Ton vrai travail = les deux choses qu'il ne peut pas inventer : **ton design system** (ton identité visuelle) et **ton copy** (les textes qui persuadent — ton hero = ta value proposition du jour 3). La landing se finalise demain.
 
 ## Checklist
-- [ ] Étudie 3 landing pages de référence (Linear, Notion, Vercel)
-- [ ] Rédige le contenu section par section (hero, features, social proof, pricing, CTA)
+- [ ] Étudie 3 landing pages de référence (Linear, Notion, Vercel) — note ce qui te plaît
+- [ ] **Fixe tes tokens** : choisis tes couleurs et 1-2 polices avec Realtime Colors / tweakcn / UI Colors, et reporte-les dans `livrables/design-system.md` (brouillon — on le finalise demain)
 - [ ] Choisis ton nom de produit et ton logo (texte stylisé)
-- [ ] Génère une landing HTML + Tailwind avec Claude
-- [ ] Itère sur le rendu (couleurs, espacements, typographie)
+- [ ] **Rédige ton copy** à partir de ta value proposition + ton positionnement (`marche.md`) : hero, problème, features, social proof, pricing, FAQ, CTA (prompt dans la Boîte à outils)
+- [ ] **Génère ta landing avec Claude Design** en lui passant : concept (`idee.md`) + value prop/positionnement (`marche.md`) + design system + copy
+- [ ] Itère en langage naturel jusqu'à un premier rendu qui te plaît
 
 ## Livrable
-`index.html` + `style.css` : ta landing page, ouvrable dans un navigateur.
+`livrables/design-system.md` (brouillon) + le copy de ta landing + ta première landing générée dans Claude Design (export ou lien).
 
 ## Clôture du jour
 - [ ] Branche `jour4-landing` créée
