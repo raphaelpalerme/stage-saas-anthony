@@ -433,9 +433,21 @@ Copie-colle ces prompts dans Claude.ai ou Claude Code, en remplaçant les [parti
 
 > Mon SaaS : [nom] qui [value proposition]. Rédige le contenu d'une landing page avec : 1) Hero (titre 6-10 mots + sous-titre 1 phrase + CTA), 2) Section problème (3 pain points), 3) Section solution (3 features clés avec icône en mots), 4) Social proof (3 témoignages factices mais réalistes), 5) Pricing (gratuit + 1 plan payant), 6) FAQ (5 questions), 7) CTA final. Ton : direct, sans jargon, lycéen.
 
-**Coder la landing**
+**Fixer ton design system (avant de générer)**
 
-> À partir de ce contenu : [colle ton texte], génère-moi une landing page HTML autonome avec Tailwind via CDN. Une seule page, design moderne 2025 (cards, ombres douces, espacements généreux). Palette : un primaire bleu #2563eb, gris froids. Aucune image. Code complet et autonome dans un seul fichier index.html. Responsive (mobile first).
+Joue avec ces outils pour choisir tes couleurs et polices, puis reporte-les dans `livrables/design-system.md` :
+- **Realtime Colors** (realtimecolors.com) — voir tes couleurs + polices sur une maquette de landing **en direct**
+- **tweakcn** (tweakcn.com) / **shadcn themes** (ui.shadcn.com/themes) — éditer le thème des composants de ton app et **exporter les variables CSS** (ça thème toute l'app, pas juste la landing)
+- **UI Colors** (uicolors.app) — une couleur → toute l'échelle Tailwind
+- **WebAIM Contrast Checker** — vérifier que ton texte est lisible · **Google Fonts** — choisir tes polices
+
+**Générer ta landing avec Claude Design**
+
+Tu ne codes pas de HTML à la main : Claude Design assemble la page à partir de tes entrées. Ton message le plus net vient du jour 3 : ta **value proposition** et ton **positionnement** (`marche.md`) — c'est ça, le cœur de ta landing (le hero = ta value proposition).
+
+> Voici mon SaaS : [colle ton concept de `idee.md` + ta **value proposition et ton positionnement** de `marche.md`]. Voici mon design system : [colle ton `design-system.md`]. Voici le contenu de ma landing : [colle tes textes]. Génère une landing page moderne 2025, responsive, qui respecte **exactement** mes tokens (couleurs, polices, espacements, radius). Une seule page : hero (= ma value proposition), problème, features, social proof, pricing, FAQ, CTA. Aucune image générée.
+
+Puis itère en langage naturel (« rends le hero plus aéré », « inverse l'ordre des sections »…). Quand c'est bon, **exporte** — et au jour 6, utilise l'option **« handoff vers Claude Code »** pour l'intégrer dans ton projet Makerkit.
 
 ### Phase setup local (jour 6)
 
@@ -449,7 +461,7 @@ Copie-colle ces prompts dans Claude.ai ou Claude Code, en remplaçant les [parti
 
 **Convertir ta maquette en vraie landing (jour 6)**
 
-> Voici la maquette HTML de ma landing page, finalisée et validée : [colle ton index.html]. Convertis-la dans la page d'accueil marketing de mon projet Makerkit : apps/web/app/[locale]/(marketing)/page.tsx. Consignes : 1) remplace le contenu existant de cette page, 2) garde mes textes et mon design (couleurs, espacements, typographie) à l'identique, 3) ne touche pas au header/footer du layout marketing, 4) réutilise les composants UI du projet (@kit/ui) quand ça s'y prête, sinon du JSX + Tailwind simple. Vérifie que la page compile et s'affiche sur localhost:3000.
+> Voici ma landing finalisée dans Claude Design : [colle le code exporté, ou utilise l'option « handoff vers Claude Code »]. Convertis-la dans la page d'accueil marketing de mon projet Makerkit : apps/web/app/[locale]/(marketing)/page.tsx. Consignes : 1) remplace le contenu existant de cette page, 2) garde mes textes et mon design (couleurs, espacements, typographie) à l'identique, 3) ne touche pas au header/footer du layout marketing, 4) réutilise les composants UI du projet (@kit/ui) quand ça s'y prête, sinon du JSX + Tailwind simple. Vérifie que la page compile et s'affiche sur localhost:3000.
 
 **Déployer sur Vercel + Supabase prod (jour 6)**
 
