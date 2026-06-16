@@ -10,9 +10,10 @@ Identifier tes concurrents, te positionner, écrire ta value proposition.
 - [ ] Définis ton angle différenciant
 - [ ] Écris ta value proposition (2-3 phrases)
 - [ ] Écris `livrables/marche.md`
+- [ ] **Lance ta discovery** : contacte 3-5 personnes qui ont vraiment le problème (en écrit dans des communautés, ou en vrai si ce sont des proches). Pose des questions sur leur **passé**, **ne pitche pas** ton idée. Démarre `livrables/discovery.md` — les réponses arriveront pendant les jours 4-6 (détails dans ton coaching)
 
 ## Livrable
-`livrables/marche.md` : tableau des concurrents + angle différenciant + value proposition.
+`livrables/marche.md` (tableau concurrents + angle + value proposition) + `livrables/discovery.md` lancé (outreach parti).
 
 ## Clôture du jour
 - [ ] Branche `jour3-marche` créée
