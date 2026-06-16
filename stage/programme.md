@@ -167,23 +167,23 @@ Tu retrouveras le détail de chacun dans la Boîte à outils. L'avantage de part
 **Objectifs**
 
 - Comprendre l'anatomie d'une landing page qui convertit.
-- Rédiger les textes (copywriting) avant de penser au design.
-- Générer une première maquette HTML avec Claude.
+- Rédiger le copy à partir de son positionnement, et fixer un premier design system.
+- Générer une première landing avec Claude Design (pas de HTML codé à la main).
 
 **Déroulé**
 
 - 9h-10h : Étudie 3 landing pages de référence (Linear, Notion, Vercel). Note la structure : hero, social proof, features, témoignages, pricing, CTA.
-- 10h-11h30 : Rédige le contenu de ta landing page section par section, en mots, avant de penser au visuel.
-- 11h30-12h30 : Choisis ton nom de produit et ton logo (texte stylisé, pas d'image générée par IA).
-- 13h30-15h30 : Demande à Claude.ai de générer une première version HTML+Tailwind de ta landing page à partir de ton contenu.
-- 15h30-17h : Itère sur le rendu : couleurs, espacements, typographie. Fais 3 ou 4 allers-retours avec Claude.
+- 10h-11h : Fixe tes tokens (couleurs, 1-2 polices) avec Realtime Colors / tweakcn / UI Colors, et reporte-les dans livrables/design-system.md (brouillon).
+- 11h-12h30 : Rédige le copy de ta landing section par section, à partir de ta value proposition et ton positionnement (marche.md). Choisis aussi ton nom et ton logo (texte stylisé, pas d'image IA).
+- 13h30-15h30 : Génère ta landing avec Claude Design en lui passant concept (idee.md) + value prop/positionnement (marche.md) + tes tokens + ton copy.
+- 15h30-17h : Itère en langage naturel dans Claude Design (3-4 allers-retours) jusqu'à un premier rendu qui te plaît.
 
-**Livrable du jour** — Un fichier index.html + style.css de ta landing page, ouvrable dans un navigateur, avec tous les textes et un design présentable. + Clôture du jour : branche jour4-landing, un jour4.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir), temps suivi sur Toggl.
+**Livrable du jour** — livrables/design-system.md (brouillon) + le copy de ta landing + ta première landing générée dans Claude Design (export ou lien). + Clôture du jour : branche jour4-landing, un jour4.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir), temps suivi sur Toggl.
 
 **Prompts à utiliser**
 
 - Voici ma value proposition : [...]. Rédige-moi le texte d'une landing page avec : un hero (titre + sous-titre + CTA), 3 features clés, une section social proof factice mais réaliste, un pricing simple, et un CTA final.
-- À partir de ce contenu : [colle ton texte], crée une landing page HTML autonome avec Tailwind CSS via CDN. Utilise une palette moderne (un primaire, un secondaire, du gris). Pas d'image. Code complet et autonome.
+- (Claude Design) Voici mon concept (idee.md) + ma value prop/positionnement (marche.md) + mon design system + mon copy : génère une landing moderne 2025, responsive, qui respecte exactement mes tokens. Hero = ma value proposition. Pas d'image générée.
 
 ### Jour 5 — Design system et finalisation landing
 
@@ -198,16 +198,16 @@ Tu retrouveras le détail de chacun dans la Boîte à outils. L'avantage de part
 **Déroulé**
 
 - 9h-10h30 : Lis la section « Design system » de la Boîte à outils. Inspire-toi de shadcn/ui (ui.shadcn.com).
-- 10h30-12h : Documente ton design system dans un fichier livrables/design-system.md : palette de couleurs (avec codes hex), typographie (police + tailles), espacements, style des boutons, des cartes, des inputs.
-- 13h30-15h : Applique rigoureusement ton design system à ta landing page.
+- 10h30-12h : Finalise livrables/design-system.md : tous les tokens (couleurs, graisses, échelle de tailles, radius, ombres, composants avec états). C'est la spec.
+- 13h30-15h : Itère ta landing dans Claude Design en lui repassant ton design system finalisé (sections, espacements, hiérarchie).
 - 15h-16h : Teste ton site sur mobile (chrome devtools) et corrige les problèmes responsive.
 - 16h-17h : Récap de la semaine 1. Présente à ton binôme et au tuteur ce que tu as fait. Prépare la transition vers la semaine 2.
 
-**Livrable du jour** — livrables/design-system.md documenté, landing page finalisée et responsive, repo prêt à recevoir le code applicatif. + Clôture du jour : branche jour5-design-system, un jour5.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir), temps suivi sur Toggl.
+**Livrable du jour** — livrables/design-system.md complet (spec-tokens), landing finalisée, responsive, et exportée (option « handoff vers Claude Code » repérée pour le jour 6). + Clôture du jour : branche jour5-design-system, un jour5.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir), temps suivi sur Toggl.
 
 **Prompts à utiliser**
 
-- Voici ma landing page : [colle le HTML]. Génère-moi un fichier livrables/design-system.md complet documentant les couleurs, polices, espacements, et composants utilisés. Format clair, prêt à être réutilisé pour la suite du produit.
+- Aide-moi à compléter mon livrables/design-system.md en spec complète (couleurs avec rôles, graisses, échelle de tailles, radius, ombres, composants avec états hover/focus/disabled), et à mapper ces tokens sur les variables shadcn de mon projet.
 - Améliore le responsive de cette page : sur mobile (320-480px), le hero doit rester lisible et le CTA cliquable sans scroll horizontal.
 
 ## 4. Semaine 2 — Construire le produit
