@@ -22,7 +22,7 @@ Générer un maximum d'idées, en choisir une, et bâtir un mini business case.
 - [ ] Temps de la journée loggé sur Toggl
 
 ## Récap (à remplir le soir)
-- **Fait :**
-- **Bloqué (et comment débloqué) :**
-- **Appris :**
-- **Temps (Toggl) :**
+- **Fait :** Brainstorm de 20 idées de fonctionnalités, choix de l'idée Pickify (réseau social de basket pour trouver des partenaires et organiser des matchs), livrable idee.md complété avec business case, public cible et 3 raisons d'y croire.
+- **Bloqué (et comment débloqué) :** Rien, pas de blocage aujourd'hui.
+- **Appris :** La différence entre B2B (vendre à des entreprises) et B2C (vendre directement à des particuliers), et comment construire un business case.
+- **Temps (Toggl) :** Non utilisé (consigne du tuteur).
