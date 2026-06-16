@@ -90,3 +90,18 @@ Joueurs de basket amateurs et lycéens/étudiants de 15 à 30 ans, en zone urbai
 1. Les rares apps sportives existantes sont généralistes — aucune ne combine matchmaking basket, réputation et gamification spécifiquement pour les jeunes joueurs urbains.
 2. Les joueurs perdent du temps à se déplacer pour rien car l'info sur les terrains disponibles est introuvable.
 3. Le prix de 10€/mois est accessible pour la majorité des jeunes, ce qui rend l'adoption réaliste.
+
+---
+
+## 5. Le test de l'investisseur
+[Réponds franchement aux 3 objections les plus dures à TON idée. Les tiennes sont dans ton `stage/coaching.md` — ton tuteur t'aide à les trouver.]
+1. **Objection :** … → **ma réponse :**
+2. **Objection :** … → **ma réponse :**
+3. **Objection :** … → **ma réponse :**
+
+## 6. Mon wedge MVP
+[Parmi tes features, LESQUELLES 3 prouvent ton idée ET sont buildables en 1 semaine à coût zéro ? Ce sont tes 3 features du jour 7.]
+- Feature 1 :
+- Feature 2 :
+- Feature 3 :
+- **Pourquoi ces 3-là (et pas les autres) :**
