@@ -160,7 +160,7 @@ Tu retrouveras le détail de chacun dans la Boîte à outils. L'avantage de part
 - Voici mon idée : [...]. Aide-moi à identifier 8 concurrents directs et indirects, avec pour chacun leur prix, public cible, et faiblesse.
 - Voici ma value proposition : [...]. Joue le rôle d'un utilisateur sceptique et trouve les 5 raisons pour lesquelles je ne te convaincrais pas.
 
-### Jour 4 — Maquette de la landing page
+### Jour 4 — Landing : design system, copy & Claude Design
 
 **Durée** — Journée complète (6h)
 
@@ -185,7 +185,7 @@ Tu retrouveras le détail de chacun dans la Boîte à outils. L'avantage de part
 - Voici ma value proposition : [...]. Rédige-moi le texte d'une landing page avec : un hero (titre + sous-titre + CTA), 3 features clés, une section social proof factice mais réaliste, un pricing simple, et un CTA final.
 - (Claude Design) Voici mon concept (idee.md) + ma value prop/positionnement (marche.md) + mon design system + mon copy : génère une landing moderne 2025, responsive, qui respecte exactement mes tokens. Hero = ma value proposition. Pas d'image générée.
 
-### Jour 5 — Design system et finalisation landing
+### Jour 5 — Finaliser le design system + la landing
 
 **Durée** — Journée complète (6h)
 
