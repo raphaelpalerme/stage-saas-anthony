@@ -37,8 +37,8 @@ Tu n'as jamais fini seul. Si tu es en avance, tu aides ton binôme — tu le dé
 | 1 | [Lancement, ambitions & setup](stage/jour1.md) | jour1.md + setup prêt | `jour1-lancement-setup` |
 | 2 | [Trouver SON idée + business case](stage/jour2.md) | livrables/idee.md | `jour2-idee` |
 | 3 | [Analyse de marché et positionnement](stage/jour3.md) | livrables/marche.md | `jour3-marche` |
-| 4 | [Maquette de la landing page](stage/jour4.md) | index.html + style.css | `jour4-landing` |
-| 5 | [Design system et finalisation landing](stage/jour5.md) | livrables/design-system.md + landing | `jour5-design-system` |
+| 4 | [Landing : design system, copy & Claude Design](stage/jour4.md) | design-system (brouillon) + copy + landing Claude Design | `jour4-landing` |
+| 5 | [Finaliser design system + landing](stage/jour5.md) | livrables/design-system.md (spec) + landing exportée | `jour5-design-system` |
 | 6 | [Setup technique : local + Vercel](stage/jour6.md) | Local OK + prod Vercel | `jour6-setup-technique` |
 | 7 | [MVP — coder TES features](stage/jour7.md) | livrables/mvp.md + 3 features | `jour7-mvp` |
 | 8 | [Base de données : tables + RLS](stage/jour8.md) | Tables + RLS actives | `jour8-db` |
