@@ -64,7 +64,7 @@ Note chaque idée gardée (✅/❌ ou /5) sur : 1) résout un vrai problème · 
 
 1. Trouver un partenaire → 100 clients × 10€/mois
 2. Matchmaking par créneau → 100 clients × 10€/mois
-3. Remplaçant automatique → 100 clients × 10€/mois
+3. profil joueur→ 100 clients × 10€/mois
 est-ce réaliste? oui, 10euros est accessible pour les lycéens/étudiants et le côté viral de l'app peut aider 100 clients.
 
 ---
@@ -95,13 +95,14 @@ Joueurs de basket amateurs et lycéens/étudiants de 15 à 30 ans, en zone urbai
 
 ## 5. Le test de l'investisseur
 [Réponds franchement aux 3 objections les plus dures à TON idée. Les tiennes sont dans ton `stage/coaching.md` — ton tuteur t'aide à les trouver.]
-1. **Objection :** … → **ma réponse :**
-2. **Objection :** … → **ma réponse :**
-3. **Objection :** … → **ma réponse :**
+1. **Objection :** … → **ma réponse :**WhatsApp ne permet de contacter que ses contacts existants, sans savoir s'ils sont disponibles au même moment. Pickify trouve des joueurs inconnus près de toi, disponibles maintenant, avec leur niveau et leur réputation visibles directement. C'est une valeur que WhatsApp ne peut pas offrir.
+2. **Objection :** … → **ma réponse :**Je commence par mon club de basket pour recruter les premiers utilisateurs, puis j'élargis à des joueurs que je connais en dehors du club. Le réseau personnel suffit pour les 20-30 premiers utilisateurs, et le bouche-à-oreille prend ensuite le relais.
+3. **Objection :** … → **ma réponse :**La vraie barrière c'est l'effet réseau : plus il y a de joueurs sur Pickify avec leurs stats, leur réputation et leurs matchs, moins ils ont envie de tout recommencer sur une nouvelle app. Un concurrent peut copier l'app, pas la communauté.
 
 ## 6. Mon wedge MVP
 [Parmi tes features, LESQUELLES 3 prouvent ton idée ET sont buildables en 1 semaine à coût zéro ? Ce sont tes 3 features du jour 7.]
-- Feature 1 :
-- Feature 2 :
-- Feature 3 :
-- **Pourquoi ces 3-là (et pas les autres) :**
+- Feature 1 : Trouver un partenaire
+- Feature 2 : Matchmaking par créneau
+- Feature 3 : Profil joueur
+- **Pourquoi ces 3-là (et pas les autres) :** Ces 3 features permettent de faire le parcours complet : voir le profil d'un joueur, savoir s'il est dispo au même moment, et organiser un match. C'est simple à construire et ça prouve que l'idée fonctionne sans fonctionnalités complexes.
+
