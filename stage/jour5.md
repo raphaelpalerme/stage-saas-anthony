@@ -1,17 +1,17 @@
-# Jour 5 — Design system et finalisation landing
+# Jour 5 — Finaliser le design system + la landing
 
 ## Objectif du jour
-Documenter ton design system et polir la landing jusqu'à un rendu pro.
+Figer ton design system en spec complète, itérer ta landing jusqu'à un rendu pro, et l'exporter pour le jour 6.
 
 ## Checklist
-- [ ] Lis « Design system » dans la Boîte à outils, inspire-toi de shadcn/ui
-- [ ] Documente `livrables/design-system.md` (couleurs, typo, espacements, composants)
-- [ ] Applique rigoureusement ton design system à la landing
-- [ ] Teste le responsive sur mobile et corrige
+- [ ] **Finalise `livrables/design-system.md`** : complète tous les tokens (couleurs, graisses, échelle de tailles, radius, ombres, composants avec états) — c'est la spec
+- [ ] **Itère ta landing dans Claude Design** : repasse-lui ton design system finalisé, affine sections, espacements, hiérarchie visuelle
+- [ ] Teste le **responsive** sur mobile (Chrome DevTools) et corrige
+- [ ] **Exporte** ta landing (garde le code / le lien) — pour le jour 6, repère l'option **« handoff vers Claude Code »**
 - [ ] Récap de la semaine 1 avec le tuteur
 
 ## Livrable
-`livrables/design-system.md` documenté + landing finalisée et responsive.
+`livrables/design-system.md` complet (spec-tokens) + landing finalisée, responsive, exportée.
 
 ## Clôture du jour
 - [ ] Branche `jour5-design-system` créée
