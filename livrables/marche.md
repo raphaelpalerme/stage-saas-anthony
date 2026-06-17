@@ -32,3 +32,19 @@ Pickify est l'appli qui connecte les joueurs de basket informels entre eux. Tu c
 - **Prix** : 10€/mois par joueur
 - **Qui paie** : les joueurs (ados et jeunes), souvent via leurs parents
 - **Pourquoi ça tient** : les ados paient déjà des applis et des jeux vidéo de cette façon
+
+---
+
+## 5. Ma carte de positionnement
+[Choisis 2 axes qui comptent pour TON marché, et place tes concurrents ET toi. Ta meilleure position : une case où personne d'autre n'est. Des pistes d'axes sont dans ton coaching.]
+
+- **Axe horizontal** (gauche → droite) : ______ → ______
+- **Axe vertical** (bas → haut) : ______ → ______
+
+Positions :
+- [concurrent] :
+- [concurrent] :
+- [concurrent] :
+- **MOI** :
+
+**Ma case vide / ce que ça me dit :**
