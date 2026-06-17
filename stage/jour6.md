@@ -18,10 +18,8 @@ TON produit (nom, couleurs, TA landing) qui tourne en local + déployé en prod 
 - [ ] Branche `jour6-setup-technique` créée
 - [ ] Commit de tous tes changements du jour
 - [ ] Pull Request vers `develop` (préviens le tuteur, il relit et merge le soir)
-- [ ] Temps de la journée loggé sur Toggl
 
 ## Récap (à remplir le soir)
 - **Fait :**
 - **Bloqué (et comment débloqué) :**
 - **Appris :**
-- **Temps (Toggl) :**
