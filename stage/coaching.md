@@ -23,3 +23,10 @@
 - Ton **hero = ta value proposition** : « trouve des joueurs et des terrains de basket près de chez toi ». Montre le côté **communautaire et local**.
 - Design : cible **ados/jeunes** → énergique, **mobile-first**, fun mais lisible (pense Strava / Instagram, pas un tableur).
 - Sur le prix affiché : tu peux montrer un plan, mais reste ouvert — le 10€ n'est pas validé, tu trancheras le modèle plus tard.
+
+## Jour 7 — MVP : ta boucle cœur
+- Périmètre : **profil joueur + poster sa dispo (lieu + créneau) + trouver des joueurs dispos au même endroit**. C'est du CRUD + une requête filtrée — tu es dans tes cordes.
+- **Localisation = une liste de terrains/quartiers ou un champ texte**, PAS de GPS ni de carte (trop complexe, et les API de cartes coûtent).
+
+## Jour 8 — données + le piège de la démo
+- **Pré-remplis ta base avec des joueurs et des dispos d'exemple (seed data)** : une appli de mise en relation est VIDE avec un seul utilisateur. Sans seed, ta démo du jour 10 n'affiche aucun match — c'est indispensable.
