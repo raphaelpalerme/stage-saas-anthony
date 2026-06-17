@@ -4,7 +4,6 @@
 Coder les 3 features clés de ton produit par-dessus le boilerplate.
 
 ## Checklist
-- [ ] **Relis ta `livrables/discovery.md`** : qu'est-ce que tes échanges avec de vrais humains changent à ton idée ? Ajuste AVANT de figer tes features
 - [ ] Liste tes 3 features dans `livrables/mvp.md` (exactement 3)
 - [ ] Explore la structure du projet (demande à Claude Code de t'expliquer les dossiers)
 - [ ] Repère TON espace de travail : tout ton code va dans `apps/web/app/[locale]/home/(user)/` (le compte personnel). Si Claude propose de créer des fichiers ailleurs (`home/[account]`, `packages/`...), demande-lui pourquoi avant d'accepter
@@ -19,10 +18,8 @@ Coder les 3 features clés de ton produit par-dessus le boilerplate.
 - [ ] Branche `jour7-mvp` créée
 - [ ] Commit de tous tes changements du jour
 - [ ] Pull Request vers `develop` (préviens le tuteur, il relit et merge le soir)
-- [ ] Temps de la journée loggé sur Toggl
 
 ## Récap (à remplir le soir)
 - **Fait :**
 - **Bloqué (et comment débloqué) :**
 - **Appris :**
-- **Temps (Toggl) :**
