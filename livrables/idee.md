@@ -49,14 +49,14 @@ Note chaque idée gardée (✅/❌ ou /5) sur : 1) résout un vrai problème · 
 |---|---|---|---|---|---|---|
 | 1. Trouver un partenaire | ✅ | ✅ | ✅ | ✅ | ✅ | 5/5 |
 | 7. Matchmaking par créneau | ✅ | ✅ | ✅ | ✅ | ✅ | 5/5 |
-| 8. Remplaçant automatique | ✅ | ✅ | ✅ | ✅ | ✅ | 5/5 |
+| 8. Remplaçant automatique | ✅ | ❌ | ✅ | ✅ | ✅ | 4/5 |
 | 10. Signalement terrain | ✅ | ✅ | ✅ | ✅ | ✅ | 5/5 |
 | 12. Réputation évolutive | ✅ | ✅ | ✅ | ✅ | ✅ | 5/5 |
 | 14. Système de niveaux | ✅ | ✅ | ✅ | ✅ | ✅ | 5/5 |
 | 16. Suivre d'autres joueurs | ✅ | ✅ | ✅ | ✅ | ✅ | 5/5 |
 | 18. Créer une équipe | ✅ | ✅ | ✅ | ✅ | ✅ | 5/5 |
-| 19. Défis 1v1 | ✅ | ✅ | ✅ | ✅ | ✅ | 5/5 |
-| 20. Radar de matchs en direct | ✅ | ✅ | ✅ | ✅ | ✅ | 5/5 |
+| 19. Défis 1v1 | ✅ | ❌ | ✅ | ✅ | ✅ | 4/5 |
+| 20. Radar de matchs en direct | ✅ | ❌ | ✅ | ✅ | ✅ | 4/5 |
 
 
 ## 4. Top 3 + seuil de viabilité
@@ -95,14 +95,14 @@ Joueurs de basket amateurs et lycéens/étudiants de 15 à 30 ans, en zone urbai
 
 ## 5. Le test de l'investisseur
 [Réponds franchement aux 3 objections les plus dures à TON idée. Les tiennes sont dans ton `stage/coaching.md` — ton tuteur t'aide à les trouver.]
-1. **Objection :** … → **ma réponse :**WhatsApp ne permet de contacter que ses contacts existants, sans savoir s'ils sont disponibles au même moment. Pickify trouve des joueurs inconnus près de toi, disponibles maintenant, avec leur niveau et leur réputation visibles directement. C'est une valeur que WhatsApp ne peut pas offrir.
-2. **Objection :** … → **ma réponse :**Je commence par mon club de basket pour recruter les premiers utilisateurs, puis j'élargis à des joueurs que je connais en dehors du club. Le réseau personnel suffit pour les 20-30 premiers utilisateurs, et le bouche-à-oreille prend ensuite le relais.
-3. **Objection :** … → **ma réponse :**La vraie barrière c'est l'effet réseau : plus il y a de joueurs sur Pickify avec leurs stats, leur réputation et leurs matchs, moins ils ont envie de tout recommencer sur une nouvelle app. Un concurrent peut copier l'app, pas la communauté.
+1. **Objection :** Un lycéen paiera-t-il vraiment 10€/mois vs un groupe WhatsApp gratuit ? → **ma réponse :** WhatsApp ne permet de contacter que ses contacts existants, sans savoir s'ils sont disponibles au même moment. Pickify trouve des joueurs inconnus près de toi, disponibles maintenant, avec leur niveau et leur réputation visibles directement. C'est une valeur que WhatsApp ne peut pas offrir.
+2. **Objection :** L'appli est vide sans monde au même endroit — comment tu démarres ? → **ma réponse :** Je commence par mon club de basket pour recruter les premiers utilisateurs, puis j'élargis à des joueurs que je connais en dehors du club. Le réseau personnel suffit pour les 20-30 premiers utilisateurs, et le bouche-à-oreille prend ensuite le relais.
+3. **Objection :** Qu'est-ce qui empêche quelqu'un de copier l'idée ? → **ma réponse :** La vraie barrière c'est l'effet réseau : plus il y a de joueurs sur Pickify avec leurs stats, leur réputation et leurs matchs, moins ils ont envie de tout recommencer sur une nouvelle app. Un concurrent peut copier l'app, pas la communauté.
 
 ## 6. Mon wedge MVP
 [Parmi tes features, LESQUELLES 3 prouvent ton idée ET sont buildables en 1 semaine à coût zéro ? Ce sont tes 3 features du jour 7.]
 - Feature 1 : Trouver un partenaire
 - Feature 2 : Matchmaking par créneau
-- Feature 3 : Profil joueur
-- **Pourquoi ces 3-là (et pas les autres) :** Ces 3 features permettent de faire le parcours complet : voir le profil d'un joueur, savoir s'il est dispo au même moment, et organiser un match. C'est simple à construire et ça prouve que l'idée fonctionne sans fonctionnalités complexes.
+- Feature 3 : Remplaçant automatique
+- **Pourquoi ces 3-là (et pas les autres) :** Ces 3 features forment la boucle cœur : trouver des joueurs, s'organiser sur un créneau, et gérer les désistements de dernière minute. C'est ce qui rend l'appli vraiment utile au quotidien.
 

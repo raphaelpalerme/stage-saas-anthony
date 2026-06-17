@@ -3,25 +3,32 @@
 *Livrable du jour 3.*
 
 ## 1. Mes concurrents (5 à 10, directs ET indirects)
-[Cherche sur Google, Product Hunt, Reddit, X. Un **direct** fait la même chose que toi ; un **indirect** résout le même problème autrement (ex. un groupe WhatsApp gratuit, un tableur). Des pistes de concurrents sont dans ton `stage/coaching.md` — vérifie-les et complète.]
 
-| Concurrent | Direct / Indirect | URL | Prix | Public cible | Point fort | Point faible |
-|---|---|---|---|---|---|---|
-|  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |
+| Concurrent | Direct / Indirect | Prix | Public cible | Point fort | Point faible |
+|---|---|---|---|---|---|
+| Groupe WhatsApp/SMS | Indirect | Gratuit | Tout le monde | Familier, tout le monde l'a | Personne répond = déplacement pour rien |
+| Groupe Instagram | Indirect | Gratuit | Ados/jeunes | Facile à utiliser | Notifs perdues, pas organisé |
+| Spond | Direct | Gratuit | Clubs / entraîneurs | Gestion des horaires | Pas pour le jeu informel |
+| Se pointer au terrain | Indirect | Gratuit | Joueurs solo | Aucun effort | Terrain plein ou personne = trajet inutile |
+| Playtomic | Direct | Payant | Sports de raquette | Réservation facile | Pas pour le basket, pas communautaire |
+| JoFoot | Direct | Gratuit | Joueurs de foot | Matchs organisés entre amis | Foot seulement |
 
 ## 2. Mon angle différenciant
-[Qu'est-ce que TOI tu fais que les autres ne font pas, ou mal ? Pour QUI cet angle compte le plus ? Que sacrifies-tu en échange (on ne peut pas être meilleur sur tout) ?]
+Contrairement aux groupes WhatsApp ou Instagram, Pickify permet à n'importe quel joueur de basket de trouver des joueurs et des terrains disponibles près de chez lui — sans être dans un club.
+
+- Les autres applis (Spond, JoFoot, Playtomic) ciblent les clubs organisés ou d'autres sports.
+- WhatsApp et Instagram limitent à ses contacts — si personne n'est dispo, tant pis.
+- Pickify ouvre à des joueurs inconnus disponibles au même moment et au même endroit.
 
 ## 3. Ma value proposition
-[Remplis le canevas, puis reformule en 2-3 phrases en dessous.]
-> Pour **[public cible]** qui **[problème]**, **[Nom]** est un **[catégorie de produit]** qui **[bénéfice clé]** — contrairement à **[concurrent principal]** qui **[sa limite]**.
+> Pour **les joueurs de basket** qui **ne trouvent pas de joueurs et de terrains disponibles**, **Pickify** est une **application mobile** qui **permet de trouver des joueurs et des terrains près de chez soi** — contrairement à **WhatsApp** qui **ne peut pas trouver des joueurs inconnus disponibles**.
 
-[Ta version finale, 2-3 phrases :]
+Pickify est l'appli qui connecte les joueurs de basket informels entre eux. Tu cherches un terrain libre ou des joueurs pour compléter ton équipe ? Pickify te montre qui est disponible près de toi — sans avoir besoin d'être dans un club.
 
 ## 4. Mon positionnement en une phrase
-[Ce que tu dirais à un inconnu en 10 secondes. Doit découler de ton angle + ta value prop.]
->
+> Pickify, c'est l'appli à 10€/mois pour trouver des joueurs de basket et des terrains disponibles près de chez toi.
+
+## 5. Mon modèle économique
+- **Prix** : 10€/mois par joueur
+- **Qui paie** : les joueurs (ados et jeunes), souvent via leurs parents
+- **Pourquoi ça tient** : les ados paient déjà des applis et des jeux vidéo de cette façon
