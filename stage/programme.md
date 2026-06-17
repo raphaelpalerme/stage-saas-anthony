@@ -24,7 +24,6 @@ Concrètement, à la fin du stage, ton tuteur évalue ton projet avec une grille
 - Tout doit être déployé en production à la fin du stage, avec un vrai nom de domaine .vercel.app.
 - Le code est sur GitHub dans un repo privé (Makerkit est sous licence), partagé avec ton tuteur, avec un README propre.
 - À la fin de chaque journée, tu clôtures ton étape : une branche jour[x]-étape (ex. jour3-marche), un commit de tous tes changements, et une Pull Request vers la branche develop que ton tuteur relit le soir.
-- Tu suis ton temps de travail sur Toggl, chaque jour.
 
 > **La règle d'or : tu n'as jamais fini seul.** Si tu es en avance, tu aides ton binôme — tu le débloques, tu lui expliques, tu relis son code, mais tu ne codes jamais à sa place. L'entraide est vue d'un bon œil par le tuteur, jamais comme un désavantage : on retient mieux ce qu'on sait expliquer.
 
@@ -88,23 +87,23 @@ Tu retrouveras le détail de chacun dans la Boîte à outils. L'avantage de part
 - Comprendre ce qu'est un SaaS et en quoi c'est différent d'un logiciel classique.
 - Identifier les SaaS que tu utilises déjà sans le savoir.
 - Découvrir l'écosystème (founders, indie hackers, Y Combinator, Product Hunt).
-- Installer ton environnement et cloner ton repo de travail déjà prêt (comptes, Toggl, Claude Code, Docker).
+- Installer ton environnement et cloner ton repo de travail déjà prêt (comptes, Claude Code, Docker).
 
 **Déroulé**
 
 - 9h-10h : Lancement et point ambitions (avec le tuteur). Tour de table : le métier que tu vises, le revenu mensuel que tu veux atteindre, les projets que tu as déjà en cours. On en tire le fil rouge du stage : ton SaaS doit servir TON ambition.
 - 10h-11h : Lis la section « Qu'est-ce qu'un SaaS ? » de la Boîte à outils, puis liste 10 SaaS que tu utilises (Spotify, Discord, Canva, Notion, ChatGPT…) en une phrase chacun.
 - 11h-12h : Explore Product Hunt (producthunt.com) et note 5 SaaS lancés récemment qui t'intriguent. Le tuteur reste joignable jusqu'à midi.
-- 13h-16h : Setup (en autonomie). Crée tes comptes : GitHub, Vercel, Supabase, Stripe (mode test), Claude.ai, et Toggl pour suivre ton temps de travail. Installe VS Code, Claude Code et Docker Desktop. Clone ton repo de stage déjà prêt (le tuteur l'a monté avec Makerkit, les guides et la branche develop) : c'est ton espace de travail, et c'est sur develop qu'arriveront tes PR de chaque jour.
+- 13h-16h : Setup (en autonomie). Crée tes comptes : GitHub, Vercel, Supabase, Stripe (mode test), Claude.ai. Installe VS Code, Claude Code et Docker Desktop. Clone ton repo de stage déjà prêt (le tuteur l'a monté avec Makerkit, les guides et la branche develop) : c'est ton espace de travail, et c'est sur develop qu'arriveront tes PR de chaque jour.
 - 16h-17h : Une fois ton setup terminé, regarde 2-3 vidéos d'indie hackers sur YouTube (chaînes : Indie Hackers, Pieter Levels, Marc Lou).
 
-**Livrable du jour** — Un fichier jour1.md dans ton dossier de stage, contenant : tes ambitions (métier visé, revenu mensuel cible, projets en cours), ta liste de 10 SaaS, les 5 SaaS Product Hunt qui t'intriguent, et 3 idées de problèmes que toi ou tes amis rencontrez au quotidien. + Setup prêt : comptes créés (GitHub, Vercel, Supabase, Stripe test, Claude.ai, Toggl), VS Code, Claude Code et Docker Desktop installés, repo de stage (monté par le tuteur) cloné en local. + Clôture du jour : branche jour1-lancement-setup, commit et PR sur develop (que le tuteur relit le soir), temps suivi sur Toggl.
+**Livrable du jour** — Un fichier jour1.md dans ton dossier de stage, contenant : tes ambitions (métier visé, revenu mensuel cible, projets en cours), ta liste de 10 SaaS, les 5 SaaS Product Hunt qui t'intriguent, et 3 idées de problèmes que toi ou tes amis rencontrez au quotidien. + Setup prêt : comptes créés (GitHub, Vercel, Supabase, Stripe test, Claude.ai), VS Code, Claude Code et Docker Desktop installés, repo de stage (monté par le tuteur) cloné en local. + Clôture du jour : branche jour1-lancement-setup, commit et PR sur develop (que le tuteur relit le soir).
 
 **Prompts à utiliser**
 
 - Explique-moi en termes simples ce qu'est un SaaS, avec 3 exemples adaptés à un lycéen, et la différence avec un logiciel qu'on installe.
 - Aide-moi à identifier les SaaS cachés dans mon usage quotidien d'internet.
-- Je suis sous [Mac/Windows]. Guide-moi pas à pas pour installer VS Code, Claude Code et Docker Desktop, créer mes comptes (GitHub, Vercel, Supabase, Stripe test, Toggl) et cloner mon repo de stage déjà prêt.
+- Je suis sous [Mac/Windows]. Guide-moi pas à pas pour installer VS Code, Claude Code et Docker Desktop, créer mes comptes (GitHub, Vercel, Supabase, Stripe test) et cloner mon repo de stage déjà prêt.
 
 ### Jour 2 — Trouver SON idée + premier business case
 
@@ -126,7 +125,7 @@ Tu retrouveras le détail de chacun dans la Boîte à outils. L'avantage de part
 - 15h-16h : Présente tes 3 idées à ton binôme. Choisis-en une.
 - 16h-17h : Rédige ta one-liner « [Nom] aide [public cible] à [bénéfice] sans [problème actuel] » + ton business case en 5 lignes (cible, prix, seuil de viabilité, premiers clients possibles).
 
-**Livrable du jour** — Un fichier livrables/idee.md avec : ta one-liner, le problème résolu, le public cible, le business case (qui paie / combien / objectif 1 000 €/mois en X clients), et 3 raisons pour lesquelles tu crois en cette idée. + Clôture du jour : branche jour2-idee, un jour2.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir), temps suivi sur Toggl.
+**Livrable du jour** — Un fichier livrables/idee.md avec : ta one-liner, le problème résolu, le public cible, le business case (qui paie / combien / objectif 1 000 €/mois en X clients), et 3 raisons pour lesquelles tu crois en cette idée. + Clôture du jour : branche jour2-idee, un jour2.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir).
 
 **Prompts à utiliser**
 
@@ -152,9 +151,8 @@ Tu retrouveras le détail de chacun dans la Boîte à outils. L'avantage de part
 - 14h-15h : Identifie ton angle différenciant. Réponds à : « Pourquoi un utilisateur me choisirait-il plutôt qu'un concurrent ? »
 - 15h-16h : Définis ta « value proposition » en suivant le canevas fourni.
 - 16h-17h : Rédige ton positionnement et fais-le relire par ton binôme.
-- En parallèle (les réponses arrivent pendant les jours 4-6) : **lance ta discovery** — contacte 3-5 personnes qui ont vraiment le problème (en écrit dans des communautés, ou en vrai si ce sont des proches). Pose des questions sur leur passé, ne pitche pas. Démarre livrables/discovery.md.
 
-**Livrable du jour** — livrables/marche.md (concurrents + angle + value proposition) + livrables/discovery.md lancé (outreach parti vers de vrais utilisateurs). + Clôture du jour : branche jour3-marche, un jour3.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir), temps suivi sur Toggl.
+**Livrable du jour** — livrables/marche.md (concurrents + angle + value proposition). + Clôture du jour : branche jour3-marche, un jour3.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir).
 
 **Prompts à utiliser**
 
@@ -179,7 +177,7 @@ Tu retrouveras le détail de chacun dans la Boîte à outils. L'avantage de part
 - 13h30-15h30 : Génère ta landing avec Claude Design en lui passant concept (idee.md) + value prop/positionnement (marche.md) + tes tokens + ton copy.
 - 15h30-17h : Itère en langage naturel dans Claude Design (3-4 allers-retours) jusqu'à un premier rendu qui te plaît.
 
-**Livrable du jour** — livrables/design-system.md (brouillon) + le copy de ta landing + ta première landing générée dans Claude Design (export ou lien). + Clôture du jour : branche jour4-landing, un jour4.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir), temps suivi sur Toggl.
+**Livrable du jour** — livrables/design-system.md (brouillon) + le copy de ta landing + ta première landing générée dans Claude Design (export ou lien). + Clôture du jour : branche jour4-landing, un jour4.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir).
 
 **Prompts à utiliser**
 
@@ -204,7 +202,7 @@ Tu retrouveras le détail de chacun dans la Boîte à outils. L'avantage de part
 - 15h-16h : Teste ton site sur mobile (chrome devtools) et corrige les problèmes responsive.
 - 16h-17h : Récap de la semaine 1. Présente à ton binôme et au tuteur ce que tu as fait. Prépare la transition vers la semaine 2.
 
-**Livrable du jour** — livrables/design-system.md complet (spec-tokens), landing finalisée, responsive, et exportée (option « handoff vers Claude Code » repérée pour le jour 6). + Clôture du jour : branche jour5-design-system, un jour5.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir), temps suivi sur Toggl.
+**Livrable du jour** — livrables/design-system.md complet (spec-tokens), landing finalisée, responsive, et exportée (option « handoff vers Claude Code » repérée pour le jour 6). + Clôture du jour : branche jour5-design-system, un jour5.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir).
 
 **Prompts à utiliser**
 
@@ -234,7 +232,7 @@ Tu retrouveras le détail de chacun dans la Boîte à outils. L'avantage de part
 - 15h-16h : Branche le projet à Vercel. Récupère les variables d'env du fichier .env.local ; crée un projet Supabase « cloud » gratuit ; recopie ses clés dans Vercel pour que la prod ait sa propre DB.
 - 16h-17h : Vérifie que le déploiement marche, que tu peux te connecter en prod. Push une petite modif, regarde la prod se mettre à jour automatiquement.
 
-**Livrable du jour** — Le boilerplate tourne en local (Docker + Supabase + Next.js), il est sur ton GitHub, et il est déployé en prod sur Vercel avec une URL publique. Tu peux te connecter en local ET en prod. + Clôture du jour : branche jour6-setup-technique, un jour6.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir), temps suivi sur Toggl.
+**Livrable du jour** — Le boilerplate tourne en local (Docker + Supabase + Next.js), il est sur ton GitHub, et il est déployé en prod sur Vercel avec une URL publique. Tu peux te connecter en local ET en prod. + Clôture du jour : branche jour6-setup-technique, un jour6.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir).
 
 **Prompts à utiliser**
 
@@ -254,14 +252,13 @@ Tu retrouveras le détail de chacun dans la Boîte à outils. L'avantage de part
 
 **Déroulé**
 
-- 9h-9h30 : Relis ta livrables/discovery.md — qu'est-ce que tes échanges avec de vrais humains changent à ton idée ? Ajuste avant de figer.
-- 9h30-10h : Liste les features de ton MVP. Garde-en exactement 3 (pas plus). Écris-les dans livrables/mvp.md (= ton wedge du jour 2).
+- 9h-10h : Liste les features de ton MVP. Garde-en exactement 3 (pas plus). Écris-les dans livrables/mvp.md (= ton wedge du jour 2).
 - 10h-11h : Explore la structure du projet. Identifie où vivent les pages, les composants, les routes API. Demande à Claude Code de t'expliquer ce que fait chaque dossier.
 - 11h-12h30 : Première feature. Crée la page dans apps/web/app/[locale]/home/(user)/[ta-feature]/page.tsx (l'espace compte personnel). Pour aujourd'hui, stocke les données en mémoire React — on branchera Supabase demain.
 - 13h30-15h : Deuxième feature. Push sur GitHub à chaque étape qui marche.
 - 15h-17h : Troisième feature. À la fin de la journée, ton produit est utilisable bout en bout (même si les données ne persistent pas encore).
 
-**Livrable du jour** — Tes 3 features ajoutées au projet, fonctionnelles localement (les données disparaissent au refresh, c'est normal pour aujourd'hui). Push à jour sur GitHub. + Clôture du jour : branche jour7-mvp, un jour7.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir), temps suivi sur Toggl.
+**Livrable du jour** — Tes 3 features ajoutées au projet, fonctionnelles localement (les données disparaissent au refresh, c'est normal pour aujourd'hui). Push à jour sur GitHub. + Clôture du jour : branche jour7-mvp, un jour7.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir).
 
 **Prompts à utiliser**
 
@@ -288,7 +285,7 @@ Tu retrouveras le détail de chacun dans la Boîte à outils. L'avantage de part
 - 13h30-15h30 : Migre ta première feature : remplace le useState par des appels Supabase (createServerClient, .from('table').insert/.select). Teste : se connecter, créer une donnée, recharger la page, elle est toujours là.
 - 15h30-17h : Migre les 2 autres features. Pour chacune, vérifie qu'avec un autre compte tu ne vois PAS les données du premier (test RLS).
 
-**Livrable du jour** — Tes tables existent en local avec RLS actives. Les 3 features persistent les données par utilisateur. Tu peux te déconnecter, te reconnecter, et retrouver tes données. + Clôture du jour : branche jour8-db, un jour8.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir), temps suivi sur Toggl.
+**Livrable du jour** — Tes tables existent en local avec RLS actives. Les 3 features persistent les données par utilisateur. Tu peux te déconnecter, te reconnecter, et retrouver tes données. + Clôture du jour : branche jour8-db, un jour8.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir).
 
 **Prompts à utiliser**
 
@@ -314,7 +311,7 @@ Tu retrouveras le détail de chacun dans la Boîte à outils. L'avantage de part
 - 15h30-16h30 : Améliore les états vides (« vous n'avez encore rien créé ») et les messages d'erreur.
 - 16h30-17h : Demande à 2-3 personnes de tester ton produit (le binôme, le tuteur). Note leurs retours.
 
-**Livrable du jour** — Produit en version 1.0 : tous les parcours marchent, le design est cohérent, et les retours des testeurs sont intégrés. + Clôture du jour : branche jour9-polish, un jour9.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir), temps suivi sur Toggl.
+**Livrable du jour** — Produit en version 1.0 : tous les parcours marchent, le design est cohérent, et les retours des testeurs sont intégrés. + Clôture du jour : branche jour9-polish, un jour9.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir).
 
 **Prompts à utiliser**
 
@@ -343,7 +340,7 @@ Tu retrouveras le détail de chacun dans la Boîte à outils. L'avantage de part
 - 16h00-16h30 : Répète la présentation devant ton binôme. Itère.
 - 16h30-17h : Présentation finale à ton tuteur en mode pitch. Il évalue ton projet avec sa grille d'investisseur. Vous discutez du « et après ? ».
 
-**Livrable du jour** — Produit complet en prod (auth + features + parcours billing en test), repo GitHub avec README, présentation 5 minutes incluant un « ask » concret pour la suite. + Clôture du jour : branche jour10-prod, un jour10.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir), temps suivi sur Toggl.
+**Livrable du jour** — Produit complet en prod (auth + features + parcours billing en test), repo GitHub avec README, présentation 5 minutes incluant un « ask » concret pour la suite. + Clôture du jour : branche jour10-prod, un jour10.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir).
 
 **Prompts à utiliser**
 
