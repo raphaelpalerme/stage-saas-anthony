@@ -16,3 +16,10 @@
 - Ton chantier n°1 : le **modèle économique**. Tu as répondu « pourquoi Pickify est mieux que WhatsApp », mais pas « un ado paiera-t-il VRAIMENT 10€/mois ? ». Tranche : freemium (gratuit + payant pour quoi ?), un autre payeur (clubs, mairies, salles de sport ?), ou pub ? Sans réponse claire, l'idée reste fragile.
 - Positionnement : regarde les apps sport/communauté existantes (Spond, TeamReach, groupes Strava/Discord). Qu'est-ce qu'elles font payer, et à qui ? Ça t'aidera à trancher ton modèle.
 - Si pas encore fait : refais ton scoring du jour 2 honnêtement — pas tout en 5/5.
+
+- **Carte de positionnement (cet aprem)** : essaie les axes « club organisé ↔ jeu informel » × « multi-sport ↔ basket ». Place Spond / Playtomic / JoFoot + les groupes WhatsApp/Insta — ton coin « informel + basket » devrait être vide.
+
+## Jour 4 — landing
+- Ton **hero = ta value proposition** : « trouve des joueurs et des terrains de basket près de chez toi ». Montre le côté **communautaire et local**.
+- Design : cible **ados/jeunes** → énergique, **mobile-first**, fun mais lisible (pense Strava / Instagram, pas un tableur).
+- Sur le prix affiché : tu peux montrer un plan, mais reste ouvert — le 10€ n'est pas validé, tu trancheras le modèle plus tard.
