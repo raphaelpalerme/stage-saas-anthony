@@ -19,10 +19,8 @@ Générer un maximum d'idées, en choisir une, et bâtir un mini business case.
 - [ ] Branche `jour2-idee` créée
 - [ ] Commit de tous tes changements du jour
 - [ ] Pull Request vers `develop` (préviens le tuteur, il relit et merge le soir)
-- [ ] Temps de la journée loggé sur Toggl
 
 ## Récap (à remplir le soir)
 - **Fait :** Brainstorm de 20 idées de fonctionnalités, choix de l'idée Pickify (réseau social de basket pour trouver des partenaires et organiser des matchs), livrable idee.md complété avec business case, public cible et 3 raisons d'y croire.
 - **Bloqué (et comment débloqué) :** Rien, pas de blocage aujourd'hui.
 - **Appris :** La différence entre B2B (vendre à des entreprises) et B2C (vendre directement à des particuliers), et comment construire un business case.
-- **Temps (Toggl) :** Non utilisé (consigne du tuteur).
