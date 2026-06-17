@@ -9,7 +9,7 @@ Poser tes ambitions, comprendre ce qu'est un SaaS, et préparer tout ton environ
 - [ ] Explore Product Hunt et note 5 SaaS récents qui t'intriguent
 - [ ] Note 3 problèmes concrets de ton quotidien (ils nourriront ton idée demain)
 - [ ] Rassemble ambitions, 10 SaaS, 5 Product Hunt et 3 problèmes dans `livrables/exploration.md` (le squelette est déjà là)
-- [ ] Crée tes comptes : GitHub, Vercel, Supabase, Stripe (mode test), Claude.ai, Toggl
+- [ ] Crée tes comptes : GitHub, Vercel, Supabase, Stripe (mode test), Claude.ai
 - [ ] Installe VS Code, Claude Code et Docker Desktop
 - [ ] Clone ton repo de stage déjà prêt (Makerkit + guides + branche `develop`). Emplacement : **Mac** → ton dossier perso (`~/`). **Windows** → un dossier court à la racine du disque (ex. `C:\dev\`), surtout PAS sur le Bureau ni dans Documents (souvent synchronisés OneDrive : ça casse `node_modules` et ralentit tout)
 - [ ] Vérifie ton outillage : dans un terminal (**Mac** → Terminal, **Windows** → Git Bash), va à la racine du repo et lance `bash check-setup.sh`. Tout doit être « OK » ; sinon le script te dit exactement quoi installer
@@ -25,10 +25,8 @@ Poser tes ambitions, comprendre ce qu'est un SaaS, et préparer tout ton environ
 - [ ] Branche `jour1-lancement-setup` créée
 - [ ] Commit de tous tes changements du jour
 - [ ] Pull Request vers `develop` (préviens le tuteur, il relit et merge le soir)
-- [ ] Temps de la journée loggé sur Toggl
 
 ## Récap (à remplir le soir)
 - **Fait :** Ambitions, découverte du SaaS (7 SaaS utilisés + 5 Product Hunt + 3 problèmes du quotidien), setup technique (pnpm install, pnpm supabase:start, pnpm dev lancés et fonctionnels)
 - **Bloqué (et comment débloqué) :** Rien
 - **Appris :** À peu près tout — ce qu'est un SaaS, comment explorer pour trouver des idées, setup du projet
-- **Temps (Toggl) :** Non utilisé (tuteur a décidé de ne pas l'utiliser)
