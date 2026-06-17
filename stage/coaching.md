@@ -16,4 +16,3 @@
 - Ton chantier n°1 : le **modèle économique**. Tu as répondu « pourquoi Pickify est mieux que WhatsApp », mais pas « un ado paiera-t-il VRAIMENT 10€/mois ? ». Tranche : freemium (gratuit + payant pour quoi ?), un autre payeur (clubs, mairies, salles de sport ?), ou pub ? Sans réponse claire, l'idée reste fragile.
 - Positionnement : regarde les apps sport/communauté existantes (Spond, TeamReach, groupes Strava/Discord). Qu'est-ce qu'elles font payer, et à qui ? Ça t'aidera à trancher ton modèle.
 - Si pas encore fait : refais ton scoring du jour 2 honnêtement — pas tout en 5/5.
-- **Discovery (lance-la aujourd'hui)** : parle à 3-5 joueurs **en vrai** (ton club, le lycée, le city-stade). LA question qui règle ton angle mort : « tu as déjà payé pour une app ? laquelle, combien ? » — du concret, pas un « paierais-tu 10€ » hypothétique. → `livrables/discovery.md`
