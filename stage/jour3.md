@@ -20,6 +20,6 @@ Identifier tes concurrents, te positionner, écrire ta value proposition.
 - [ ] Pull Request vers `develop` (préviens le tuteur, il relit et merge le soir)
 
 ## Récap (à remplir le soir)
-- **Fait :**
-- **Bloqué (et comment débloqué) :**
-- **Appris :**
+- **Fait :** Analyse des concurrents (WhatsApp, Instagram, Spond, Playtomic, JoFoot), comparaison avec Pickify, définition de l'angle différenciant, value proposition, positionnement, et choix du modèle économique (10€/mois).
+- **Bloqué (et comment débloqué) :** Rien, pas de blocage aujourd'hui.
+- **Appris :** La différence entre B2B (vendre à des entreprises) et B2C (vendre directement aux particuliers), et comment choisir son modèle économique.
