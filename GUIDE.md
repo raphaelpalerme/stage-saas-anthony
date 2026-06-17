@@ -14,7 +14,7 @@ Dans le terminal, ouvre `claude` à la racine du repo. Six commandes sont prête
 | `/jour 3` | Le matin — affiche la fiche du jour, fait le point sur la checklist, t'aide à démarrer |
 | `/explique apps/web/app` | Quand tu ne comprends pas un fichier, un dossier ou un mot technique |
 | `/garde-fous` | Avant de committer — vérifie que tu n'as pas touché aux zones sensibles du boilerplate |
-| `/cloture` | Le soir — récap, commit, Pull Request vers `develop`, Toggl, dans le bon ordre |
+| `/cloture` | Le soir — récap, commit, Pull Request vers `develop`, dans le bon ordre |
 
 > Ça bloque sur un truc **technique** (Docker, terminal, installation, push) ? Regarde **[stage/depannage.md](stage/depannage.md)**. Un bug dans **TON** code ? Demande à Claude (`/explique`).
 
@@ -24,7 +24,6 @@ Dans le terminal, ouvre `claude` à la racine du repo. Six commandes sont prête
 2. Tu commits tout ton travail du jour
 3. Tu ouvres une **Pull Request vers `develop`** (colle ton récap `jourX.md` dans la description)
 4. Le tuteur relit et merge le soir
-5. Tu logges ton temps sur **Toggl**
 
 **Convention de branche** : `jourX-nom-de-l-etape`, en minuscules, avec des tirets, sans accents (ex. `jour2-idee`, `jour5-design-system`, `jour8-db`).
 
@@ -45,5 +44,3 @@ Tu n'as jamais fini seul. Si tu es en avance, tu aides ton binôme — tu le dé
 | 9 | [Polish, design et tests](stage/jour9.md) | v1.0 + livrables/bugs.md | `jour9-polish` |
 | 10 | [Mise en prod, Stripe test, pitch](stage/jour10.md) | Prod + README + pitch | `jour10-prod` |
 
-## Suivi du temps
-Tu démarres un timer Toggl quand tu te mets au travail, tu l'arrêtes aux pauses, et tu reportes le total dans le récap de ta fiche du jour.
