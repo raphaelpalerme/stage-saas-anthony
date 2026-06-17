@@ -392,7 +392,6 @@ Utilisateur clique « Upgrade » → Next.js → Stripe Checkout → webhook →
 | Service | URL | À quoi faire attention |
 |---|---|---|
 | GitHub | github.com | Choisis un username clean (il sera dans l'URL de ton repo). Active le 2FA. |
-| Toggl | toggl.com | Crée un compte gratuit. Tu démarres un timer quand tu bosses, tu l'arrêtes aux pauses, et tu reportes le total dans ton jourX.md. |
 | Vercel | vercel.com | Connecte-toi avec GitHub. Choisis le plan Hobby (gratuit). |
 | Supabase | supabase.com | Connecte-toi avec GitHub. Crée 1 projet par SaaS (pour la prod, le local sera dans Docker). |
 | Stripe | stripe.com | Active le mode TEST en haut à droite. Tu utiliseras des clés sk_test_ / pk_test_. Aucune carte réelle requise. |
