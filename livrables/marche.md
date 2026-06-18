@@ -35,7 +35,7 @@ Pickify est l'appli qui connecte les joueurs de basket informels entre eux. Tu c
 
 ---
 
-## 5. Ma carte de positionnement
+## 6. Ma carte de positionnement
 
 - **Axe horizontal** (gauche → droite) : Club organisé → Jeu informel
 - **Axe vertical** (bas → haut) : Multi-sport → Basket uniquement
