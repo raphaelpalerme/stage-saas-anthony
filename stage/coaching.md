@@ -30,3 +30,7 @@
 
 ## Jour 8 — données + le piège de la démo
 - **Pré-remplis ta base avec des joueurs et des dispos d'exemple (seed data)** : une appli de mise en relation est VIDE avec un seul utilisateur. Sans seed, ta démo du jour 10 n'affiche aucun match — c'est indispensable.
+
+## Jour 5 — finaliser la landing
+- Avec **Claude Code**, corrige en priorité : (1) les **ombres** → sombres/transparentes pour un thème sombre (pas des couleurs claires) ; (2) le **fond** #334155 un peu boueux → teste plus sombre ou plus clair ; (3) **ajoute un pricing + une FAQ** (même sans prix tranché : « gratuit + offre à venir »).
+- Range tes fichiers d'explo (`preview-*.html`, `landing-exemple.html`) dans `livrables/` ou supprime-les.
