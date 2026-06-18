@@ -34,3 +34,5 @@
 ## Jour 5 — finaliser la landing
 - Avec **Claude Code**, corrige en priorité : (1) les **ombres** → sombres/transparentes pour un thème sombre (pas des couleurs claires) ; (2) le **fond** #334155 un peu boueux → teste plus sombre ou plus clair ; (3) **ajoute un pricing + une FAQ** (même sans prix tranché : « gratuit + offre à venir »).
 - Range tes fichiers d'explo (`preview-*.html`, `landing-exemple.html`) dans `livrables/` ou supprime-les.
+- **Aligne ta landing sur ton MVP** (important) : ta feature 3 « jamais de partie annulée / remplaçant » n'est **pas** dans ton MVP — tu as choisi « profil joueur » au jour 2. Remplace-la par une feature qui colle (ex. « **vois le niveau et la réputation des joueurs** »). Et adoucis « près de toi » (tu n'as pas de GPS) → « sur ton terrain / dans ton quartier ».
+- **Amélioration libre** (une fois aligné et propre) : peaufine à ton goût, mais garde l'énergie pour le build de la semaine 2.
