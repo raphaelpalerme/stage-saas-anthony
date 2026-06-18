@@ -11,7 +11,7 @@ Figer ton design system en spec complète, itérer ta landing jusqu'à un rendu 
 - [ ] Récap de la semaine 1 avec le tuteur
 
 ## Livrable
-`livrables/design-system.md` complet (spec-tokens) + landing finalisée, responsive, exportée.
+`livrables/design-system.md` complet (spec-tokens) + ta landing finalisée et responsive (le HTML dans `livrables/`), prête pour l'intégration Makerkit du jour 6.
 
 ## Clôture du jour
 - [ ] Branche `jour5-design-system` créée
