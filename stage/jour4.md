@@ -22,6 +22,6 @@ Fixer un premier design system (couleurs + polices), écrire le copy de ta landi
 - [ ] Pull Request vers `develop` (préviens le tuteur, il relit et merge le soir)
 
 ## Récap (à remplir le soir)
-- **Fait :**
-- **Bloqué (et comment débloqué) :**
-- **Appris :**
+- **Fait :** j'ai fait la copy et une landing page
+- **Bloqué (et comment débloqué) :** non
+- **Appris :** comment faire une landing page

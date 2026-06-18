@@ -7,37 +7,37 @@
 ## Couleurs (codes hex exacts)
 | Rôle | Hex | Sert à |
 |---|---|---|
-| Primaire | `#______` | boutons, liens, accent principal |
-| Primaire (hover) | `#______` | survol du primaire |
-| Accent / secondaire | `#______` | éléments secondaires, badges |
-| Fond | `#______` | fond de page |
-| Surface / carte | `#______` | cartes, panneaux (souvent ~blanc) |
-| Texte | `#______` | texte principal |
-| Texte atténué | `#______` | sous-titres, légendes |
-| Bordure | `#______` | contours, séparateurs |
-| Succès | `#______` | validations |
-| Erreur | `#______` | erreurs, alertes |
+| Primaire | `#0284C7` | boutons, liens, accent principal |
+| Primaire (hover) | `#0369A1` | survol du primaire |
+| Accent / secondaire | `#EA580C` | éléments secondaires, badges |
+| Fond | `#334155` | fond de page (gris ardoise) |
+| Surface / carte | `#1E293B` | cartes, panneaux |
+| Texte | `#F1F5F9` | texte principal |
+| Texte atténué | `#94A3B8` | sous-titres, légendes |
+| Bordure | `#475569` | contours, séparateurs |
+| Succès | `#22C55E` | validations |
+| Erreur | `#EF4444` | erreurs, alertes |
 
 [Vérifie le contraste texte/fond sur webaim.org/resources/contrastchecker — il doit passer « AA ».]
 
 ## Typographie
-- **Police des titres :** ______ (ex. depuis fonts.google.com)
-- **Police du texte :** ______
-- **Échelle (px) :** H1 ___ · H2 ___ · H3 ___ · corps ___ · petit ___
-- **Graisses :** titres ___ (ex. 700) · corps ___ (ex. 400)
+- **Police des titres :** Bebas Neue
+- **Police du texte :** Inter 
+- **Échelle (px) :** H1 48 · H2 32 · H3 24 · corps 16 · petit 14
+- **Graisses :** titres 700 · corps 400
 
 ## Espacements
-Échelle (px) : ___ / ___ / ___ / ___ / ___  (ex. 4 / 8 / 16 / 24 / 48)
+Échelle (px) : 4 / 8 / 16 / 24 / 48
 
 ## Formes & profondeur
-- **Border-radius :** ___ px (petits éléments) · ___ px (cartes)
-- **Ombres :** légère (cartes) : ______ · marquée (modales) : ______
+- **Border-radius :** 8px (boutons, champs, badges) · 16px (cartes)
+- **Ombres :** légère (cartes) : `0 1px 4px #E2E8F0` · marquée (modales) : `0 4px 24px #CBD5E1`
 
 ## Composants (avec états)
-- **Bouton primaire :** fond ___, texte ___, radius ___ ; **hover** ___ ; **disabled** ___
-- **Bouton secondaire :** ______
-- **Carte :** fond ___, bordure ___, radius ___, ombre ___
-- **Champ de formulaire :** fond ___, bordure ___, **focus** ___, **erreur** ___
+- **Bouton primaire :** fond `#0284C7`, texte `#F1F5F9`, radius `8px` ; **hover** `#0369A1` ; **disabled** `#475569`
+- **Bouton secondaire :** fond `#EA580C`, texte `#F1F5F9`, radius `8px` ; **hover** `#C2410C`
+- **Carte :** fond `#1E293B`, bordure `#475569`, radius `16px`, ombre `0 1px 4px #0F172A`
+- **Champ de formulaire :** fond `#1E293B`, bordure `#475569`, **focus** `#0284C7`, **erreur** `#EF4444`
 
 ## Mapping shadcn (pour thémer toute l'app — jour 6)
 [Reporte tes couleurs dans les variables du thème de `apps/web`. Demande à Claude Code : « mappe mon design system sur les variables shadcn ».]
