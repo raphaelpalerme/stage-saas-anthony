@@ -5,9 +5,9 @@ Figer ton design system en spec complète, itérer ta landing jusqu'à un rendu 
 
 ## Checklist
 - [ ] **Finalise `livrables/design-system.md`** : complète tous les tokens (couleurs, graisses, échelle de tailles, radius, ombres, composants avec états) — c'est la spec
-- [ ] **Itère ta landing dans Claude Design** : repasse-lui ton design system finalisé, affine sections, espacements, hiérarchie visuelle
+- [ ] **Itère ta landing avec Claude Code** (ton HTML est dans `livrables/`) : ouvre-la dans le navigateur, demande à Claude Code d'affiner sections, espacements, hiérarchie, et d'appliquer ton design system finalisé
 - [ ] Teste le **responsive** sur mobile (Chrome DevTools) et corrige
-- [ ] **Exporte** ta landing (garde le code / le lien) — pour le jour 6, repère l'option **« handoff vers Claude Code »**
+- [ ] Garde ta landing prête dans `livrables/` — au **jour 6**, Claude Code l'intégrera dans ta page marketing Makerkit
 - [ ] Récap de la semaine 1 avec le tuteur
 
 ## Livrable
