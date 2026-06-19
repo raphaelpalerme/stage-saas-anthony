@@ -8,16 +8,16 @@
 ## Features
 
 ### Feature 1
-**Titre :** Joueurs près de toi
-**Description :** Plus jamais de terrain vide — d'autres joueurs t'attendent déjà.
+**Titre :** Joueurs dans ton quartier
+**Description :** Plus jamais de terrain vide, d'autres joueurs t'attendent déjà.
 
 ### Feature 2
 **Titre :** Joue quand tu veux
 **Description :** Poste ton créneau et rejoins une partie qui te correspond.
 
 ### Feature 3
-**Titre :** Jamais de partie annulée
-**Description :** Un absent de dernière minute ne ruine plus ta soirée.
+**Titre :** Niveau & réputation
+**Description :** Chaque joueur affiche son niveau et son rating. Tu sais avec qui tu joues avant de confirmer.
 
 ## CTA final
 **Accroche :** Ta prochaine partie t'attend.

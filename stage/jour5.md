@@ -23,6 +23,6 @@ Aligner ta landing sur ton vrai MVP, la polir jusqu'à un rendu pro, puis l'amé
 - [ ] Pull Request vers `develop` (préviens le tuteur, il relit et merge le soir)
 
 ## Récap (à remplir le soir)
-- **Fait :**
-- **Bloqué (et comment débloqué) :**
-- **Appris :**
+- **Fait :** Finalisé le design system, reconstruit la landing page avec les sections pricing et FAQ, vérifié le responsive mobile sur iPhone SE. Session de polish : animations au scroll (reveal), background terrain de basket néon, effets hover sur les boutons, explosion de points au clic, traînée de souris, FAQ deux colonnes avec titre sticky, dégradés sur les titres, intégration de 3 vraies photos dans les cartes features. Landing page terminée.
+- **Bloqué (et comment débloqué) :** Rien, journée sans blocage.
+- **Appris :** Le responsive — comment faire une landing page qui s'adapte à tous les écrans. Comment bien faire une landing page avec des animations et des effets visuels pro.

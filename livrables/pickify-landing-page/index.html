@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#000000">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#000000"/>
+    <circle cx="600" cy="300" r="120" fill="none" stroke="#EA580C" stroke-width="14"/>
+    <path d="M480 300 H720 M600 180 V420 M510 210 Q600 300 510 390 M690 210 Q600 300 690 390" stroke="#EA580C" stroke-width="10" fill="none"/>
+    <text x="600" y="600" font-family="Arial, sans-serif" font-weight="bold" font-size="150" fill="#ffffff" text-anchor="middle" letter-spacing="6">PICKIFY</text>
+    <text x="600" y="680" font-family="monospace" font-size="34" fill="#0284C7" text-anchor="middle" letter-spacing="4">EN 30S</text>
+  </svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ background:#000; }
+  ::selection{ background:#EA580C; color:#000; }
+  /* Dégradé sur les titres */
+  .grad-title {
+    background: linear-gradient(180deg, #ffffff 0%, #ffffff 30%, #5a9ec4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .grad-title span {
+    background: linear-gradient(180deg, #7dd3fc 0%, #0284C7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .grad-orange span {
+    background: linear-gradient(180deg, #fdba74 0%, #EA580C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Neon glow court */
+  @keyframes neon-pulse {
+    0%   { filter: drop-shadow(0 0 4px #EA580C) drop-shadow(0 0 12px #EA580C); stroke: #EA580C; }
+    50%  { filter: drop-shadow(0 0 6px #0284C7) drop-shadow(0 0 18px #0284C7); stroke: #0284C7; }
+    100% { filter: drop-shadow(0 0 4px #EA580C) drop-shadow(0 0 12px #EA580C); stroke: #EA580C; }
+  }
+  #court-bg { animation: neon-pulse 4s ease-in-out infinite; }
+
+  /* Burst au clic */
+  .click-dot {
+    position: fixed;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #fff;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    animation: click-burst 0.7s ease-out forwards;
+  }
+  @keyframes click-burst {
+    0%   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(0.3); }
+  }
+
+  @keyframes pkfloat { 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-10px); } }
+  @keyframes pkpulse{ 0%,100%{ opacity:.55; } 50%{ opacity:1; } }
+  .reveal { opacity:0; transform:translateY(40px); transition:opacity 0.6s ease, transform 0.6s ease; }
+
+  /* FAQ */
+  .faq-list { display: flex; flex-direction: column; gap: 0; }
+  .faq-item {
+    position: sticky;
+    border-radius: 16px !important;
+    margin-bottom: 12px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .faq-item:hover { border-color: rgba(2,132,199,0.45) !important; box-shadow: 0 0 0 1px rgba(2,132,199,0.2), 0 8px 32px rgba(0,0,0,0.4) !important; }
+  .faq-item[open] { border-color: rgba(2,132,199,0.6) !important; box-shadow: 0 0 0 1px rgba(2,132,199,0.3), 0 8px 32px rgba(2,132,199,0.1) !important; }
+  .faq-item summary { padding: 22px 26px; cursor: pointer; font-weight: 700; font-size: 16px; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-icon { width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; margin-left: 16px; transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), background 0.3s ease, border-color 0.3s ease; }
+  .faq-item[open] .faq-icon { transform: rotate(45deg); background: #0284C7; border-color: #0284C7; }
+  .faq-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.4s cubic-bezier(0.4,0,0.2,1); }
+  .faq-body-inner { overflow: hidden; }
+  .faq-body-text { padding: 0 26px 22px; color: #a3a3a8; font-size: 15px; line-height: 1.8; }
+  .faq-item[open] .faq-body { grid-template-rows: 1fr; }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+  .reveal-delay-1 { transition-delay:0.1s; }
+  .reveal-delay-2 { transition-delay:0.2s; }
+  .reveal-delay-3 { transition-delay:0.3s; }
+
+  /* Hover boutons */
+  a, button, summary {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease, border-color 0.2s ease;
+  }
+  a:hover, button:hover { transform: translateY(-2px) scale(1.02); filter: brightness(1.1); }
+  a:active, button:active { transform: scale(0.97); filter: brightness(0.95); }
+  summary:hover { filter: brightness(1.15); }
+
+  /* Ripple boutons */
+  .ripple-wrap { position: relative; overflow: hidden; }
+  .ripple-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    transform: scale(0);
+    animation: ripple-anim 0.55s ease-out forwards;
+    pointer-events: none;
+  }
+  @keyframes ripple-anim {
+    to { transform: scale(4); opacity: 0; }
+  }
+
+  /* Traînée souris */
+  .cursor-dot {
+    position: fixed;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #ffffff;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    animation: dot-fade 0.6s ease forwards;
+  }
+  @keyframes dot-fade {
+    0%   { opacity: 0.9; transform: translate(-50%,-50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%,-50%) scale(0.2); }
+  }
+
+</style>
+</helmet>
+
+<div style="--accent: #EA580C; background:#000; color:#fff; font-family:'Inter',system-ui,sans-serif; -webkit-font-smoothing:antialiased; overflow-x:clip; position:relative; min-height:100vh;">
+
+  <!-- ===== TERRAIN BASKET EN FOND ===== -->
+  <svg id="court-bg" style="position:fixed; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; opacity:0.22;" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round">
+    <!-- Ligne de mi-terrain -->
+    <line class="cl" x1="720" y1="0" x2="720" y2="900"/>
+    <!-- Cercle central -->
+    <circle class="cl" cx="720" cy="450" r="100"/>
+    <!-- Petit cercle central -->
+    <circle class="cl" cx="720" cy="450" r="20"/>
+    <!-- Arc 3 points gauche -->
+    <path class="cl" d="M 200 130 A 380 380 0 0 0 200 770"/>
+    <!-- Raquette gauche -->
+    <rect class="cl" x="0" y="300" width="220" height="300"/>
+    <!-- Cercle lancer franc gauche -->
+    <circle class="cl" cx="220" cy="450" r="100"/>
+    <!-- Arc 3 points droite -->
+    <path class="cl" d="M 1240 130 A 380 380 0 0 1 1240 770"/>
+    <!-- Raquette droite -->
+    <rect class="cl" x="1220" y="300" width="220" height="300"/>
+    <!-- Cercle lancer franc droite -->
+    <circle class="cl" cx="1220" cy="450" r="100"/>
+    <!-- Lignes de bord -->
+    <rect class="cl" x="10" y="10" width="1420" height="880"/>
+  </svg>
+
+  <sc-if value="{{ showGrain }}" hint-placeholder-val="{{ true }}">
+    <div aria-hidden="true" style="position:fixed; inset:0; z-index:9; pointer-events:none; opacity:.06; mix-blend-mode:overlay; background-image:url(&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMjAnIGhlaWdodD0nMTIwJz48ZmlsdGVyIGlkPSduJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nMC45JyBudW1PY3RhdmVzPScyJy8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9JzEwMCUnIGhlaWdodD0nMTAwJScgZmlsdGVyPSd1cmwoI24pJy8+PC9zdmc+&quot;);"></div>
+  </sc-if>
+
+  <!-- ===== HEADER ===== -->
+  <header style="position:sticky; top:0; z-index:20; display:flex; align-items:center; justify-content:space-between; padding:16px clamp(20px,5vw,56px); background:rgba(0,0,0,0.55); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.07);">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <div style="width:13px; height:13px; border-radius:50%; background:var(--accent,#EA580C); box-shadow:0 0 14px var(--accent,#EA580C);"></div>
+      <span style="font-family:'Bebas Neue',sans-serif; font-size:28px; letter-spacing:1.5px; line-height:1;">PICKIFY</span>
+    </div>
+    <a href="#join" style="text-decoration:none; display:inline-flex; align-items:center; gap:6px; padding:9px 16px; border-radius:8px; background:var(--accent,#EA580C); color:#000; font-size:13px; font-weight:800; box-shadow:0 4px 16px -4px var(--accent,#EA580C);">Je rejoins</a>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section style="position:relative; min-height:88vh; display:flex; flex-direction:column; justify-content:center; padding:clamp(40px,7vw,80px) clamp(20px,5vw,56px) clamp(56px,7vw,90px);">
+    <!-- glow centré derrière le titre -->
+    <div aria-hidden="true" style="position:absolute; inset:0; z-index:0; background:radial-gradient(ellipse 80% 60% at 50% 50%, rgba(2,132,199,0.12) 0%, transparent 70%);"></div>
+
+    <div style="position:relative; z-index:2; width:100%; text-align:center; display:flex; flex-direction:column; align-items:center;">
+      <div style="display:inline-flex; align-items:center; gap:8px; padding:7px 13px; border-radius:999px; background:rgba(2,132,199,0.16); border:1px solid rgba(2,132,199,0.4); margin-bottom:clamp(20px,3vw,30px);">
+        <span style="width:7px; height:7px; border-radius:50%; background:#0284C7; animation:pkpulse 1.6s ease-in-out infinite;"></span>
+        <span style="font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#7dd3fc;">Partie trouvée en 30 secondes</span>
+      </div>
+
+      <h1 class="grad-title" style="font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:clamp(52px,12.5vw,128px); line-height:0.86; letter-spacing:0.5px; margin-bottom:clamp(18px,2.5vw,26px); max-width:1100px;">
+        TROUVE TA PROCHAINE PARTIE ET TES JOUEURS EN 30S
+      </h1>
+
+      <p style="font-size:clamp(16px,2vw,20px); line-height:1.55; color:#b8b8bd; max-width:560px; margin-bottom:clamp(28px,4vw,38px);">
+        Plus besoin d'appeler 15 personnes — Pickify te connecte avec les joueurs de ton quartier.
+      </p>
+
+      <div style="display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:center;">
+        <a href="#join" style="text-decoration:none; display:inline-flex; align-items:center; gap:10px; padding:16px 28px; border-radius:8px; background:var(--accent,#EA580C); color:#000; font-size:16px; font-weight:800; letter-spacing:0.2px; box-shadow:0 10px 30px -8px var(--accent,#EA580C);">
+          Je rejoins Pickify <span style="font-size:18px;">→</span>
+        </a>
+        <span style="font-size:13px; color:#7c7c82;">Gratuit · iOS &amp; Android</span>
+      </div>
+
+      <sc-if value="{{ showStats }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex; flex-wrap:wrap; gap:clamp(24px,5vw,48px); margin-top:clamp(36px,5vw,52px);">
+          <div>
+            <div style="font-family:'Bebas Neue',sans-serif; font-size:clamp(34px,5vw,48px); line-height:1; color:#fff;">12K+</div>
+            <div style="font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#7c7c82; margin-top:4px;">Joueurs actifs</div>
+          </div>
+          <div>
+            <div style="font-family:'Bebas Neue',sans-serif; font-size:clamp(34px,5vw,48px); line-height:1; color:#fff;">800+</div>
+            <div style="font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#7c7c82; margin-top:4px;">Terrains référencés</div>
+          </div>
+          <div>
+            <div style="font-family:'Bebas Neue',sans-serif; font-size:clamp(34px,5vw,48px); line-height:1; color:var(--accent,#EA580C);">30s</div>
+            <div style="font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#7c7c82; margin-top:4px;">Pour rejoindre</div>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section style="padding:clamp(56px,8vw,110px) clamp(20px,5vw,56px); max-width:1180px; margin:0 auto;">
+    <div class="reveal" style="display:flex; align-items:center; gap:12px; margin-bottom:clamp(28px,4vw,44px);">
+      <span style="width:30px; height:2px; background:var(--accent,#EA580C);"></span>
+      <span style="font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#7c7c82;">Pourquoi Pickify</span>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:clamp(16px,2vw,22px);">
+
+      <div class="reveal reveal-delay-1" style="background:#0c0c0d; border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:clamp(22px,3vw,30px); display:flex; flex-direction:column; box-shadow:0 4px 24px rgba(0,0,0,0.55);">
+        <img src="img/image1.webp" style="height:130px; width:100%; object-fit:cover; border-radius:10px; margin-bottom:22px;">
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:13px; color:var(--accent,#EA580C); letter-spacing:2px; margin-bottom:6px;">01</div>
+        <h3 style="font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:clamp(26px,3vw,32px); line-height:1; letter-spacing:0.5px; margin-bottom:10px;">Joueurs dans ton quartier</h3>
+        <p style="font-size:15px; line-height:1.55; color:#a3a3a8;">Plus jamais de terrain vide, d'autres joueurs t'attendent déjà.</p>
+      </div>
+
+      <div class="reveal reveal-delay-2" style="background:#0c0c0d; border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:clamp(22px,3vw,30px); display:flex; flex-direction:column; box-shadow:0 4px 24px rgba(0,0,0,0.55);">
+        <img src="img/image2.webp" style="height:130px; width:100%; object-fit:cover; border-radius:10px; margin-bottom:22px;">
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:13px; color:#0284C7; letter-spacing:2px; margin-bottom:6px;">02</div>
+        <h3 style="font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:clamp(26px,3vw,32px); line-height:1; letter-spacing:0.5px; margin-bottom:10px;">Joue quand tu veux</h3>
+        <p style="font-size:15px; line-height:1.55; color:#a3a3a8;">Poste ton créneau et rejoins une partie qui te correspond.</p>
+      </div>
+
+      <div class="reveal reveal-delay-3" style="background:#0c0c0d; border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:clamp(22px,3vw,30px); display:flex; flex-direction:column; box-shadow:0 4px 24px rgba(0,0,0,0.55);">
+        <img src="img/image3.webp" style="height:130px; width:100%; object-fit:cover; border-radius:10px; margin-bottom:22px;">
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:13px; color:var(--accent,#EA580C); letter-spacing:2px; margin-bottom:6px;">03</div>
+        <h3 style="font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:clamp(26px,3vw,32px); line-height:1; letter-spacing:0.5px; margin-bottom:10px;">Niveau & réputation</h3>
+        <p style="font-size:15px; line-height:1.55; color:#a3a3a8;">Chaque joueur affiche son niveau et son rating. Tu sais avec qui tu joues avant de confirmer.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <section style="padding:clamp(56px,8vw,110px) clamp(20px,5vw,56px); max-width:1180px; margin:0 auto; text-align:center;">
+    <div class="reveal" style="display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:clamp(28px,4vw,44px);">
+      <span style="width:30px; height:2px; background:var(--accent,#EA580C);"></span>
+      <span style="font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#7c7c82;">Tarifs</span>
+      <span style="width:30px; height:2px; background:var(--accent,#EA580C);"></span>
+    </div>
+    <h2 class="grad-title reveal reveal-delay-1" style="font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:clamp(36px,7vw,72px); line-height:0.9; margin-bottom:clamp(16px,2vw,20px);">COMMENCE GRATUIT,<br><span>ÉVOLUE QUAND TU VEUX</span></h2>
+    <p class="reveal reveal-delay-2" style="font-size:16px; color:#7c7c82; margin-bottom:clamp(32px,5vw,52px); max-width:520px; margin-left:auto; margin-right:auto;">On finalise le prix Pro avec les premiers utilisateurs — rejoins la bêta pour influencer le tarif final.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; max-width:740px; margin:0 auto;">
+
+      <!-- Plan Gratuit -->
+      <div class="reveal reveal-delay-1" style="background:#0c0c0d; border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:clamp(24px,3vw,36px); box-shadow:0 4px 24px rgba(0,0,0,0.55);">
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:1px; margin-bottom:8px;">Gratuit</div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:52px; line-height:1; color:#fff; margin-bottom:4px;">0€<span style="font-size:18px; color:#7c7c82;">/mois</span></div>
+        <p style="font-size:14px; color:#7c7c82; margin-bottom:28px;">Pour découvrir Pickify et jouer avec ta ville.</p>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:10px; margin-bottom:32px;">
+          <li style="display:flex; align-items:center; gap:10px; font-size:14px;"><span style="color:#22C55E; font-weight:700;">✓</span> Profil joueur public</li>
+          <li style="display:flex; align-items:center; gap:10px; font-size:14px;"><span style="color:#22C55E; font-weight:700;">✓</span> 5 créneaux par mois</li>
+          <li style="display:flex; align-items:center; gap:10px; font-size:14px;"><span style="color:#22C55E; font-weight:700;">✓</span> Accès aux terrains locaux</li>
+          <li style="display:flex; align-items:center; gap:10px; font-size:14px; color:#5c5c61;"><span style="font-weight:700;">–</span> Matchmaking prioritaire</li>
+          <li style="display:flex; align-items:center; gap:10px; font-size:14px; color:#5c5c61;"><span style="font-weight:700;">–</span> Historique illimité</li>
+        </ul>
+        <a href="#join" style="text-decoration:none; display:block; text-align:center; padding:13px 24px; border-radius:8px; border:1px solid rgba(255,255,255,0.18); color:#fff; font-size:14px; font-weight:700;">Commencer gratuitement</a>
+      </div>
+
+      <!-- Plan Pro -->
+      <div class="reveal reveal-delay-2" style="background:#0c0c0d; border:1px solid #0284C7; border-radius:16px; padding:clamp(24px,3vw,36px); position:relative; box-shadow:0 0 0 1px #0284C7, 0 4px 32px rgba(2,132,199,0.25);">
+        <div style="position:absolute; top:-14px; left:50%; transform:translateX(-50%); background:#0284C7; color:#fff; font-size:11px; font-weight:800; padding:4px 16px; border-radius:999px; white-space:nowrap; letter-spacing:1px;">À VENIR</div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:1px; margin-bottom:8px;">Pro</div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:52px; line-height:1; color:#0284C7; margin-bottom:4px;">10€<span style="font-size:18px; color:#7c7c82;">/mois</span></div>
+        <p style="font-size:14px; color:#7c7c82; margin-bottom:28px;">Pour les joueurs réguliers qui veulent jouer plus souvent.</p>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:10px; margin-bottom:32px;">
+          <li style="display:flex; align-items:center; gap:10px; font-size:14px;"><span style="color:#22C55E; font-weight:700;">✓</span> Tout du plan Gratuit</li>
+          <li style="display:flex; align-items:center; gap:10px; font-size:14px;"><span style="color:#22C55E; font-weight:700;">✓</span> Créneaux illimités</li>
+          <li style="display:flex; align-items:center; gap:10px; font-size:14px;"><span style="color:#22C55E; font-weight:700;">✓</span> Matchmaking prioritaire</li>
+          <li style="display:flex; align-items:center; gap:10px; font-size:14px;"><span style="color:#22C55E; font-weight:700;">✓</span> Historique complet + stats</li>
+          <li style="display:flex; align-items:center; gap:10px; font-size:14px;"><span style="color:#22C55E; font-weight:700;">✓</span> Badge joueur actif</li>
+        </ul>
+        <a href="#join" style="text-decoration:none; display:block; text-align:center; padding:13px 24px; border-radius:8px; background:#0284C7; color:#fff; font-size:14px; font-weight:700;">Rejoindre la bêta</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section style="padding:clamp(56px,8vw,110px) clamp(20px,5vw,56px); max-width:1180px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:clamp(40px,6vw,80px); align-items:start;">
+
+    <!-- Colonne gauche sticky -->
+    <div style="position:sticky; top:90px;">
+      <div class="reveal" style="display:flex; align-items:center; gap:12px; margin-bottom:clamp(20px,3vw,32px);">
+        <span style="width:30px; height:2px; background:var(--accent,#EA580C);"></span>
+        <span style="font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#7c7c82;">FAQ</span>
+      </div>
+      <h2 class="reveal reveal-delay-1" style="font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:clamp(32px,5vw,60px); line-height:0.9; background:linear-gradient(180deg,#ffffff 0%,#ffffff 30%,#5a9ec4 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">TES QUESTIONS,<br><span style="background:linear-gradient(180deg,#fdba74 0%,#EA580C 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">NOS RÉPONSES</span></h2>
+    </div>
+
+    <!-- Colonne droite : questions -->
+    <div class="faq-list">
+
+      <details class="faq-item" style="background:#0c0c0d; border:1px solid rgba(255,255,255,0.08); top:80px; z-index:1;">
+        <summary>
+          C'est quoi la différence avec un groupe WhatsApp ?
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-body"><div class="faq-body-inner"><div class="faq-body-text">
+          WhatsApp, c'est pour tes potes. Pickify te connecte à des joueurs que tu ne connais pas encore — ceux qui sont au même terrain, au même créneau que toi. Fini les messages sans réponse dans 47 groupes.
+        </div></div></div>
+      </details>
+
+      <details class="faq-item" style="background:#111113; border:1px solid rgba(255,255,255,0.08); top:96px; z-index:2;">
+        <summary>
+          C'est vraiment gratuit ?
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-body"><div class="faq-body-inner"><div class="faq-body-text">
+          Oui, la bêta est 100% gratuite. On travaille avec les premiers joueurs pour définir ce que vaudra le plan Pro — les membres bêta auront un avantage sur le tarif final.
+        </div></div></div>
+      </details>
+
+      <details class="faq-item" style="background:#161618; border:1px solid rgba(255,255,255,0.08); top:112px; z-index:3;">
+        <summary>
+          Y a-t-il des terrains près de chez moi ?
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-body"><div class="faq-body-inner"><div class="faq-body-text">
+          On démarre avec Paris et l'Île-de-France. Si ton terrain manque, propose-le directement dans l'app — on l'ajoute sous 48h.
+        </div></div></div>
+      </details>
+
+      <details class="faq-item" style="background:#1a1a1d; border:1px solid rgba(255,255,255,0.08); top:128px; z-index:4;">
+        <summary>
+          Faut-il un niveau minimum pour s'inscrire ?
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-body"><div class="faq-body-inner"><div class="faq-body-text">
+          Aucun. Débutant, intermédiaire, semi-pro — tout le monde est bienvenu. Tu indiques ton niveau dans ton profil et le matchmaking te propose des parties adaptées.
+        </div></div></div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section id="join" style="position:relative; padding:clamp(64px,9vw,130px) clamp(20px,5vw,56px); text-align:center; overflow:hidden;">
+    <div style="position:relative; z-index:1; max-width:760px; margin:0 auto;">
+      <h2 class="grad-title grad-orange reveal" style="font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:clamp(46px,10vw,104px); line-height:0.88; letter-spacing:0.5px; text-wrap:balance; margin-bottom:clamp(24px,3vw,32px);">
+        TA PROCHAINE PARTIE <span>T'ATTEND</span>
+      </h2>
+      <a class="reveal reveal-delay-1" href="#join" style="text-decoration:none; display:inline-flex; align-items:center; gap:8px; padding:13px 24px; border-radius:8px; background:var(--accent,#EA580C); color:#000; font-size:15px; font-weight:800; letter-spacing:0.2px; box-shadow:0 10px 30px -8px var(--accent,#EA580C);">
+        Je rejoins Pickify <span style="font-size:16px;">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; padding:28px clamp(20px,5vw,56px); border-top:1px solid rgba(255,255,255,0.07);">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <div style="width:11px; height:11px; border-radius:50%; background:var(--accent,#EA580C);"></div>
+      <span style="font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:1.5px;">PICKIFY</span>
+    </div>
+    <span style="font-size:12px; color:#5c5c61;">© 2026 Pickify · Le basket de rue, organisé.</span>
+  </footer>
+
+</div>
+<script>
+  // --- Scroll reveal ---
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+
+  // --- Terrain de basket animé ---
+  document.querySelectorAll('.cl').forEach((el, i) => {
+    const len = el.getTotalLength ? el.getTotalLength() : 500;
+    el.style.strokeDasharray = len;
+    el.style.strokeDashoffset = len;
+    el.style.transition = `stroke-dashoffset 1.4s cubic-bezier(0.4,0,0.2,1) ${i * 0.18}s`;
+  });
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    document.querySelectorAll('.cl').forEach(el => {
+      el.style.strokeDashoffset = '0';
+    });
+  }));
+
+  // --- Burst de points au clic ---
+  document.addEventListener('click', (e) => {
+    const count = 10;
+    for (let i = 0; i < count; i++) {
+      const dot = document.createElement('span');
+      dot.className = 'click-dot';
+      const angle = (i / count) * 360;
+      const dist = 30 + Math.random() * 50;
+      const tx = Math.cos(angle * Math.PI / 180) * dist + 'px';
+      const ty = Math.sin(angle * Math.PI / 180) * dist + 'px';
+      dot.style.cssText = `left:${e.clientX}px; top:${e.clientY}px; --tx:${tx}; --ty:${ty}; animation-delay:${i * 0.02}s;`;
+      document.body.appendChild(dot);
+      setTimeout(() => dot.remove(), 750);
+    }
+  });
+
+  // --- Ripple sur les boutons ---
+  document.querySelectorAll('a, button, summary').forEach(el => {
+    el.classList.add('ripple-wrap');
+    el.addEventListener('click', function(e) {
+      const rect = el.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
+      const ripple = document.createElement('span');
+      ripple.className = 'ripple-circle';
+      ripple.style.cssText = `width:${size}px; height:${size}px; left:${x}px; top:${y}px;`;
+      el.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 600);
+    });
+  });
+
+  // --- Traînée souris ---
+  document.addEventListener('mousemove', (e) => {
+    const dot = document.createElement('div');
+    dot.className = 'cursor-dot';
+    dot.style.left = e.clientX + 'px';
+    dot.style.top  = e.clientY + 'px';
+    document.body.appendChild(dot);
+    setTimeout(() => dot.remove(), 600);
+  });
+
+</script>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 1280, &quot;height&quot;: 2200 },
+  &quot;accentColor&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;#EA580C&quot;, &quot;options&quot;: [&quot;#EA580C&quot;, &quot;#84CC16&quot;, &quot;#DB2777&quot;, &quot;#FACC15&quot;], &quot;tsType&quot;: &quot;string&quot; },
+  &quot;showStats&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot; },
+  &quot;showGrain&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot; }
+}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      accentColor: this.props.accentColor ?? '#EA580C',
+      showStats: this.props.showStats ?? true,
+      showGrain: this.props.showGrain ?? true,
+    };
+  }
+}
+</script>
+</body>
+</html>
