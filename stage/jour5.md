@@ -21,6 +21,6 @@ Aligner ta landing sur ton vrai MVP, la polir jusqu'à un rendu pro, puis l'amé
 - [ ] Pull Request vers `develop` (préviens le tuteur, il relit et merge le soir)
 
 ## Récap (à remplir le soir)
-- **Fait :**
-- **Bloqué (et comment débloqué) :**
-- **Appris :**
+- **Fait :** Finalisé le design system, reconstruit la landing page avec les sections pricing et FAQ, vérifié le responsive mobile sur iPhone SE.
+- **Bloqué (et comment débloqué) :** Rien, journée sans blocage.
+- **Appris :** Le responsive — comment faire une landing page qui s'adapte à tous les écrans.

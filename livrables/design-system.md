@@ -10,7 +10,7 @@
 | Primaire | `#0284C7` | boutons, liens, accent principal |
 | Primaire (hover) | `#0369A1` | survol du primaire |
 | Accent / secondaire | `#EA580C` | éléments secondaires, badges |
-| Fond | `#334155` | fond de page (gris ardoise) |
+| Fond | `#0F172A` | fond de page (bleu nuit profond) |
 | Surface / carte | `#1E293B` | cartes, panneaux |
 | Texte | `#F1F5F9` | texte principal |
 | Texte atténué | `#94A3B8` | sous-titres, légendes |
@@ -31,12 +31,12 @@
 
 ## Formes & profondeur
 - **Border-radius :** 8px (boutons, champs, badges) · 16px (cartes)
-- **Ombres :** légère (cartes) : `0 1px 4px #E2E8F0` · marquée (modales) : `0 4px 24px #CBD5E1`
+- **Ombres :** légère (cartes) : `0 2px 12px rgba(0,0,0,0.45)` · marquée (modales) : `0 8px 32px rgba(0,0,0,0.65)`
 
 ## Composants (avec états)
 - **Bouton primaire :** fond `#0284C7`, texte `#F1F5F9`, radius `8px` ; **hover** `#0369A1` ; **disabled** `#475569`
 - **Bouton secondaire :** fond `#EA580C`, texte `#F1F5F9`, radius `8px` ; **hover** `#C2410C`
-- **Carte :** fond `#1E293B`, bordure `#475569`, radius `16px`, ombre `0 1px 4px #0F172A`
+- **Carte :** fond `#1E293B`, bordure `#475569`, radius `16px`, ombre `0 2px 12px rgba(0,0,0,0.45)`
 - **Champ de formulaire :** fond `#1E293B`, bordure `#475569`, **focus** `#0284C7`, **erreur** `#EF4444`
 
 ## Mapping shadcn (pour thémer toute l'app — jour 6)
