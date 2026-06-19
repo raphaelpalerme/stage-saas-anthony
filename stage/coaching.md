@@ -36,3 +36,6 @@
 - Range tes fichiers d'explo (`preview-*.html`, `landing-exemple.html`) dans `livrables/` ou supprime-les.
 - **Aligne ta landing sur ton MVP** (important) : ta feature 3 « jamais de partie annulée / remplaçant » n'est **pas** dans ton MVP — tu as choisi « profil joueur » au jour 2. Remplace-la par une feature qui colle (ex. « **vois le niveau et la réputation des joueurs** »). Et adoucis « près de toi » (tu n'as pas de GPS) → « sur ton terrain / dans ton quartier ».
 - **Amélioration libre** (une fois aligné et propre) : peaufine à ton goût, mais garde l'énergie pour le build de la semaine 2.
+- **Range comme Matis** : mets ta landing dans un dossier dédié `livrables/pickify-landing-page/` (index.html + assets) — plus de fichier ni de dossier `img/` à la racine du repo.
+- **Images en WebP** : convertis tes 4 PNG (1 à 2,5 Mo !) en **WebP optimisé** (~100-300 Ko) — demande à Claude Code de les compresser/convertir. Une landing à 7,5 Mo d'images, ça rame.
+- **Cohérence** : si tu as changé des couleurs/textes en mode libre, mets à jour `design-system.md` et `copy-landing.md`.
