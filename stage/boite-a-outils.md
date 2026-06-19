@@ -460,7 +460,13 @@ Puis itère en langage naturel (« rends le hero plus aéré », « inverse l'or
 
 **Convertir ta maquette en vraie landing (jour 6)**
 
-> Voici ma landing finalisée dans Claude Design : [colle le code exporté, ou utilise l'option « handoff vers Claude Code »]. Convertis-la dans la page d'accueil marketing de mon projet Makerkit : apps/web/app/[locale]/(marketing)/page.tsx. Consignes : 1) remplace le contenu existant de cette page, 2) garde mes textes et mon design (couleurs, espacements, typographie) à l'identique, 3) ne touche pas au header/footer du layout marketing, 4) réutilise les composants UI du projet (@kit/ui) quand ça s'y prête, sinon du JSX + Tailwind simple. Vérifie que la page compile et s'affiche sur localhost:3000.
+> Je veux intégrer ma landing (dans `livrables/[nom]-landing-page/`) dans mon projet Makerkit, proprement, étape par étape :
+> 1) **Mappe mon design system sur les variables de thème shadcn** de `apps/web` (à partir de mon `design-system.md`) pour thémer toute l'app.
+> 2) Je garde le **`SiteHeader` et le `SiteFooter` de Makerkit** : personnalise-les (logo, liens de nav, bouton CTA) à partir de mon design, et **n'ajoute PAS** le header/footer de ma landing.
+> 3) Convertis le **corps** de ma landing (hero, problème, features, pricing, FAQ, CTA) en JSX dans `apps/web/app/[locale]/(marketing)/page.tsx`, en utilisant les **couleurs du thème** (pas de hex en dur) et les composants `@kit/ui` quand c'est pertinent.
+> 4) Ajoute mes polices Google Fonts à la config de l'app et mes images (en **WebP**) dans `apps/web/public/`.
+>
+> Vérifie que ça compile et s'affiche sur localhost:3000.
 
 **Déployer sur Vercel + Supabase prod (jour 6)**
 
