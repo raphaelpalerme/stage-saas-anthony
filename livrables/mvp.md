@@ -1,23 +1,38 @@
 # MVP — [Nom du SaaS]
 
-*Livrable du jour 7.*
+*Livrable du jour 7. C'est ton **spec de build** : écris-le AVANT de coder. C'est ton **contrat** — si Claude Code propose une feature qui n'est pas ici, tu refuses ou tu la notes pour plus tard.*
 
-> Tes 3 features viennent de ton **« wedge MVP » du jour 2** (`idee.md`, section 6). Reprends-les ici — **exactement 3, pas plus**. Pour chacune, note les **données nécessaires** : ça prépare tes tables du jour 8.
+## Le parcours cœur (« c'est fini quand… »)
+[Le chemin qu'un utilisateur fait du début à la fin, et qui DOIT marcher pour ta démo du jour 10. En 3-5 étapes.]
+1.
+2.
+3.
 
-## Le parcours en une phrase
-[Ce qu'un utilisateur peut faire de bout en bout avec tes 3 features.]
-
-## Feature 1 — [nom]
-- **Ce que l'utilisateur peut faire :**
+## Mes 3 features (exactement 3) — issues de ton wedge du jour 2
+### Feature 1 — [nom]
+- **Ce que l'utilisateur fait :**
+- **Écran(s) / flow :** [quelle page, quels champs, quel bouton → quel résultat]
 - **Pourquoi c'est essentiel :**
-- **Données nécessaires (→ jour 8) :** [ex. titre, date, statut, + lien vers l'utilisateur]
 
-## Feature 2 — [nom]
-- **Ce que l'utilisateur peut faire :**
+### Feature 2 — [nom]
+- **Ce que l'utilisateur fait :**
+- **Écran(s) / flow :**
 - **Pourquoi c'est essentiel :**
-- **Données nécessaires (→ jour 8) :**
 
-## Feature 3 — [nom]
-- **Ce que l'utilisateur peut faire :**
+### Feature 3 — [nom]
+- **Ce que l'utilisateur fait :**
+- **Écran(s) / flow :**
 - **Pourquoi c'est essentiel :**
-- **Données nécessaires (→ jour 8) :**
+
+## Mon modèle de données (prépare le jour 8)
+[Toutes tes tables en un seul endroit. Des pistes sont dans ton coaching.]
+
+| Table | Champs | Lié à |
+|---|---|---|
+|  |  | user_id |
+|  |  |  |
+
+## Ce que je NE fais PAS cette semaine (hors-scope)
+[Les features tentantes que tu gardes pour plus tard. L'écrire = ton garde-fou anti-dérive.]
+-
+-
