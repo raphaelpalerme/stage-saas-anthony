@@ -39,3 +39,6 @@
 - **Range comme Matis** : mets ta landing dans un dossier dédié `livrables/pickify-landing-page/` (index.html + assets) — plus de fichier ni de dossier `img/` à la racine du repo.
 - **Images en WebP** : convertis tes 4 PNG (1 à 2,5 Mo !) en **WebP optimisé** (~100-300 Ko) — demande à Claude Code de les compresser/convertir. Une landing à 7,5 Mo d'images, ça rame.
 - **Cohérence** : si tu as changé des couleurs/textes en mode libre, mets à jour `design-system.md` et `copy-landing.md`.
+
+## Jour 6 — intégration
+- **Ta landing n'est pas responsive** (tailles en pixels fixes, aucune media query) — or ta cible est à 100 % sur mobile. Au moment où Claude Code convertit ta landing en JSX/Tailwind, fais-lui tout passer en **mobile-first responsive** (classes `sm:`/`md:`/`lg:`, plus de largeurs fixes). **Teste sur l'émulateur mobile** (Chrome DevTools) avant de valider — c'est l'écran de tes utilisateurs.
