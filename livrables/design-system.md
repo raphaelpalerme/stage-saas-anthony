@@ -9,12 +9,12 @@
 |---|---|---|
 | Primaire | `#0284C7` | boutons, liens, accent principal |
 | Primaire (hover) | `#0369A1` | survol du primaire |
-| Accent / secondaire | `#EA580C` | éléments secondaires, badges |
-| Fond | `#0F172A` | fond de page (bleu nuit profond) |
-| Surface / carte | `#1E293B` | cartes, panneaux |
-| Texte | `#F1F5F9` | texte principal |
-| Texte atténué | `#94A3B8` | sous-titres, légendes |
-| Bordure | `#475569` | contours, séparateurs |
+| Accent / secondaire | `#EA580C` | éléments secondaires, badges, navbar CTA |
+| Fond | `#000000` | fond de page (noir pur) |
+| Surface / carte | `#0C0C0D` | cartes, panneaux |
+| Texte | `#FFFFFF` | texte principal |
+| Texte atténué | `#A3A3A8` | sous-titres, descriptions de features |
+| Bordure | `rgba(255,255,255,0.08)` | contours de cartes |
 | Succès | `#22C55E` | validations |
 | Erreur | `#EF4444` | erreurs, alertes |
 
@@ -30,14 +30,22 @@
 Échelle (px) : 4 / 8 / 16 / 24 / 48
 
 ## Formes & profondeur
-- **Border-radius :** 8px (boutons, champs, badges) · 16px (cartes)
-- **Ombres :** légère (cartes) : `0 2px 12px rgba(0,0,0,0.45)` · marquée (modales) : `0 8px 32px rgba(0,0,0,0.65)`
+- **Border-radius :** 8px (boutons, badges) · 16px (cartes, FAQ)
+- **Ombres :** cartes : `0 4px 24px rgba(0,0,0,0.55)` · hover carte : `0 8px 32px rgba(0,0,0,0.4)`
+
+## Effets visuels (ajoutés lors du polish)
+- **Gradient titres :** `linear-gradient(180deg, #ffffff 0%, #ffffff 30%, #5a9ec4 100%)` appliqué en `background-clip:text`
+- **Gradient titres orange :** `linear-gradient(180deg, #fdba74 0%, #EA580C 100%)` (section finale)
+- **Scroll reveal :** éléments `opacity:0 → 1` + `translateY(28px → 0)` via IntersectionObserver
+- **Court de basket SVG** en arrière-plan fixe, animation `neon-pulse` orange→bleu
+- **Curseur :** point blanc qui suit la souris + burst de points au clic
 
 ## Composants (avec états)
-- **Bouton primaire :** fond `#0284C7`, texte `#F1F5F9`, radius `8px` ; **hover** `#0369A1` ; **disabled** `#475569`
-- **Bouton secondaire :** fond `#EA580C`, texte `#F1F5F9`, radius `8px` ; **hover** `#C2410C`
-- **Carte :** fond `#1E293B`, bordure `#475569`, radius `16px`, ombre `0 2px 12px rgba(0,0,0,0.45)`
-- **Champ de formulaire :** fond `#1E293B`, bordure `#475569`, **focus** `#0284C7`, **erreur** `#EF4444`
+- **Bouton primaire :** fond `#0284C7`, texte `#fff`, radius `8px` ; **hover** scale `1.04` + luminosité +10%
+- **Bouton accent (navbar CTA) :** fond `#EA580C`, texte `#000`, radius `8px`, poids `800`
+- **Carte :** fond `#0C0C0D`, bordure `rgba(255,255,255,0.08)`, radius `16px`, ombre `0 4px 24px rgba(0,0,0,0.55)` ; **hover** border `rgba(2,132,199,0.45)`
+- **FAQ item :** `<details>` avec accordion `grid-template-rows:0fr→1fr` ; ouvert : border `rgba(2,132,199,0.6)`
+- **Champ de formulaire :** fond `#0C0C0D`, bordure `rgba(255,255,255,0.08)`, **focus** `#0284C7`, **erreur** `#EF4444`
 
 ## Mapping shadcn (pour thémer toute l'app — jour 6)
 [Reporte tes couleurs dans les variables du thème de `apps/web`. Demande à Claude Code : « mappe mon design system sur les variables shadcn ».]
