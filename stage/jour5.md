@@ -9,6 +9,8 @@ Aligner ta landing sur ton vrai MVP, la polir jusqu'à un rendu pro, puis l'amé
 - [ ] **Itère ta landing avec Claude Code** (ton HTML est dans `livrables/`) : ouvre-la dans le navigateur, fais-lui affiner sections, espacements, hiérarchie, et appliquer ton design system
 - [ ] Teste le **responsive** sur mobile (Chrome DevTools) et corrige
 - [ ] **Une fois aligné et propre → amélioration libre** : peaufine ta landing à ton goût (animations, détails, sections). C'est ton produit, amuse-toi — mais garde l'énergie pour le build de la semaine 2
+- [ ] **Garde tes fichiers cohérents** : si tu as changé couleurs, polices ou textes en mode libre, **mets à jour `design-system.md` ET `copy-landing.md`** pour qu'ils reflètent ta landing finale (sinon ta spec ment)
+- [ ] **Range ta landing proprement** : un dossier dédié `livrables/[nom]-landing-page/` (index.html + ses assets), images **converties en WebP optimisé** (~100-300 Ko, pas des PNG de 2 Mo) — rien à la racine du repo
 - [ ] Garde ta landing prête dans `livrables/` — au **jour 6**, Claude Code l'intégrera dans ta page marketing Makerkit
 - [ ] Récap de la semaine 1 avec le tuteur
 
@@ -21,6 +23,6 @@ Aligner ta landing sur ton vrai MVP, la polir jusqu'à un rendu pro, puis l'amé
 - [ ] Pull Request vers `develop` (préviens le tuteur, il relit et merge le soir)
 
 ## Récap (à remplir le soir)
-- **Fait :** Finalisé le design system, reconstruit la landing page avec les sections pricing et FAQ, vérifié le responsive mobile sur iPhone SE.
-- **Bloqué (et comment débloqué) :** Rien, journée sans blocage.
-- **Appris :** Le responsive — comment faire une landing page qui s'adapte à tous les écrans.
+- **Fait :**
+- **Bloqué (et comment débloqué) :**
+- **Appris :**
