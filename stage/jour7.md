@@ -1,10 +1,10 @@
 # Jour 7 — MVP — coder TES features
 
 ## Objectif du jour
-Coder les 3 features clés de ton produit par-dessus le boilerplate.
+Écrire ton spec de build, puis coder les 3 features clés par-dessus le boilerplate.
 
 ## Checklist
-- [ ] Liste tes 3 features dans `livrables/mvp.md` (exactement 3)
+- [ ] **Écris ton spec de build dans `livrables/mvp.md` AVANT de coder** : parcours cœur, tes 3 features (avec le flow écran par écran), ton modèle de données, et ce que tu NE fais PAS. **C'est ton contrat** — si Claude Code propose une feature hors-spec, tu refuses (ou tu la notes pour plus tard)
 - [ ] Explore la structure du projet (demande à Claude Code de t'expliquer les dossiers)
 - [ ] Repère TON espace de travail : tout ton code va dans `apps/web/app/[locale]/home/(user)/` (le compte personnel). Si Claude propose de créer des fichiers ailleurs (`home/[account]`, `packages/`...), demande-lui pourquoi avant d'accepter
 - [ ] Feature 1 : crée la page (données en `useState` pour aujourd'hui)
