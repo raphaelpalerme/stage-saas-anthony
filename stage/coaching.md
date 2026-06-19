@@ -28,6 +28,7 @@
 - Périmètre : **profil joueur + poster sa dispo (lieu + créneau) + trouver des joueurs dispos au même endroit**. C'est du CRUD + une requête filtrée — tu es dans tes cordes.
 - **Localisation = une liste de terrains/quartiers ou un champ texte**, PAS de GPS ni de carte (trop complexe, et les API de cartes coûtent).
 
+- **Modèle de données** : `profils` (pseudo, niveau, reputation, user_id) + `disponibilites` (lieu, creneau, user_id). Écris ton spec `mvp.md` AVANT de coder.
 ## Jour 8 — données + le piège de la démo
 - **Pré-remplis ta base avec des joueurs et des dispos d'exemple (seed data)** : une appli de mise en relation est VIDE avec un seul utilisateur. Sans seed, ta démo du jour 10 n'affiche aucun match — c'est indispensable.
 
