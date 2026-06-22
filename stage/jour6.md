@@ -16,7 +16,8 @@ Faire tourner le projet en local (Docker + Supabase + Next.js) et déployer sur 
 - [ ] **Supabase cloud** : crée 1 projet (région **Europe**), note l'URL + les clés (publishable + secret) + le mot de passe DB
 - [ ] **Applique le schéma Makerkit en prod** (depuis ton terminal local) : `supabase link --project-ref <ref>` puis `supabase db push`
 - [ ] **Supabase → Authentication → URL Configuration** : tu y reviendras avec ton URL Vercel ; et **désactive « Confirm email »** (pour la démo)
-- [ ] **Vercel** : importe ton repo, ajoute les variables d'env — `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLIC_KEY`, `NEXT_PUBLIC_SITE_URL` (publiques), `SUPABASE_SECRET_KEY`, `SUPABASE_DB_WEBHOOK_SECRET` (secrètes) — puis déploie
+- [ ] **Vercel** : importe ton repo, **règle la région des fonctions sur l'Europe** (Settings → Functions → Frankfurt `fra1`, ou un `vercel.json` à la racine : `{ "regions": ["fra1"] }`) — **même région que ta DB Supabase**, sinon chaque appel à la base traverse l'Atlantique = lent
+- [ ] Ajoute les variables d'env — `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLIC_KEY`, `NEXT_PUBLIC_SITE_URL` (publiques), `SUPABASE_SECRET_KEY`, `SUPABASE_DB_WEBHOOK_SECRET` (secrètes) — puis déploie
 - [ ] **Piège du `SITE_URL`** : tu connais ton URL `.vercel.app` seulement **après** le 1er déploiement → déploie une fois, récupère l'URL, renseigne `NEXT_PUBLIC_SITE_URL` **et** ajoute-la dans Supabase (Site URL + Redirect URLs), puis **redéploie**
 - [ ] **Vérifie** : la landing s'affiche sur ton URL `.vercel.app`, tu crées un compte test, le **login fonctionne**
 
