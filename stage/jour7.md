@@ -4,6 +4,7 @@
 Écrire ton spec de build, puis coder les 3 features clés par-dessus le boilerplate.
 
 ## Checklist
+- [ ] **Pré-vol déploiement** : avant de coder, vérifie sur Vercel que le **dernier déploiement de `develop` est vert (Ready)** et que ton URL `.vercel.app` marche. Tu construis sur une base saine. ⚠️ À partir de maintenant, **chaque merge sur `develop` redéploie en prod** — surveille que le build passe à chaque fois : si une feature casse la prod, tu le repères le jour même, pas au jour 10
 - [ ] **Écris ton spec de build dans `livrables/mvp.md` AVANT de coder** : parcours cœur, tes 3 features (avec le flow écran par écran), ton modèle de données, et ce que tu NE fais PAS. **C'est ton contrat** — si Claude Code propose une feature hors-spec, tu refuses (ou tu la notes pour plus tard)
 - [ ] Explore la structure du projet (demande à Claude Code de t'expliquer les dossiers)
 - [ ] Repère TON espace de travail : tout ton code va dans `apps/web/app/[locale]/home/(user)/` (le compte personnel). Si Claude propose de créer des fichiers ailleurs (`home/[account]`, `packages/`...), demande-lui pourquoi avant d'accepter
