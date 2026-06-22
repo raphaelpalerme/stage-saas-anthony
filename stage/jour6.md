@@ -30,6 +30,6 @@ TON produit (nom, couleurs, TA landing) qui tourne en local + déployé en prod 
 - [ ] Pull Request vers `develop` (préviens le tuteur, il relit et merge le soir)
 
 ## Récap (à remplir le soir)
-- **Fait :**
-- **Bloqué (et comment débloqué) :**
-- **Appris :**
+- **Fait :** Remplacé la landing page de Makerkit par ma landing page Pickify (hero, features, pricing, FAQ, CTA). Configuré le nom de l'app, les couleurs (bleu + orange), la police Bebas Neue, le logo. Créé le projet Supabase cloud (Frankfurt), envoyé le schéma avec db push. Configuré les variables d'env dans Vercel. Déployé sur Vercel avec la CLI.
+- **Bloqué (et comment débloqué) :** Bloqué sur le déploiement Vercel (404, conflit entre vercel.json et les settings Root Directory, framework non détecté). Déblocage en cours avec Claude Code — on a essayé plusieurs configs de vercel.json et on doit encore connecter le repo GitHub à Vercel.
+- **Appris :** Comment transformer une landing page HTML en JSX/Tailwind dans Next.js. Comment déployer sur Vercel avec la CLI dans un monorepo Turborepo (variables d'env, vercel.json, Root Directory).

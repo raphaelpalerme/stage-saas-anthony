@@ -1,0 +1,5 @@
+{
+  "regions": ["fra1"],
+  "buildCommand": "pnpm turbo run build --filter=web",
+  "installCommand": "pnpm install --frozen-lockfile"
+}
