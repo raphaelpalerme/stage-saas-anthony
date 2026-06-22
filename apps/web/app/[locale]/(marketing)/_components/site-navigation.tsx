@@ -5,25 +5,17 @@ import { MobileSiteNavigation } from './mobile-site-navigation';
 import { SiteNavigationItem } from './site-navigation-item';
 
 const links = {
-  Blog: {
-    label: 'marketing.blog',
-    path: '/blog',
-  },
-  Changelog: {
-    label: 'marketing.changelog',
-    path: '/changelog',
-  },
-  Docs: {
-    label: 'marketing.documentation',
-    path: '/docs',
+  Features: {
+    label: 'marketing.navFeatures',
+    path: '/#features',
   },
   Pricing: {
-    label: 'marketing.pricing',
-    path: '/pricing',
+    label: 'marketing.navPricing',
+    path: '/#pricing',
   },
   FAQ: {
-    label: 'marketing.faq',
-    path: '/faq',
+    label: 'marketing.navFaq',
+    path: '/#faq',
   },
   SignIn: {
     label: 'auth.signIn',

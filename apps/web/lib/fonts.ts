@@ -1,4 +1,4 @@
-import { Inter as SansFont } from 'next/font/google';
+import { Bebas_Neue as HeadingFont, Inter as SansFont } from 'next/font/google';
 
 import { cn } from '@kit/ui/utils';
 
@@ -18,8 +18,15 @@ const sans = SansFont({
 /**
  * @heading
  * @description Define here the heading font.
+ * Pickify utilise Bebas Neue pour les titres (une seule graisse : 400).
  */
-const heading = sans;
+const heading = HeadingFont({
+  subsets: ['latin'],
+  variable: '--font-heading-fallback',
+  fallback: ['system-ui', 'Helvetica Neue', 'Helvetica', 'Arial'],
+  preload: true,
+  weight: ['400'],
+});
 
 // we export these fonts into the root layout
 export { sans, heading };
