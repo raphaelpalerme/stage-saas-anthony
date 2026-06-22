@@ -43,3 +43,4 @@
 
 ## Jour 6 — intégration
 - **Ta landing n'est pas responsive** (tailles en pixels fixes, aucune media query) — or ta cible est à 100 % sur mobile. Au moment où Claude Code convertit ta landing en JSX/Tailwind, fais-lui tout passer en **mobile-first responsive** (classes `sm:`/`md:`/`lg:`, plus de largeurs fixes). **Teste sur l'émulateur mobile** (Chrome DevTools) avant de valider — c'est l'écran de tes utilisateurs.
+- **Déploiement en autonomie** : suis la sous-checklist « Déployer en prod » de la fiche jour 6, **vérifie à chaque palier** avant de passer au suivant, et colle tes erreurs à Claude Code (Supabase CLI, build Vercel, login qui boucle). N'appelle le tuteur que si vraiment bloqué après 2 essais.
