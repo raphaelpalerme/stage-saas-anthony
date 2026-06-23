@@ -29,6 +29,13 @@
 - **Localisation = une liste de terrains/quartiers ou un champ texte**, PAS de GPS ni de carte (trop complexe, et les API de cartes coûtent).
 
 - **Modèle de données** : `profils` (pseudo, niveau, reputation, user_id) + `disponibilites` (lieu, creneau, user_id). Écris ton spec `mvp.md` AVANT de coder.
+
+- **Cet aprèm — densifie tes 3 features sur le MOCK (pas de Supabase aujourd'hui, la base c'est jour 8)** :
+  - **Étoffe `EXEMPLES`** → 15-20 joueurs réalistes (quartiers/niveaux/postes variés, certaines dispos « 1 place restante »). ⭐ Ce mock deviendra ton **seed Supabase de demain** — tu l'écris une fois, ça sert deux fois.
+  - **Profil plus riche** : poste préféré, niveau, quartier (bonus : bio + avatar emoji — pas d'image IA).
+  - **« Trouver » plus malin** : filtrer par **niveau + quartier**, trier par pertinence (même quartier/niveau en premier), afficher « X places restantes ».
+  - **Essentiel si peu de temps** : niveau + quartier sur le profil, le matching par niveau/quartier, et le mock réaliste. Le reste est bonus.
+  - ⚠️ Reste sur **tes 3 features** (profil/dispo/trouver) — on ajoute de la profondeur, pas une 4e feature.
 ## Jour 8 — données + le piège de la démo
 - **Pré-remplis ta base avec des joueurs et des dispos d'exemple (seed data)** : une appli de mise en relation est VIDE avec un seul utilisateur. Sans seed, ta démo du jour 10 n'affiche aucun match — c'est indispensable.
 
