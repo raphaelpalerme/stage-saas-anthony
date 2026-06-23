@@ -11,6 +11,7 @@
 - [ ] Feature 1 : crée la page (données en `useState` pour aujourd'hui)
 - [ ] Feature 2 : push à chaque étape qui marche
 - [ ] Feature 3 : ton produit est utilisable bout en bout
+- [ ] **Tes 3 features marchent et il te reste du temps ? Approfondis, n'élargis pas** : soigne la présentation/UX, ajoute les états loading/erreur, enrichis ton mock pour que ce soit réaliste. **Ne démarre PAS la base de données** (c'est le jour 8) et **n'ajoute pas de 4e feature** — le contrat tient
 
 ## Livrable
 `livrables/mvp.md` + tes 3 features fonctionnelles en local (données non persistées, c'est normal aujourd'hui).
