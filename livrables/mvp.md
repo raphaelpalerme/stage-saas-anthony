@@ -22,9 +22,10 @@
 - **Pourquoi c'est essentiel :** c'est le signal qui rend la mise en relation possible. Sans dispos postées, l'appli est vide.
 
 ### Feature 3 — Trouver des joueurs dispos
-- **Ce que l'utilisateur fait :** consulte la liste des dispos publiées par les autres.
-- **Écran(s) / flow :** page « Trouver » → liste des dispos : chaque ligne montre **lieu + créneau + pseudo + niveau** du joueur.
-- **Pourquoi c'est essentiel :** c'est le cœur du produit — voir qui jouer, où et quand.
+- **Ce que l'utilisateur fait :** consulte la liste des dispos publiées par les autres, et clique « Je suis chaud » pour rejoindre un run.
+- **Écran(s) / flow :** page « Trouver » → liste des dispos : chaque ligne montre **lieu + créneau + pseudo + niveau** du joueur, + un **bouton « Je suis chaud / Dans le run »** pour signaler qu'on vient.
+- **Pourquoi c'est essentiel :** c'est le cœur du produit — voir qui joue, où et quand, et **refermer la boucle** en disant « je viens ».
+- **Note (jour 7) :** le bouton « rejoindre » ne marche que de mon côté (mémoire locale). Prévenir l'autre joueur pour de vrai = jour 8 (base de données partagée).
 
 ## Mon modèle de données (prépare le jour 8)
 [Toutes tes tables en un seul endroit.]
