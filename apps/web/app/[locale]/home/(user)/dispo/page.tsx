@@ -36,6 +36,9 @@ function DispoPage() {
   // La LISTE des dispos publiées (un tableau, vide au départ).
   const [dispos, setDispos] = useState<Dispo[]>([]);
 
+  // Petit message de confirmation qui apparaît puis disparaît tout seul.
+  const [confirme, setConfirme] = useState(false);
+
   // Quand on clique sur "Publier".
   function publier() {
     if (!lieu || !creneau) return; // lieu + créneau obligatoires
@@ -58,10 +61,14 @@ function DispoPage() {
     setNiveauRecherche('Ouvert à tous');
     setPlaces('1');
     setNote('');
+
+    // On affiche "✅ postée" et on le cache après 2,5 secondes.
+    setConfirme(true);
+    setTimeout(() => setConfirme(false), 2500);
   }
 
   return (
-    <PageBody className={'relative overflow-hidden'}>
+    <PageBody className={'relative -mx-4 overflow-hidden px-4 lg:mx-0'}>
       <PageBackground />
       <div className={'relative z-10 mx-auto my-auto flex w-full max-w-xl flex-col gap-7 py-10'}>
         {/* ===== En-tête ===== */}
@@ -174,6 +181,17 @@ function DispoPage() {
           </CardContent>
         </Card>
 
+        {/* ===== Message de confirmation (disparaît après 2,5 s) ===== */}
+        {confirme ? (
+          <div
+            className={
+              'rounded-xl border border-[#22C55E]/40 bg-[#22C55E]/15 px-4 py-3 text-sm font-bold text-[#22C55E]'
+            }
+          >
+            ✅ Dispo postée !
+          </div>
+        ) : null}
+
         {/* ===== Liste des dispos publiées ===== */}
         {dispos.length > 0 ? (
           <div className={'flex flex-col gap-3'}>
@@ -245,7 +263,12 @@ function DispoPage() {
               );
             })}
           </div>
-        ) : null}
+        ) : (
+          <p className={'text-muted-foreground py-8 text-center text-sm'}>
+            Tu n&apos;as pas encore posté de dispo. Remplis le formulaire
+            ci-dessus pour publier ta première annonce. 🏀
+          </p>
+        )}
       </div>
     </PageBody>
   );

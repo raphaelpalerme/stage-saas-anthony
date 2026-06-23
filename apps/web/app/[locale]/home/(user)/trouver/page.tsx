@@ -128,7 +128,7 @@ function TrouverPage() {
   const resultats = [...filtrees].sort((a, b) => pertinence(b) - pertinence(a));
 
   return (
-    <PageBody className={'relative overflow-hidden'}>
+    <PageBody className={'relative -mx-4 overflow-hidden px-4 lg:mx-0'}>
       <PageBackground />
       <div className={'relative z-10 mx-auto my-auto flex w-full max-w-xl flex-col gap-7 py-10'}>
         {/* ===== En-tête ===== */}

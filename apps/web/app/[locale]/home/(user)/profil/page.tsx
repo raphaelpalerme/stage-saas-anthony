@@ -40,15 +40,22 @@ function ProfilPage() {
   // Le profil une fois "enregistré" (ce qu'on affiche en bas).
   const [profil, setProfil] = useState<Profil | null>(null);
 
+  // Petit message de confirmation qui apparaît puis disparaît tout seul.
+  const [confirme, setConfirme] = useState(false);
+
   // Quand on clique sur "Enregistrer".
   function enregistrer() {
     if (!pseudo) return; // on n'enregistre pas un pseudo vide
 
     setProfil({ pseudo, niveau, poste, quartier, bio });
+
+    // On affiche "✅ enregistré" et on le cache après 2,5 secondes.
+    setConfirme(true);
+    setTimeout(() => setConfirme(false), 2500);
   }
 
   return (
-    <PageBody className={'relative overflow-hidden'}>
+    <PageBody className={'relative -mx-4 overflow-hidden px-4 lg:mx-0'}>
       <PageBackground />
       <div className={'relative z-10 mx-auto my-auto flex w-full max-w-xl flex-col gap-7 py-10'}>
         {/* ===== En-tête façon landing Pickify ===== */}
@@ -159,6 +166,17 @@ function ProfilPage() {
             </Button>
           </CardContent>
         </Card>
+
+        {/* ===== Message de confirmation (disparaît après 2,5 s) ===== */}
+        {confirme ? (
+          <div
+            className={
+              'rounded-xl border border-[#22C55E]/40 bg-[#22C55E]/15 px-4 py-3 text-sm font-bold text-[#22C55E]'
+            }
+          >
+            ✅ Profil enregistré !
+          </div>
+        ) : null}
 
         {/* ===== Aperçu (visible seulement après enregistrement) ===== */}
         {profil ? (
