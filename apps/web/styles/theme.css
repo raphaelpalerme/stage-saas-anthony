@@ -37,6 +37,23 @@
 }
 .court-bg { animation: neon-pulse 4s ease-in-out infinite; }
 
+/* Halos lumineux animés (fond des pages du dashboard) */
+@keyframes drift-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(50px, -40px) scale(1.18); }
+}
+@keyframes drift-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-60px, 50px) scale(1.12); }
+}
+@keyframes drift-c {
+  0%, 100% { transform: translate(0, 0) scale(1.05); }
+  50%      { transform: translate(40px, 30px) scale(0.95); }
+}
+.glow-a { animation: drift-a 18s ease-in-out infinite; }
+.glow-b { animation: drift-b 24s ease-in-out infinite; }
+.glow-c { animation: drift-c 21s ease-in-out infinite; }
+
 /* Dégradés de titres Pickify — s'adaptent au mode clair/sombre */
 .grad-title {
   background-image: linear-gradient(180deg, #0f172a 0%, #0f172a 30%, #0284c7 100%);
