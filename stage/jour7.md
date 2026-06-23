@@ -11,6 +11,7 @@
 - [ ] Feature 1 : crée la page (données en `useState` pour aujourd'hui)
 - [ ] Feature 2 : push à chaque étape qui marche
 - [ ] Feature 3 : ton produit est utilisable bout en bout
+- [ ] **Tes 3 features marchent et il te reste du temps ? Approfondis, n'élargis pas** : soigne la présentation/UX, ajoute les états loading/erreur, enrichis ton mock pour que ce soit réaliste. **Ne démarre PAS la base de données** (c'est le jour 8) et **n'ajoute pas de 4e feature** — le contrat tient
 
 ## Livrable
 `livrables/mvp.md` + tes 3 features fonctionnelles en local (données non persistées, c'est normal aujourd'hui).
@@ -21,6 +22,6 @@
 - [ ] Pull Request vers `develop` (préviens le tuteur, il relit et merge le soir)
 
 ## Récap (à remplir le soir)
-- **Fait :**
-- **Bloqué (et comment débloqué) :**
-- **Appris :**
+- **Fait :** J'ai fait mes 3 features (profil, poster une dispo, trouver des joueurs). J'ai aussi ajouté du polish : messages de confirmation (« Profil enregistré ✅ », « Dispo postée ✅ »), un état vide sur la page dispo, et corrigé le responsive mobile (bandes noires sur les côtés).
+- **Bloqué (et comment débloqué) :** Non, je n'ai pas bloqué.
+- **Appris :** Comment on rend les fonctionnalités plus riches.

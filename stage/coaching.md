@@ -29,6 +29,40 @@
 - **Localisation = une liste de terrains/quartiers ou un champ texte**, PAS de GPS ni de carte (trop complexe, et les API de cartes coûtent).
 
 - **Modèle de données** : `profils` (pseudo, niveau, reputation, user_id) + `disponibilites` (lieu, creneau, user_id). Écris ton spec `mvp.md` AVANT de coder.
+
+- **Cet aprèm — densifie tes 3 features sur le MOCK** (pas de Supabase aujourd'hui, la base c'est jour 8). On ajoute de la **profondeur**, pas une 4e feature. Tu fais tout avec Claude Code — donne-lui les champs ci-dessous.
+
+  **Feature 1 — Profil (le plus important).** Ajoute ces champs (en `useState` + dans tes objets `EXEMPLES`) :
+  - `poste_prefere` : meneur / arrière / ailier / intérieur — *crédibilité basket*
+  - `niveau` : débutant / intermédiaire / confirmé — *sert au matching*
+  - `quartier` : ex. « Belleville » — *sert au matching par proximité*
+  - *(bonus)* `bio` : une phrase, ex. « Je joue le week-end, plutôt streetball »
+  - *(bonus)* `avatar` : un emoji 🏀 ou les initiales sur fond coloré (**PAS d'image IA**)
+
+  **Feature 2 — Poster une dispo.** Aujourd'hui tu as lieu + créneau. Ajoute :
+  - `niveau_recherche` : « même niveau » ou « ouvert à tous »
+  - `places_restantes` : ex. « il manque 2 joueurs »
+  - `note` : texte libre, ex. « 5v5, ramène ton ballon »
+  - `statut` : ouverte / complète
+  → une dispo devient une **vraie annonce** à laquelle on répond.
+
+  **Feature 3 — Trouver (matching, pas une liste plate).**
+  - **Filtres** : par quartier, par niveau, par créneau
+  - **Tri par pertinence** : même quartier + même niveau **en premier**
+  - **Signaux d'activité** : « il reste 2 places », « 3 joueurs intéressés »
+  - **Bouton « Rejoindre »** qui incrémente les places prises
+
+  **Étoffe `EXEMPLES`** → 15-20 joueurs réalistes (quartiers / niveaux / postes variés, des dispos « 1 place restante »). ⭐ Ce mock = ton **seed Supabase de demain** : écris-le une fois, il sert deux fois.
+
+  **Si tu manques de temps — l'essentiel** : `niveau` + `quartier` sur le profil, le **matching par niveau/quartier** dans « trouver », et le **mock réaliste**. Bio, avatar, signaux et bouton « Rejoindre » = bonus.
+
+  **Prompt prêt pour Claude Code** (fais le même pour dispo et trouver ensuite) :
+  > Dans mon app Pickify, enrichis mon profil joueur. Ajoute ces champs partout (le type TypeScript, le formulaire de profil, et mes données d'exemple `EXEMPLES`) : poste_prefere (meneur/arrière/ailier/intérieur), niveau (débutant/intermédiaire/confirmé), quartier. Garde tout en `useState` pour aujourd'hui — PAS de base de données. Mets à jour l'affichage du profil pour montrer ces infos, et explique-moi chaque changement.
+
+- **Tes 2 dernières heures — polis, n'élargis pas** (toujours mock, pas de base, pas de 4e feature) :
+  - **📱 Priorité 1 — responsive mobile** : vérifie tes 3 pages sur l'émulateur mobile (Chrome DevTools → vue mobile) et corrige ce qui déborde, surtout la liste « trouver » et les formulaires. Tes utilisateurs sont à ~100 % sur téléphone — c'est LE point clé.
+  - **Priorité 2 — parcours + états vides** : teste le flow complet (profil → poste une dispo → trouver → filtre → Rejoindre) comme un vrai user et corrige les frictions. Ajoute les **états vides** (« Aucun joueur dans ce quartier — élargis ta recherche » au lieu d'une page blanche) et un **retour visuel** quand on poste/rejoint (« Dispo postée ✅ », « Tu as rejoint »).
+  - *(Si temps)* **Priorité 3 — polish visuel** : transitions douces, cohérence du thème, espacements.
 ## Jour 8 — données + le piège de la démo
 - **Pré-remplis ta base avec des joueurs et des dispos d'exemple (seed data)** : une appli de mise en relation est VIDE avec un seul utilisateur. Sans seed, ta démo du jour 10 n'affiche aucun match — c'est indispensable.
 
