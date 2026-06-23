@@ -58,6 +58,11 @@
 
   **Prompt prêt pour Claude Code** (fais le même pour dispo et trouver ensuite) :
   > Dans mon app Pickify, enrichis mon profil joueur. Ajoute ces champs partout (le type TypeScript, le formulaire de profil, et mes données d'exemple `EXEMPLES`) : poste_prefere (meneur/arrière/ailier/intérieur), niveau (débutant/intermédiaire/confirmé), quartier. Garde tout en `useState` pour aujourd'hui — PAS de base de données. Mets à jour l'affichage du profil pour montrer ces infos, et explique-moi chaque changement.
+
+- **Tes 2 dernières heures — polis, n'élargis pas** (toujours mock, pas de base, pas de 4e feature) :
+  - **📱 Priorité 1 — responsive mobile** : vérifie tes 3 pages sur l'émulateur mobile (Chrome DevTools → vue mobile) et corrige ce qui déborde, surtout la liste « trouver » et les formulaires. Tes utilisateurs sont à ~100 % sur téléphone — c'est LE point clé.
+  - **Priorité 2 — parcours + états vides** : teste le flow complet (profil → poste une dispo → trouver → filtre → Rejoindre) comme un vrai user et corrige les frictions. Ajoute les **états vides** (« Aucun joueur dans ce quartier — élargis ta recherche » au lieu d'une page blanche) et un **retour visuel** quand on poste/rejoint (« Dispo postée ✅ », « Tu as rejoint »).
+  - *(Si temps)* **Priorité 3 — polish visuel** : transitions douces, cohérence du thème, espacements.
 ## Jour 8 — données + le piège de la démo
 - **Pré-remplis ta base avec des joueurs et des dispos d'exemple (seed data)** : une appli de mise en relation est VIDE avec un seul utilisateur. Sans seed, ta démo du jour 10 n'affiche aucun match — c'est indispensable.
 
