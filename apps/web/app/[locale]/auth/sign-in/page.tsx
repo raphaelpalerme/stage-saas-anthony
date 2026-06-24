@@ -39,10 +39,10 @@ async function SignInPage({ searchParams }: SignInPageProps) {
     <>
       <Link
         href="/"
-        className="text-muted-foreground hover:text-foreground inline-flex w-fit items-center gap-1.5 self-start text-sm transition"
+        aria-label="Retour"
+        className="text-muted-foreground hover:text-foreground inline-flex size-9 items-center justify-center self-start rounded-full border border-white/15 transition hover:border-white/30"
       >
-        <ArrowLeft className="size-4" />
-        Retour
+        <ArrowLeft className="size-5" />
       </Link>
 
       <div className={'flex flex-col items-center gap-1.5'}>

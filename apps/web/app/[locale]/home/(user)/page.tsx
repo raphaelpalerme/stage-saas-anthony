@@ -3,13 +3,14 @@ import Link from 'next/link';
 import { ArrowRight, CalendarPlus, User, Users } from 'lucide-react';
 
 import { getSupabaseServerClient } from '@kit/supabase/server-client';
+import { Avatar, AvatarFallback, AvatarImage } from '@kit/ui/avatar';
 import { Badge } from '@kit/ui/badge';
 import { Card, CardContent } from '@kit/ui/card';
 import { PageBody } from '@kit/ui/page';
 
 import { requireUserInServerComponent } from '~/lib/server/require-user-in-server-component';
 
-import { emojiAvatar } from './_lib/avatars';
+import { avatarUrl } from './_lib/avatars';
 import { MenuAccueil } from './_components/menu-accueil';
 import { PageBackground } from './_components/page-background';
 
@@ -108,13 +109,15 @@ async function UserHomePage() {
                 Ta carte de joueur
               </span>
               <div className={'flex items-center gap-3'}>
-                <span
-                  className={
-                    'flex size-12 items-center justify-center rounded-full bg-white/5 text-3xl'
-                  }
-                >
-                  {emojiAvatar(profil?.pseudo ?? '', profil?.avatar)}
-                </span>
+                <Avatar className={'size-12'}>
+                  <AvatarImage
+                    src={avatarUrl(profil?.pseudo ?? '', profil?.avatar)}
+                    alt={profil?.pseudo ?? ''}
+                  />
+                  <AvatarFallback className={'bg-white/5 uppercase'}>
+                    {profil?.pseudo?.charAt(0)}
+                  </AvatarFallback>
+                </Avatar>
                 <span className={'font-heading text-2xl tracking-wide'}>
                   {profil?.pseudo}
                 </span>

@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import { ArrowRight, Check, MapPin, Users, Zap } from 'lucide-react';
 
-import { Avatar, AvatarFallback } from '@kit/ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@kit/ui/avatar';
 import { Badge } from '@kit/ui/badge';
 import { Button } from '@kit/ui/button';
 import { Card, CardContent } from '@kit/ui/card';
@@ -13,7 +13,7 @@ import { Label } from '@kit/ui/label';
 import { NativeSelect, NativeSelectOption } from '@kit/ui/native-select';
 import { PageBody } from '@kit/ui/page';
 
-import { emojiAvatar } from '../../_lib/avatars';
+import { avatarUrl } from '../../_lib/avatars';
 import { BoutonRetour } from '../../_components/bouton-retour';
 import { PageBackground } from '../../_components/page-background';
 
@@ -245,10 +245,14 @@ export function TrouverListe(props: { dispos: DispoJoueur[] }) {
                 >
                   <CardContent className={'flex flex-col gap-4 pt-6'}>
                     <div className={'flex items-center gap-4'}>
-                      {/* Avatar emoji du joueur (celui choisi, ou un de secours) */}
+                      {/* Avatar généré du joueur (style choisi, basé sur le pseudo) */}
                       <Avatar className={'size-12'}>
-                        <AvatarFallback className={'bg-white/5 text-2xl'}>
-                          {emojiAvatar(d.pseudo, d.avatar)}
+                        <AvatarImage
+                          src={avatarUrl(d.pseudo, d.avatar)}
+                          alt={d.pseudo}
+                        />
+                        <AvatarFallback className={'bg-white/5 uppercase'}>
+                          {d.pseudo.charAt(0)}
                         </AvatarFallback>
                       </Avatar>
 

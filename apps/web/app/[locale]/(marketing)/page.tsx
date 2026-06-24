@@ -194,7 +194,7 @@ function Home() {
             </div>
             <div className="font-heading mb-2 text-xl tracking-wide">Pro</div>
             <div className="font-heading mb-1 text-5xl leading-none text-[#0284C7]">
-              10€<span className="text-lg text-[#7c7c82]">/mois</span>
+              5€<span className="text-lg text-[#7c7c82]">/mois</span>
             </div>
             <p className="mb-7 text-sm text-[#7c7c82]">
               Pour les joueurs réguliers qui veulent jouer plus souvent.

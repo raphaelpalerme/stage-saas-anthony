@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import { ArrowLeft } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 
 import { SignUpMethodsContainer } from '@kit/auth/sign-up';
@@ -26,6 +27,14 @@ const paths = {
 async function SignUpPage() {
   return (
     <>
+      <Link
+        href="/"
+        aria-label="Retour"
+        className="text-muted-foreground hover:text-foreground inline-flex size-9 items-center justify-center self-start rounded-full border border-white/15 transition hover:border-white/30"
+      >
+        <ArrowLeft className="size-5" />
+      </Link>
+
       <div className={'flex flex-col items-center gap-1'}>
         <Heading level={4} className={'tracking-tight'}>
           <Trans i18nKey={'auth.signUpHeading'} />
