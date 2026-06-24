@@ -293,61 +293,38 @@ Tu retrouveras le détail de chacun dans la Boîte à outils. L'avantage de part
 - Voici ma feature qui utilise useState : [colle code]. Migre-la pour qu'elle lise/écrive dans la table [nom] de Supabase, en respectant la convention du projet (createServerClient côté serveur, requêtes via une server action). Garde le même UX.
 - J'ai un message d'erreur RLS quand je tente d'insérer : [colle erreur]. Diagnostique ma policy et corrige.
 
-### Jour 9 — Polish, design et tests
+### Jour 9 — Finitions, Stripe, déploiement final & pitch (jours 9 + 10 fusionnés)
 
-**Durée** — Journée complète (6h)
-
-**Objectifs**
-
-- Appliquer le design system de manière cohérente sur tout le produit.
-- Tester les parcours utilisateur de bout en bout.
-- Corriger les bugs et soigner les détails.
-
-**Déroulé**
-
-- 9h-11h : Fais le tour complet de ton produit avec un œil critique. Note tout ce qui cloche dans une liste livrables/bugs.md.
-- 11h-13h : Corrige les bugs (en ordre de gravité). Push à chaque fix.
-- 14h-15h30 : Applique systématiquement ton design system : marges, tailles de police, couleurs cohérentes, états de hover.
-- 15h30-16h30 : Améliore les états vides (« vous n'avez encore rien créé ») et les messages d'erreur.
-- 16h30-17h : Demande à 2-3 personnes de tester ton produit (le binôme, le tuteur). Note leurs retours.
-
-**Livrable du jour** — Produit en version 1.0 : tous les parcours marchent, le design est cohérent, et les retours des testeurs sont intégrés. + Clôture du jour : branche jour9-polish, un jour9.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir).
-
-**Prompts à utiliser**
-
-- Voici mon application : [colle le code de la page principale]. Audite-la avec l'œil d'un designer pro et liste 10 améliorations concrètes (espacements, tailles de police, hiérarchie visuelle).
-- Voici un bug : [description précise et capture de la console]. Diagnostique et corrige.
-
-### Jour 10 — Mise en prod finale, Stripe en mode test, présentation à l'investisseur
-
-**Durée** — Journée complète (6h)
+**Durée** — Journée complète (les deux dernières étapes structurées, condensées car les stagiaires sont en avance).
 
 **Objectifs**
 
-- Pousser tes migrations SQL en prod (Supabase cloud).
-- Configurer Stripe en mode test pour montrer le parcours d'achat.
-- Rédiger un README impeccable et préparer la présentation.
-- Préparer une demande claire pour la suite (« et après ? »).
+- Corriger les bugs et soigner l'UX (design system partout, états vides et messages d'erreur).
+- Brancher la **facturation Stripe** en mode test (obligatoire).
+- Déployer la **version finale** en prod et vérifier le parcours bout en bout.
+- Rédiger le README produit et préparer le **pitch** avec un « ask » concret.
 
 **Déroulé**
 
-- 9h-10h : Pousse tes migrations SQL vers ton Supabase cloud. Vérifie que les RLS sont bien actives en prod.
-- 10h-11h : Stripe (mode test). Crée tes 2 produits (Free et Pro) dans le dashboard Stripe, copie les price IDs dans tes variables d'env Vercel. Teste le parcours d'upgrade avec la carte 4242.
-- 11h-12h : Vérifie le déploiement Vercel complet : login marche, données persistent, parcours d'upgrade visible.
-- 13h30-14h30 : Rédige le README.md : pitch produit, capture d'écran, stack technique, instructions « lancer en local », lien vers la prod.
-- 14h30-15h30 : Prépare ta présentation (5 min) : 1) problème (45 s), 2) solution + démo live avec parcours upgrade Stripe (2 min), 3) business case rapide (combien de clients à quel prix pour 1 000 €/mois) (45 s), 4) ce que tu as appris (30 s), 5) ton « et après ? » (1 min).
-- 15h30-16h00 : Prépare ton « et après ? ». Réfléchis à ce que tu as concrètement BESOIN pour aller plus loin si l'idée te tente : hébergement payé, mentorat hebdomadaire, intro à un premier client test, retour critique régulier ? Sois précis dans ta demande.
-- 16h00-16h30 : Répète la présentation devant ton binôme. Itère.
-- 16h30-17h : Présentation finale à ton tuteur en mode pitch. Il évalue ton projet avec sa grille d'investisseur. Vous discutez du « et après ? ».
+- **Finitions** : tour critique du produit → `livrables/bugs.md` ; corrige par ordre de gravité (push à chaque fix) ; applique le design system ; soigne les états vides et les messages d'erreur ; fais tester par 2-3 personnes et intègre les retours.
+- **Stripe (mode test, obligatoire)** : crée un compte test, 2 produits (Free + Pro), récupère les **price IDs**, renseigne clés + price IDs dans la config billing **et** dans Vercel, configure le **webhook**, teste l'upgrade avec la carte `4242 4242 4242 4242` → le compte passe en Pro.
+- **Déploiement final** : pousse tes migrations en prod (Supabase cloud) + vérifie tes RLS en ligne ; vérifie toutes les variables d'env Vercel ; teste le parcours complet **EN PROD** (inscription → login → tes 3 features → upgrade Stripe → données qui persistent).
+- **Pitch** : `README.md` produit (pitch, capture, stack, lien prod, lancer en local) ; `livrables/pitch.md` (pitch 5 min + ton « et après ? ») ; présentation finale au tuteur (grille d'investisseur).
 
-**Livrable du jour** — Produit complet en prod (auth + features + parcours billing en test), repo GitHub avec README, présentation 5 minutes incluant un « ask » concret pour la suite. + Clôture du jour : branche jour10-prod, un jour10.md (récap : fait / bloqué / appris), commit et PR sur develop (que le tuteur relit le soir).
+**Livrable du jour** — Produit **v1.0 déployé en prod** avec Stripe test fonctionnel, `livrables/bugs.md`, `README.md` produit et `livrables/pitch.md`. Clôture : branche `jour9-final`, récap, commit et **PR sur develop que TU merges toi-même**.
 
 **Prompts à utiliser**
 
-- Je veux pousser mes migrations SQL locales vers mon Supabase cloud. Voici mon setup : [contexte]. Donne-moi les commandes exactes et explique chaque étape pour ne pas casser la prod.
-- Aide-moi à configurer Stripe en mode test : 1) créer 2 produits (Free et Pro) dans le dashboard, 2) récupérer les price IDs, 3) les ajouter aux variables d'env Vercel.
-- Voici mon SaaS : [nom, pitch, business case, stack, URL prod]. Rédige le README.md GitHub : titre, badges, pitch, business case rapide, démo, features, lancer en local, licence MIT.
-- Aide-moi à préparer un pitch de 5 min pour un investisseur informel. Voici mon SaaS : [...]. Donne-moi un plan minute par minute, et surtout aide-moi à formuler un 'ask' réaliste pour la suite (qu'est-ce qu'un lycéen peut raisonnablement demander : hébergement payé 6 mois ? mentorat hebdo ? intro à un premier client ?).
+- Voici ma page principale : [colle le code]. Audite-la avec l'œil d'un designer pro et liste 10 améliorations concrètes (espacements, tailles, hiérarchie visuelle).
+- Voici un bug : [description + capture console]. Diagnostique et corrige.
+- (Stripe) Utilise le prompt « Brancher Stripe en test » de la Boîte à outils.
+- Voici mon SaaS : [nom, pitch, business case, stack, URL prod]. Rédige le `README.md` GitHub, puis aide-moi à préparer un pitch 5 min avec un « ask » réaliste pour la suite.
+
+### Jour 10 — Roue libre
+
+**Durée** — Le temps restant, libre.
+
+C'est ton produit : **plus de fiche imposée**. Améliore-le comme tu veux — une 4e feature de ton hors-scope, du polish (animations, responsive, accessibilité), de la performance, du marketing (montrer le produit à de vrais utilisateurs), un petit dashboard de stats… Cadre léger : branches `roue-libre-...`, PR que **tu merges toi-même**, **ne casse pas la prod** (le pre-commit + Vercel te protègent), reste dans **ta zone**. Le but : t'approprier ton produit et **prendre du plaisir**.
 
 ## 5. Critères d'évaluation
 
