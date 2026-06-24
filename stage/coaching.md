@@ -98,3 +98,4 @@
 - **Notifications** quand quelqu'un rejoint ta dispo.
 - **Dispos récurrentes** (« tous les mercredis 18h »).
 - Rappel : c'est un **menu, pas une to-do**. Choisis UNE chose et finis-la bien.
+- **🗓️ Tes 2 derniers jours** : **demain (jour 10)** → d'abord débug Stripe avec Matis, puis livre **1 amélioration finie** (le chat) + test croisé. **Jour 11** → montre Pickify à de **vrais ados sur un terrain** (pas le binôme, pas le tuteur) : « tu l'utiliserais pour trouver une partie ? » → note les retours dans `livrables/retours-users.md`. Pour toi c'est **LE** test : il répond à la vraie question de Pickify — le concept réseau tient-il ?
