@@ -19,6 +19,6 @@ Tes tables avec RLS actives ; les 3 features persistent les données par utilisa
 - [ ] Pull Request vers `develop` (préviens le tuteur, il relit et merge le soir)
 
 ## Récap (à remplir le soir)
-- **Fait :**
-- **Bloqué (et comment débloqué) :**
-- **Appris :**
+- **Fait :** Créé ma migration SQL (tables `profils` + `disponibilites` avec leurs RLS) et branché mes 3 pages (profil / dispo / trouver) sur Supabase à la place des données d'exemple.
+- **Bloqué (et comment débloqué) :** La page d'accueil paraissait vide / ne montrait pas de joueurs. Je me suis débloqué en créant un deuxième compte — j'ai compris que « trouver » ne montre les autres que s'il y a d'autres comptes (RLS « lecture partagée »).
+- **Appris :** Comment brancher mes pages sur Supabase à la place des données `EXEMPLES` (passer du mock en mémoire à une vraie base de données).

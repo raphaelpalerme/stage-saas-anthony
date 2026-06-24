@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from 'react';
 
-import { Avatar, AvatarFallback } from '@kit/ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@kit/ui/avatar';
 import { Badge } from '@kit/ui/badge';
 import { Button } from '@kit/ui/button';
 import { Card, CardContent } from '@kit/ui/card';
@@ -11,6 +11,7 @@ import { Label } from '@kit/ui/label';
 import { NativeSelect, NativeSelectOption } from '@kit/ui/native-select';
 import { PageBody } from '@kit/ui/page';
 
+import { STYLE_DEFAUT, STYLES_AVATAR, avatarUrl } from '../../_lib/avatars';
 import { BoutonRetour } from '../../_components/bouton-retour';
 import { PageBackground } from '../../_components/page-background';
 import { enregistrerProfilAction } from '../_lib/server/profil-actions';
@@ -28,6 +29,7 @@ type Profil = {
   poste: string;
   quartier: string;
   bio: string;
+  avatar: string;
 };
 
 // Le formulaire reçoit le profil déjà enregistré (ou null si pas encore créé).
@@ -42,6 +44,12 @@ export function ProfilForm({
   const [poste, setPoste] = useState(profilInitial?.poste ?? 'Meneur');
   const [quartier, setQuartier] = useState(profilInitial?.quartier ?? '');
   const [bio, setBio] = useState(profilInitial?.bio ?? '');
+  // Le style d'avatar choisi (un id de STYLES_AVATAR). Si la valeur enregistrée
+  // n'est pas un style connu (ex. un ancien emoji), on repart du style par défaut.
+  const styleInitial = STYLES_AVATAR.some((s) => s.id === profilInitial?.avatar)
+    ? (profilInitial?.avatar ?? STYLE_DEFAUT)
+    : STYLE_DEFAUT;
+  const [avatar, setAvatar] = useState(styleInitial);
 
   // Le profil affiché dans l'aperçu (en bas).
   const [profil, setProfil] = useState<Profil | null>(profilInitial);
@@ -63,6 +71,7 @@ export function ProfilForm({
         poste,
         quartier,
         bio,
+        avatar,
       });
 
       // En cas de souci côté serveur, on prévient gentiment.
@@ -72,7 +81,7 @@ export function ProfilForm({
       }
 
       // Sinon : on met à jour l'aperçu et on affiche la confirmation.
-      setProfil({ pseudo, niveau, poste, quartier, bio });
+      setProfil({ pseudo, niveau, poste, quartier, bio, avatar });
       setConfirme(true);
       setTimeout(() => setConfirme(false), 2500);
     });
@@ -123,6 +132,45 @@ export function ProfilForm({
                 value={pseudo}
                 onChange={(e) => setPseudo(e.target.value)}
               />
+            </div>
+
+            {/* Sélecteur d'avatar : on clique sur un style pour le choisir.
+                Chaque vignette montre l'avatar généré à partir de TON pseudo. */}
+            <div className={'flex flex-col gap-2.5'}>
+              <Label>Avatar</Label>
+              <div className={'flex flex-wrap gap-3'}>
+                {STYLES_AVATAR.map((style) => (
+                  <button
+                    key={style.id}
+                    type={'button'}
+                    onClick={() => setAvatar(style.id)}
+                    aria-label={`Choisir le style ${style.label}`}
+                    aria-pressed={avatar === style.id}
+                    className={`flex flex-col items-center gap-1 rounded-xl border p-1.5 transition ${
+                      avatar === style.id
+                        ? 'border-[#EA580C] bg-[#EA580C]/15'
+                        : 'border-white/15 hover:border-white/30'
+                    }`}
+                  >
+                    <Avatar className={'size-12'}>
+                      <AvatarImage
+                        src={avatarUrl(pseudo, style.id)}
+                        alt={style.label}
+                      />
+                      <AvatarFallback className={'bg-white/5'}>
+                        {pseudo.charAt(0) || '?'}
+                      </AvatarFallback>
+                    </Avatar>
+                    <span className={'text-muted-foreground text-[10px]'}>
+                      {style.label}
+                    </span>
+                  </button>
+                ))}
+              </div>
+              <p className={'text-muted-foreground text-xs'}>
+                Choisis ton style d&apos;avatar — il est généré à partir de ton
+                pseudo et s&apos;affiche partout dans l&apos;app.
+              </p>
             </div>
 
             <div className={'flex flex-col gap-2.5'}>
@@ -234,11 +282,11 @@ export function ProfilForm({
               <CardContent className={'flex flex-col gap-4 pt-6'}>
                 <div className={'flex items-center gap-4'}>
                   <Avatar className={'size-14'}>
-                    <AvatarFallback
-                      className={
-                        'bg-[#EA580C] text-2xl font-extrabold text-black uppercase'
-                      }
-                    >
+                    <AvatarImage
+                      src={avatarUrl(profil.pseudo, profil.avatar)}
+                      alt={profil.pseudo}
+                    />
+                    <AvatarFallback className={'bg-white/5 text-xl uppercase'}>
                       {profil.pseudo.charAt(0)}
                     </AvatarFallback>
                   </Avatar>

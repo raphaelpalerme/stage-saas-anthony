@@ -36,6 +36,6 @@ Ton produit en **v1.0 déployé en prod** avec **Stripe test fonctionnel**, `liv
 - [ ] Commit + Pull Request vers `develop` — **tu relis avec le tuteur, et TU merges toi-même**
 
 ## Récap (à remplir le soir)
-- **Fait :**
-- **Bloqué (et comment débloqué) :**
-- **Appris :**
+- **Fait :** Grosses finitions de Pickify (nouvelle page d'accueil, avatars générés, menu thème + déconnexion, traduction en français, validation + suppression des dispos). Branché la facturation Stripe (passage en Pro + résiliation) en local. Poussé ma base de données en prod. Rempli mon README produit et mon pitch.
+- **Bloqué (et comment débloqué) :** Le matin je ne pouvais plus me connecter → mon compte avait été effacé par un reset de la base, j'en ai recréé un. Stripe refusait le paiement tant que les 3 clés (dont le webhook) n'étaient pas remplies → débloqué avec `stripe listen`. Le déploiement du code en prod coince (branche de prod Vercel pas sur `develop`) → reporté, à voir avec le tuteur.
+- **Appris :** Penser mobile d'abord, garder une langue cohérente (tout en français), et trancher un vrai prix (5 €/mois).

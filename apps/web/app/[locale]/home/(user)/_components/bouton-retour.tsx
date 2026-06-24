@@ -8,10 +8,10 @@ export function BoutonRetour() {
   return (
     <Link
       href="/home"
-      className="text-muted-foreground inline-flex w-fit items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm font-medium transition hover:border-white/30 hover:text-white"
+      aria-label="Retour"
+      className="text-muted-foreground inline-flex size-10 items-center justify-center rounded-full border border-white/15 transition hover:border-white/30 hover:text-white"
     >
-      <ArrowLeft className="size-4" />
-      Retour
+      <ArrowLeft className="size-5" />
     </Link>
   );
 }
