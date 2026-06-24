@@ -13,7 +13,7 @@ async function ProfilPage() {
 
   const { data: profil } = await client
     .from('profils')
-    .select('pseudo, niveau, poste, quartier, bio')
+    .select('pseudo, niveau, poste, quartier, bio, avatar')
     .eq('account_id', user.id)
     .maybeSingle();
 

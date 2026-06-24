@@ -552,6 +552,7 @@ export type Database = {
       profils: {
         Row: {
           account_id: string
+          avatar: string
           bio: string
           created_at: string | null
           niveau: string
@@ -561,6 +562,7 @@ export type Database = {
         }
         Insert: {
           account_id: string
+          avatar?: string
           bio?: string
           created_at?: string | null
           niveau?: string
@@ -570,6 +572,7 @@ export type Database = {
         }
         Update: {
           account_id?: string
+          avatar?: string
           bio?: string
           created_at?: string | null
           niveau?: string

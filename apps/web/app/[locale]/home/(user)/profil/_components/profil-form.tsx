@@ -11,6 +11,7 @@ import { Label } from '@kit/ui/label';
 import { NativeSelect, NativeSelectOption } from '@kit/ui/native-select';
 import { PageBody } from '@kit/ui/page';
 
+import { AVATAR_DEFAUT, AVATARS } from '../../_lib/avatars';
 import { BoutonRetour } from '../../_components/bouton-retour';
 import { PageBackground } from '../../_components/page-background';
 import { enregistrerProfilAction } from '../_lib/server/profil-actions';
@@ -28,6 +29,7 @@ type Profil = {
   poste: string;
   quartier: string;
   bio: string;
+  avatar: string;
 };
 
 // Le formulaire reçoit le profil déjà enregistré (ou null si pas encore créé).
@@ -42,6 +44,8 @@ export function ProfilForm({
   const [poste, setPoste] = useState(profilInitial?.poste ?? 'Meneur');
   const [quartier, setQuartier] = useState(profilInitial?.quartier ?? '');
   const [bio, setBio] = useState(profilInitial?.bio ?? '');
+  // L'emoji avatar choisi (🏀 par défaut si on n'en a pas encore choisi).
+  const [avatar, setAvatar] = useState(profilInitial?.avatar || AVATAR_DEFAUT);
 
   // Le profil affiché dans l'aperçu (en bas).
   const [profil, setProfil] = useState<Profil | null>(profilInitial);
@@ -63,6 +67,7 @@ export function ProfilForm({
         poste,
         quartier,
         bio,
+        avatar,
       });
 
       // En cas de souci côté serveur, on prévient gentiment.
@@ -72,7 +77,7 @@ export function ProfilForm({
       }
 
       // Sinon : on met à jour l'aperçu et on affiche la confirmation.
-      setProfil({ pseudo, niveau, poste, quartier, bio });
+      setProfil({ pseudo, niveau, poste, quartier, bio, avatar });
       setConfirme(true);
       setTimeout(() => setConfirme(false), 2500);
     });
@@ -123,6 +128,33 @@ export function ProfilForm({
                 value={pseudo}
                 onChange={(e) => setPseudo(e.target.value)}
               />
+            </div>
+
+            {/* Sélecteur d'avatar : on clique sur un emoji pour le choisir */}
+            <div className={'flex flex-col gap-2.5'}>
+              <Label>Avatar</Label>
+              <div className={'flex flex-wrap gap-2'}>
+                {AVATARS.map((emoji) => (
+                  <button
+                    key={emoji}
+                    type={'button'}
+                    onClick={() => setAvatar(emoji)}
+                    aria-label={`Choisir l'avatar ${emoji}`}
+                    aria-pressed={avatar === emoji}
+                    className={`flex size-11 items-center justify-center rounded-xl border text-2xl transition ${
+                      avatar === emoji
+                        ? 'border-[#EA580C] bg-[#EA580C]/15'
+                        : 'border-white/15 hover:border-white/30'
+                    }`}
+                  >
+                    {emoji}
+                  </button>
+                ))}
+              </div>
+              <p className={'text-muted-foreground text-xs'}>
+                Choisis l&apos;emoji qui te représente — il s&apos;affiche à côté
+                de ton pseudo partout dans l&apos;app.
+              </p>
             </div>
 
             <div className={'flex flex-col gap-2.5'}>
@@ -234,12 +266,8 @@ export function ProfilForm({
               <CardContent className={'flex flex-col gap-4 pt-6'}>
                 <div className={'flex items-center gap-4'}>
                   <Avatar className={'size-14'}>
-                    <AvatarFallback
-                      className={
-                        'bg-[#EA580C] text-2xl font-extrabold text-black uppercase'
-                      }
-                    >
-                      {profil.pseudo.charAt(0)}
+                    <AvatarFallback className={'bg-white/5 text-3xl'}>
+                      {profil.avatar || profil.pseudo.charAt(0)}
                     </AvatarFallback>
                   </Avatar>
                   <div className={'flex flex-col gap-1'}>

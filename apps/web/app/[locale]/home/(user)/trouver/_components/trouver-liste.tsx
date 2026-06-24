@@ -13,6 +13,7 @@ import { Label } from '@kit/ui/label';
 import { NativeSelect, NativeSelectOption } from '@kit/ui/native-select';
 import { PageBody } from '@kit/ui/page';
 
+import { emojiAvatar } from '../../_lib/avatars';
 import { BoutonRetour } from '../../_components/bouton-retour';
 import { PageBackground } from '../../_components/page-background';
 
@@ -24,6 +25,7 @@ export type DispoJoueur = {
   niveau: string;
   poste: string;
   quartier: string;
+  avatar: string; // l'emoji choisi par le joueur (vide = emoji de secours)
   lieu: string;
   creneau: string;
   places: number; // joueurs encore recherchés
@@ -32,24 +34,6 @@ export type DispoJoueur = {
 
 // Les niveaux pour le filtre ("Tous" = on ne filtre pas).
 const FILTRES_NIVEAU = ['Tous', 'Débutant', 'Moyen', 'Confirmé'];
-
-// Une palette de couleurs pour les avatars (comme Discord/Slack).
-const COULEURS_AVATAR = [
-  '#EA580C',
-  '#0284C7',
-  '#22C55E',
-  '#A855F7',
-  '#F59E0B',
-  '#EC4899',
-];
-
-// On choisit une couleur STABLE à partir du pseudo : le même joueur garde
-// toujours la même couleur (on additionne les codes des lettres).
-function couleurAvatar(pseudo: string) {
-  let somme = 0;
-  for (const lettre of pseudo) somme += lettre.charCodeAt(0);
-  return COULEURS_AVATAR[somme % COULEURS_AVATAR.length];
-}
 
 // La liste reçoit les vraies dispos en prop (récupérées côté serveur dans page.tsx).
 export function TrouverListe(props: { dispos: DispoJoueur[] }) {
@@ -261,15 +245,10 @@ export function TrouverListe(props: { dispos: DispoJoueur[] }) {
                 >
                   <CardContent className={'flex flex-col gap-4 pt-6'}>
                     <div className={'flex items-center gap-4'}>
-                      {/* Avatar avec l'initiale, couleur propre au joueur */}
+                      {/* Avatar emoji du joueur (celui choisi, ou un de secours) */}
                       <Avatar className={'size-12'}>
-                        <AvatarFallback
-                          className={
-                            'text-xl font-extrabold text-black uppercase'
-                          }
-                          style={{ backgroundColor: couleurAvatar(d.pseudo) }}
-                        >
-                          {d.pseudo.charAt(0)}
+                        <AvatarFallback className={'bg-white/5 text-2xl'}>
+                          {emojiAvatar(d.pseudo, d.avatar)}
                         </AvatarFallback>
                       </Avatar>
 

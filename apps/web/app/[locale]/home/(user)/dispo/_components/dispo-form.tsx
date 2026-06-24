@@ -2,6 +2,8 @@
 
 import { useState, useTransition } from 'react';
 
+import { Trash2 } from 'lucide-react';
+
 import { Badge } from '@kit/ui/badge';
 import { Button } from '@kit/ui/button';
 import { Card, CardContent } from '@kit/ui/card';
@@ -12,7 +14,10 @@ import { PageBody } from '@kit/ui/page';
 
 import { BoutonRetour } from '../../_components/bouton-retour';
 import { PageBackground } from '../../_components/page-background';
-import { publierDispoAction } from '../_lib/server/dispo-actions';
+import {
+  publierDispoAction,
+  supprimerDispoAction,
+} from '../_lib/server/dispo-actions';
 
 // Le "type" d'une dispo : une vraie annonce, pas juste un lieu + un créneau.
 // L'id est un uuid (texte), car il vient de la base.
@@ -47,7 +52,17 @@ export function DispoForm({ dispos: disposInitiales }: { dispos: Dispo[] }) {
 
   // Quand on clique sur "Publier" : on envoie à la base via la server action.
   function publier() {
-    if (!lieu || !creneau) return; // lieu + créneau obligatoires
+    // Champs obligatoires : lieu + créneau (la note, elle, reste optionnelle).
+    // .trim() = on enlève les espaces : un champ rempli que d'espaces compte comme vide.
+    const manquants: string[] = [];
+    if (!lieu.trim()) manquants.push('le lieu');
+    if (!creneau.trim()) manquants.push('le créneau');
+
+    if (manquants.length > 0) {
+      setErreur(`Il manque ${manquants.join(' et ')} pour publier ta dispo.`);
+      return;
+    }
+
     setErreur(null);
 
     startTransition(async () => {
@@ -65,8 +80,9 @@ export function DispoForm({ dispos: disposInitiales }: { dispos: Dispo[] }) {
       }
 
       // On ajoute la nouvelle dispo EN HAUT de la liste (retour visuel immédiat).
+      // On utilise le VRAI id renvoyé par la base (pour pouvoir la supprimer).
       const nouvelle: Dispo = {
-        id: String(Date.now()), // id temporaire pour l'affichage
+        id: resultat?.data?.id ?? String(Date.now()),
         lieu,
         creneau,
         niveauRecherche,
@@ -87,6 +103,19 @@ export function DispoForm({ dispos: disposInitiales }: { dispos: Dispo[] }) {
       setTimeout(() => setConfirme(false), 2500);
     });
   }
+
+  // Supprimer une de mes dispos : on l'enlève tout de suite de l'affichage,
+  // puis on la supprime en base (la RLS vérifie que c'est bien la mienne).
+  function supprimer(id: string) {
+    setDispos((liste) => liste.filter((d) => d.id !== id));
+
+    startTransition(async () => {
+      await supprimerDispoAction({ id });
+    });
+  }
+
+  // Retrait auto : une dispo complète (0 place restante) disparaît de la liste.
+  const disposVisibles = dispos.filter((d) => d.places > 0);
 
   return (
     <PageBody className={'relative -mx-4 overflow-hidden px-4 lg:mx-0'}>
@@ -224,8 +253,8 @@ export function DispoForm({ dispos: disposInitiales }: { dispos: Dispo[] }) {
           </div>
         ) : null}
 
-        {/* ===== Liste des dispos publiées ===== */}
-        {dispos.length > 0 ? (
+        {/* ===== Liste des dispos publiées (les complètes disparaissent) ===== */}
+        {disposVisibles.length > 0 ? (
           <div className={'flex flex-col gap-3'}>
             <div className={'flex items-center gap-3'}>
               <span className={'h-0.5 w-7 bg-[#0284C7]'} />
@@ -238,51 +267,42 @@ export function DispoForm({ dispos: disposInitiales }: { dispos: Dispo[] }) {
               </span>
             </div>
 
-            {dispos.map((d) => {
-              // Le statut se DÉDUIT des places : 0 place restante = complète.
-              const complete = d.places <= 0;
-
-              return (
-                <Card
-                  key={d.id}
-                  className={`rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.25)] ${
-                    complete
-                      ? 'border-white/10 opacity-70'
-                      : 'border-[#0284C7]/30'
-                  }`}
-                >
-                  <CardContent className={'flex flex-col gap-3 pt-6'}>
-                    <div className={'flex items-start justify-between gap-3'}>
-                      <div className={'flex flex-col'}>
-                        <span className={'font-heading text-xl tracking-wide'}>
-                          {d.lieu}
-                        </span>
-                        <span className={'text-muted-foreground text-sm'}>
-                          {d.creneau}
-                        </span>
-                      </div>
-                      {/* Badge de statut, calculé à partir des places */}
-                      <Badge
-                        className={
-                          complete
-                            ? 'shrink-0 border-white/20 bg-white/10 font-bold tracking-widest text-[#a3a3a8] uppercase'
-                            : 'shrink-0 border-[#22C55E]/40 bg-[#22C55E]/15 font-bold tracking-widest text-[#22C55E] uppercase'
-                        }
-                      >
-                        {complete
-                          ? 'Complète'
-                          : `Il manque ${d.places} joueur${d.places > 1 ? 's' : ''}`}
-                      </Badge>
+            {disposVisibles.map((d) => (
+              <Card
+                key={d.id}
+                className={
+                  'rounded-2xl border-[#0284C7]/30 shadow-[0_4px_24px_rgba(0,0,0,0.25)]'
+                }
+              >
+                <CardContent className={'flex flex-col gap-3 pt-6'}>
+                  <div className={'flex items-start justify-between gap-3'}>
+                    <div className={'flex flex-col'}>
+                      <span className={'font-heading text-xl tracking-wide'}>
+                        {d.lieu}
+                      </span>
+                      <span className={'text-muted-foreground text-sm'}>
+                        {d.creneau}
+                      </span>
                     </div>
+                    {/* Badge de statut : places encore recherchées */}
+                    <Badge
+                      className={
+                        'shrink-0 border-[#22C55E]/40 bg-[#22C55E]/15 font-bold tracking-widest text-[#22C55E] uppercase'
+                      }
+                    >
+                      {`Il manque ${d.places} joueur${d.places > 1 ? 's' : ''}`}
+                    </Badge>
+                  </div>
 
-                    {/* La note, seulement si elle a été remplie */}
-                    {d.note ? (
-                      <p className={'text-muted-foreground text-sm italic'}>
-                        « {d.note} »
-                      </p>
-                    ) : null}
+                  {/* La note, seulement si elle a été remplie */}
+                  {d.note ? (
+                    <p className={'text-muted-foreground text-sm italic'}>
+                      « {d.note} »
+                    </p>
+                  ) : null}
 
-                    {/* Petit pied de carte : qui peut venir */}
+                  <div className={'flex items-center justify-between gap-3'}>
+                    {/* Qui peut venir */}
                     <Badge
                       className={
                         'w-fit border-[#0284C7]/40 bg-[#0284C7]/15 text-[10px] font-bold tracking-widest text-[#7dd3fc] uppercase'
@@ -290,10 +310,23 @@ export function DispoForm({ dispos: disposInitiales }: { dispos: Dispo[] }) {
                     >
                       {d.niveauRecherche}
                     </Badge>
-                  </CardContent>
-                </Card>
-              );
-            })}
+
+                    {/* Bouton supprimer cette dispo */}
+                    <button
+                      type={'button'}
+                      onClick={() => supprimer(d.id)}
+                      aria-label={'Supprimer cette dispo'}
+                      className={
+                        'text-muted-foreground inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3 py-1.5 text-xs font-medium transition hover:border-red-400/40 hover:text-red-400'
+                      }
+                    >
+                      <Trash2 className={'size-3.5'} />
+                      Supprimer
+                    </button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         ) : (
           <p className={'text-muted-foreground py-8 text-center text-sm'}>

@@ -8,8 +8,8 @@ Liste tout ce qui cloche. Coche quand c'est corrigé.
 | État | Gravité | Ce qui cloche | Où | Corrigé comment |
 |---|---|---|---|---|
 | [ ] | haute |  |  |  |
-| [ ] | moyenne |  |  |  |
-| [ ] | basse |  |  |  |
+| [x] | moyenne | Le formulaire postait une dispo même avec lieu/créneau vides, sans aucun message | Page « poster une dispo » (`dispo-form`) | Validation : on bloque si lieu ou créneau manque et on affiche un message rouge clair |
+| [x] | basse | Pas de bouton retour évident sur mobile (seul le logo ramenait à la landing) | Page de connexion (`auth/sign-in`) | Ajout d'un lien « ← Retour » vers la landing en haut de la page |
 
 ## Checklist qualité v1.0
 - [ ] Design system appliqué partout (couleurs, typo, espacements cohérents)

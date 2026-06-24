@@ -15,6 +15,7 @@ const ProfilSchema = z.object({
   poste: z.string(),
   quartier: z.string(),
   bio: z.string(),
+  avatar: z.string(),
 });
 
 /**
@@ -35,6 +36,7 @@ export const enregistrerProfilAction = authActionClient
       poste: parsedInput.poste,
       quartier: parsedInput.quartier,
       bio: parsedInput.bio,
+      avatar: parsedInput.avatar,
     });
 
     if (error) {
@@ -42,6 +44,7 @@ export const enregistrerProfilAction = authActionClient
     }
 
     // On rafraîchit les pages qui affichent le profil.
+    revalidatePath('/home');
     revalidatePath('/home/profil');
     revalidatePath('/home/trouver');
 

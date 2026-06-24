@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import { ArrowLeft } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 
 import { SignInMethodsContainer } from '@kit/auth/sign-in';
@@ -36,6 +37,14 @@ async function SignInPage({ searchParams }: SignInPageProps) {
 
   return (
     <>
+      <Link
+        href="/"
+        className="text-muted-foreground hover:text-foreground inline-flex w-fit items-center gap-1.5 self-start text-sm transition"
+      >
+        <ArrowLeft className="size-4" />
+        Retour
+      </Link>
+
       <div className={'flex flex-col items-center gap-1.5'}>
         <Heading level={4} className={'tracking-tight'}>
           <Trans i18nKey={'auth.signInHeading'} />

@@ -15,7 +15,7 @@ async function TrouverPage() {
       .select('id, lieu, creneau, places, account_id'),
     client
       .from('profils')
-      .select('account_id, pseudo, niveau, poste, quartier'),
+      .select('account_id, pseudo, niveau, poste, quartier, avatar'),
   ]);
 
   // On range les profils par account_id pour les retrouver vite (le "JOIN").
@@ -33,6 +33,7 @@ async function TrouverPage() {
       niveau: profil?.niveau ?? '',
       poste: profil?.poste ?? '',
       quartier: profil?.quartier ?? '',
+      avatar: profil?.avatar ?? '',
       lieu: d.lieu,
       creneau: d.creneau,
       places: d.places,
