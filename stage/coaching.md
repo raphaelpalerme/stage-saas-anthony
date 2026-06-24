@@ -90,6 +90,9 @@
 - **Déploiement en autonomie** : suis la sous-checklist « Déployer en prod » de la fiche jour 6, **vérifie à chaque palier** avant de passer au suivant, et colle tes erreurs à Claude Code (Supabase CLI, build Vercel, login qui boucle). N'appelle le tuteur que si vraiment bloqué après 2 essais.
 
 ## Jour 10 — Roue libre
+- **📅 Demain — test croisé (vous êtes vos premiers vrais utilisateurs)** : crée un compte sur **HuntFlow** (le SaaS de Matis) et donne-lui ton avis honnête. Et sur **Pickify**, faites le **test multi-utilisateur** : vous créez chacun un compte et vérifiez que vous pouvez **rejoindre la même partie** tous les deux — c'est LE test qui valide ton matchmaking + ta RLS read-all **en prod, avec 2 vrais users**.
+- **🔧 Débugge ton Stripe en prod avec Matis** (il l'a fait marcher) : vérifiez ensemble les clés Stripe dans Vercel, le **webhook** (URL + secret) et les price IDs ; testez la carte `4242` → le compte doit passer en **Pro**.
+- **💬 Piste d'évolution : un chat une fois qu'on a rejoint une partie** — la coordination (« on se retrouve où ? à quelle heure ? ») qui donne envie de revenir. Faisable avec **Supabase Realtime** + une table `messages` liée à la dispo.
 - 🥇 **Montre Pickify à de vrais ados basketteurs** : est-ce qu'ils l'utiliseraient vraiment ? Ça teste ta vraie limite (le réseau) — plus précieux que n'importe quelle feature.
 - **Le système de réputation** que tu avais mis en hors-scope (noter un joueur après une partie) — la couche de confiance qui manque à ton appli.
 - **Notifications** quand quelqu'un rejoint ta dispo.
