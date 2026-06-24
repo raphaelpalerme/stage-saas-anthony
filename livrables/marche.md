@@ -26,10 +26,10 @@ Contrairement aux groupes WhatsApp ou Instagram, Pickify permet à n'importe que
 Pickify est l'appli qui connecte les joueurs de basket informels entre eux. Tu cherches un terrain libre ou des joueurs pour compléter ton équipe ? Pickify te montre qui est disponible près de toi — sans avoir besoin d'être dans un club.
 
 ## 4. Mon positionnement en une phrase
-> Pickify, c'est l'appli à 10€/mois pour trouver des joueurs de basket et des terrains disponibles près de chez toi.
+> Pickify, c'est l'appli à 5€/mois pour trouver des joueurs de basket et des terrains disponibles près de chez toi.
 
 ## 5. Mon modèle économique
-- **Prix** : 10€/mois par joueur
+- **Prix** : 5€/mois par joueur
 - **Qui paie** : les joueurs (ados et jeunes), souvent via leurs parents
 - **Pourquoi ça tient** : les ados paient déjà des applis et des jeux vidéo de cette façon
 
