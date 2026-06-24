@@ -69,4 +69,17 @@ if [ -n "$secrets" ]; then
   fail=1
 fi
 
+
+# ── Règle 4 : qualité — types + lint (oxlint + turbo --affected = rapide) ─────
+if [ "$fail" -eq 0 ]; then
+  say ""
+  say "⏳ Vérification des types (pnpm typecheck)…"
+  if ! pnpm typecheck >&2; then
+    say "🚫 Commit refusé : erreurs de TYPE. Corrige-les (Claude Code peut aider), puis recommence."
+    fail=1
+  elif ! pnpm lint >&2; then
+    say "🚫 Commit refusé : erreurs de LINT. Corrige-les, puis recommence."
+    fail=1
+  fi
+fi
 exit $fail
