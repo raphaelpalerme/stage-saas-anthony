@@ -1,25 +1,19 @@
-# Jour 10 — Mise en prod finale, Stripe test, présentation
+# Jour 10 — Roue libre 🚀
 
-## Objectif du jour
-Pousser en prod, configurer Stripe en test, écrire le README produit et préparer le pitch.
+## C'est ton produit
+Plus de fiche imposée : tu as un SaaS qui tourne en prod, avec facturation. Ce temps est **à toi** pour l'améliorer comme tu veux.
 
-## Checklist
-- [ ] Pousse tes migrations SQL en prod (Supabase cloud), vérifie les RLS
-- [ ] Stripe (test) : crée Free + Pro, copie les price IDs dans Vercel, teste la carte 4242
-- [ ] Vérifie le déploiement complet (login, données, parcours d'upgrade)
-- [ ] Rédige le `README.md` produit (pitch, capture, stack, lancer en local, lien prod)
-- [ ] Prépare ton pitch dans `livrables/pitch.md` (squelette prêt) : 5 min + ton « et après ? »
-- [ ] Présentation finale au tuteur (grille d'investisseur)
+## Le cadre (léger)
+- Continue en **branches** (`roue-libre-...`), PR que **tu merges toi-même**.
+- **Ne casse pas la prod** : le pre-commit (typecheck + lint) et le déploiement Vercel te protègent — si le build casse, tu le vois tout de suite.
+- Reste dans **TA zone** (`home/(user)/`, ta landing, tes tables) — les garde-fous tiennent toujours.
 
-## Livrable
-Produit complet en prod + `README.md` produit + `livrables/pitch.md` (pitch 5 min avec un « ask » concret).
+## Des pistes si tu manques d'idées (optionnel)
+- **Une 4e feature** que tu avais mise en hors-scope au jour 7
+- **Polish++** : animations, responsive petits écrans, accessibilité (contrastes, focus clavier)
+- **Performance** : images optimisées, requêtes Supabase plus fines
+- **Marketing** : peaufiner la landing, écrire un post de lancement, **montrer le produit à de vrais utilisateurs**
+- **Données** : un petit dashboard de stats sur tes propres données
 
-## Clôture du jour
-- [ ] Branche `jour10-prod` créée
-- [ ] Commit de tous tes changements du jour
-- [ ] Pull Request vers `develop` (préviens le tuteur, il relit et merge le soir)
-
-## Récap (à remplir le soir)
-- **Fait :**
-- **Bloqué (et comment débloqué) :**
-- **Appris :**
+## Pas d'objectif imposé
+Le but : t'approprier ton produit et **prendre du plaisir**. Montre ce que tu as construit autour de toi.
