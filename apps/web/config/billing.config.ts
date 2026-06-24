@@ -31,9 +31,8 @@ export default createBillingSchema({
           interval: 'month',
           lineItems: [
             {
-              // 👇 À REMPLACER par le vrai « price ID » Stripe (price_...) quand
-              // tu auras créé ton produit Pro à 5 €/mois dans Stripe.
-              id: 'price_A_REMPLACER',
+              // price ID Stripe du produit Pro (5 €/mois, mode test).
+              id: 'price_1TloQZAadMHnCVelkug4kOLK',
               name: 'Pro',
               cost: 5,
               type: 'flat' as const,
