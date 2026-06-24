@@ -64,6 +64,13 @@
   - **Priorité 2 — parcours + états vides** : teste le flow complet (profil → poste une dispo → trouver → filtre → Rejoindre) comme un vrai user et corrige les frictions. Ajoute les **états vides** (« Aucun joueur dans ce quartier — élargis ta recherche » au lieu d'une page blanche) et un **retour visuel** quand on poste/rejoint (« Dispo postée ✅ », « Tu as rejoint »).
   - *(Si temps)* **Priorité 3 — polish visuel** : transitions douces, cohérence du thème, espacements.
 ## Jour 8 — données + le piège de la démo
+
+- **⚠️ AVANT TOUTE CHOSE (à faire en reprenant)** — remets ta base et tes types au propre, dans l'ordre :
+  1. `git pull origin jour8-db` — récupère les hooks corrigés.
+  2. `pnpm supabase:web:typegen` — régénère **les DEUX** fichiers de types (`apps/web/lib/database.types.ts` **ET** `packages/supabase/src/database.types.ts`). ⚠️ L'ancien hook avait bloqué le fichier `packages/` → il est **périmé** (sans tes tables) ; or ton code importe `Database` depuis `@kit/supabase/database` (= ce fichier), donc **rien ne compile** tant que tu ne l'as pas régénéré.
+  3. `pnpm typecheck` puis `pnpm lint` — tout doit être au vert.
+  4. Commit les deux fichiers de types régénérés.
+  > Le **pre-commit lance maintenant typecheck + lint** → il refusera ton commit tant que ce n'est pas propre. C'est voulu : ça t'empêche de committer du code cassé.
 - **Pré-remplis ta base (seed)** : une appli de mise en relation est VIDE avec un seul utilisateur — sans seed, ta démo du jour 10 n'affiche aucun match. Ton mock de 18 joueurs = ton seed.
 - **🔴 RLS « lire tout, écrire le sien »** (LE point qui peut casser « trouver ») : `profils` et `disponibilites` doivent autoriser la **lecture de TOUTES les lignes** (utilisateur connecté), pas seulement les tiennes — sinon « trouver » est **VIDE** (tu ne verrais que toi). Mais l'écriture reste à toi. Donc : `select` pour tous les connectés (`using (true)`), `insert`/`update` seulement si `account_id = auth.uid()`. ⚠️ C'est l'**INVERSE** du cas « privé » de la fiche : tes profils/dispos sont **partagés**.
 - **🔴 Seed = créer aussi de faux comptes** : `profils.account_id` pointe vers un vrai compte. On **ne peut pas insérer 18 profils sans 18 comptes** → erreur de clé étrangère. Ton `seed.sql` doit donc créer **de faux `auth.users` (+ leurs comptes) PUIS leurs profils/dispos**. C'est LE point technique du jour : demande à Claude Code un `seed.sql` qui fait les deux, et fais-toi accompagner par le tuteur.
