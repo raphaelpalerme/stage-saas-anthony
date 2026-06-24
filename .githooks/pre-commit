@@ -30,7 +30,7 @@ z=$(printf '%s\n' "$staged" | grep -F 'app/[locale]/home/[account]')
 z=$(printf '%s\n' "$staged" | grep -F 'app/[locale]/admin')
 [ -n "$z" ] && blocked="$blocked$z (back-office super-admin — hors sujet pour le stage)\n"
 
-z=$(printf '%s\n' "$staged" | grep -E '^packages/' | grep -v '^packages/ui/')
+z=$(printf '%s\n' "$staged" | grep -E '^packages/' | grep -v '^packages/ui/' | grep -v '^packages/supabase/src/database.types.ts')
 [ -n "$z" ] && blocked="$blocked$z (packages du boilerplate — on lit, on ne modifie pas)\n"
 
 z=$(printf '%s\n' "$staged" | grep -E '(^|/)(middleware\.ts|next\.config\.[a-z]+|tailwind\.config\.[a-z]+|eslint\.config\.[a-z]+|\.eslintrc.*)$')
@@ -69,4 +69,17 @@ if [ -n "$secrets" ]; then
   fail=1
 fi
 
+
+# ── Règle 4 : qualité — types + lint (oxlint + turbo --affected = rapide) ─────
+if [ "$fail" -eq 0 ]; then
+  say ""
+  say "⏳ Vérification des types (pnpm typecheck)…"
+  if ! pnpm typecheck >&2; then
+    say "🚫 Commit refusé : erreurs de TYPE. Corrige-les (Claude Code peut aider), puis recommence."
+    fail=1
+  elif ! pnpm lint >&2; then
+    say "🚫 Commit refusé : erreurs de LINT. Corrige-les, puis recommence."
+    fail=1
+  fi
+fi
 exit $fail

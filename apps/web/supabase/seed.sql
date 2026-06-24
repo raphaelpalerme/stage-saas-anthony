@@ -285,3 +285,99 @@ SELECT pg_catalog.setval('"public"."role_permissions_id_seq"', 7, true);
 --
 
 SELECT pg_catalog.setval('"supabase_functions"."hooks_id_seq"', 19, true);
+
+
+-- ============================================================
+-- PICKIFY SEED — 18 faux joueurs (comptes + profils + dispos)
+-- ============================================================
+-- Pourquoi : une appli de mise en relation est VIDE avec un seul
+-- utilisateur. Sans ce seed, la page "trouver" n'afficherait personne
+-- le jour de la démo. Ces 18 joueurs = le mock du jour 7, recopié une
+-- bonne fois dans la base.
+--
+-- Ordre OBLIGATOIRE (clé étrangère) :
+--   1) auth.users  -> le trigger kit.setup_new_user crée AUTO le compte
+--   2) profils     -> account_id = l'id du user
+--   3) disponibilites
+--
+-- Astuce : on range d'abord les 18 joueurs dans une table TEMPORAIRE,
+-- pour réutiliser le MÊME identifiant (uuid) dans les 3 insertions.
+
+-- Tout est dans UN bloc "do" (un mini-programme SQL exécuté d'un coup) :
+-- ça garantit que la table temporaire vit du début à la fin.
+do $pickify$
+begin
+
+create temporary table _pickify_seed (
+  id uuid not null default extensions.uuid_generate_v4 (),
+  pseudo text,
+  niveau text,
+  poste text,
+  quartier text,
+  lieu text,
+  creneau text,
+  places int
+) on commit drop;
+
+-- Les 18 joueurs (un id uuid leur est attribué automatiquement)
+insert into _pickify_seed (pseudo, niveau, poste, quartier, lieu, creneau, places) values
+  ('AnthoBall',     'Confirmé',  'Meneur',    'Belleville',    'City-stade Jaurès',        'Samedi 15h',    1),
+  ('KevDunk',       'Moyen',     'Intérieur', 'Belleville',    'Playground Belleville',    'Dimanche 11h',  2),
+  ('LeoStreet',     'Débutant',  'Ailier',    'Ménilmontant',  'City-stade Jaurès',        'Mercredi 17h',  3),
+  ('SaraHoops',     'Confirmé',  'Arrière',   'Pyrénées',      'Gymnase Pyrénées',         'Vendredi 18h30', 1),
+  ('TonyMamba',     'Moyen',     'Meneur',    'Belleville',    'Playground Belleville',    'Samedi 10h',    2),
+  ('NinaSwish',     'Débutant',  'Ailier',    'République',    'City-stade République',    'Jeudi 19h',     4),
+  ('MaxRebond',     'Confirmé',  'Intérieur', 'Pyrénées',      'Gymnase Pyrénées',         'Samedi 14h',    1),
+  ('RyanCross',     'Moyen',     'Arrière',   'Ménilmontant',  'Playground Ménilmontant',  'Dimanche 16h',  2),
+  ('ImaneShoot',    'Confirmé',  'Meneur',    'Belleville',    'City-stade Jaurès',        'Samedi 15h',    1),
+  ('HugoBlock',     'Débutant',  'Intérieur', 'Stalingrad',    'City-stade Stalingrad',    'Lundi 18h',     5),
+  ('YanisFast',     'Moyen',     'Ailier',    'République',    'City-stade République',    'Mardi 20h',     2),
+  ('ClaraJump',     'Confirmé',  'Arrière',   'Pyrénées',      'Gymnase Pyrénées',         'Dimanche 10h',  1),
+  ('SofiaDrive',    'Moyen',     'Meneur',    'Oberkampf',     'Playground Oberkampf',     'Mercredi 18h',  3),
+  ('NoahSteal',     'Débutant',  'Arrière',   'Belleville',    'Playground Belleville',    'Vendredi 17h',  4),
+  ('EnzoFade',      'Confirmé',  'Ailier',    'Ménilmontant',  'City-stade Jaurès',        'Samedi 16h',    1),
+  ('LinaThree',     'Moyen',     'Intérieur', 'Stalingrad',    'City-stade Stalingrad',    'Samedi 11h',    2),
+  ('AdamCrossover', 'Débutant',  'Meneur',    'Oberkampf',     'Playground Oberkampf',     'Dimanche 14h',  3),
+  ('MilaSwift',     'Confirmé',  'Arrière',   'Belleville',    'City-stade Jaurès',        'Jeudi 18h30',   1);
+
+-- 1) Les comptes auth (le trigger crée le compte public.accounts tout seul)
+insert into auth.users (
+  instance_id, id, aud, role, email, encrypted_password,
+  email_confirmed_at, raw_app_meta_data, raw_user_meta_data,
+  created_at, updated_at,
+  confirmation_token, recovery_token, email_change_token_new, email_change,
+  email_change_token_current, reauthentication_token, phone_change, phone_change_token,
+  is_super_admin, is_sso_user, is_anonymous
+)
+select
+  '00000000-0000-0000-0000-000000000000',
+  s.id,
+  'authenticated',
+  'authenticated',
+  lower(s.pseudo) || '@pickify.test',
+  extensions.crypt('password123', extensions.gen_salt('bf')),
+  now(),
+  '{"provider":"email","providers":["email"]}'::jsonb,
+  jsonb_build_object(
+    'sub', s.id::text,
+    'name', s.pseudo,
+    'email', lower(s.pseudo) || '@pickify.test',
+    'email_verified', true
+  ),
+  now(), now(),
+  '', '', '', '', '', '', '', '',
+  false, false, false
+from _pickify_seed s;
+
+-- 2) Les profils (un par joueur)
+insert into public.profils (account_id, pseudo, niveau, poste, quartier, bio)
+select s.id, s.pseudo, s.niveau, s.poste, s.quartier, ''
+from _pickify_seed s;
+
+-- 3) Les disponibilités (une annonce par joueur)
+insert into public.disponibilites (account_id, lieu, creneau, places, niveau_recherche, note, statut)
+select s.id, s.lieu, s.creneau, s.places, 'Ouvert à tous', '', 'ouverte'
+from _pickify_seed s;
+
+end
+$pickify$;

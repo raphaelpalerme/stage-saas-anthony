@@ -8,7 +8,7 @@ Créer tes tables avec une migration SQL versionnée et activer les RLS.
 - [ ] Crée une migration SQL (CREATE TABLE + RLS) dans `supabase/migrations`
 - [ ] Lance `pnpm supabase:reset` et vérifie tes tables dans Studio
 - [ ] Migre tes features de `useState` vers Supabase
-- [ ] Teste la persistance + le RLS (un autre compte ne voit pas tes données)
+- [ ] Teste le RLS selon TES données : **privées** (ex. des audits) → un autre compte ne les voit pas ; **partagées** (ex. des profils / annonces) → les autres comptes **DOIVENT** les voir, mais seul le propriétaire peut les modifier
 
 ## Livrable
 Tes tables avec RLS actives ; les 3 features persistent les données par utilisateur.

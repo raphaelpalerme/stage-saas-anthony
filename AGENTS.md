@@ -42,7 +42,6 @@ pnpm supabase:web:reset           # Reset database
 pnpm supabase:web:typegen         # Generate TypeScript types
 pnpm typecheck                    # Type check
 pnpm lint:fix                     # Fix linting
-pnpm format:fix                   # Format code
 ```
 
 ## Key Patterns (Quick Reference)
@@ -66,5 +65,4 @@ After implementation, always run:
 
 1. `pnpm typecheck`
 2. `pnpm lint:fix`
-3. `pnpm format:fix`
-4. Run /reviewer skill
+3. Run /reviewer skill
