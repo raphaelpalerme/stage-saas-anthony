@@ -42,5 +42,5 @@ Tu n'as jamais fini seul. Si tu es en avance, tu aides ton binôme — tu le dé
 | 7 | [MVP — coder TES features](stage/jour7.md) | livrables/mvp.md + 3 features | `jour7-mvp` |
 | 8 | [Base de données : tables + RLS](stage/jour8.md) | Tables + RLS actives | `jour8-db` |
 | 9 | [Finitions, Stripe, prod finale & pitch](stage/jour9.md) | v1.0 en prod + bugs.md + README + pitch.md | `jour9-final` |
-| 10 | [Roue libre](stage/jour10.md) | Améliorations libres | `roue-libre-...` |
+| 10 | [Dernier jour : roue libre, vrais users & rétro](stage/jour10.md) | 1 amélioration + livrables/retours-users.md | `roue-libre-...` |
 
