@@ -3,7 +3,7 @@
 Tu vas vivre l'aventure complète d'un fondateur de SaaS : trouver une idée, comprendre ton marché, dessiner ton produit, le coder, le déployer, et le présenter. **Semaine 1 : penser le produit. Semaine 2 : le construire.** Tu travailles en binôme avec l'IA (Claude).
 
 ## Comment utiliser ce repo
-Chaque matin, ouvre la fiche du jour dans `stage/` (ex. `stage/jour3.md`). Suis la checklist, produis ton livrable, et **remplis le récap le soir**. Le détail complet de chaque étape est dans le **[Programme](stage/programme.md)** et la **[Boîte à outils](stage/boite-a-outils.md)**. Tes livrables texte (de l'exploration du jour 1 au pitch du jour 10) sont des **fichiers déjà prêts à remplir dans `livrables/`** — tu les complètes, tu n'as pas à les créer.
+Chaque matin, ouvre la fiche du jour dans `stage/` (ex. `stage/jour3.md`). Suis la checklist, produis ton livrable, et **remplis le récap le soir**. Le détail complet de chaque étape est dans le **[Programme](stage/programme.md)** et la **[Boîte à outils](stage/boite-a-outils.md)**. Tes livrables texte (de l'exploration du jour 1 au pitch du jour 9) sont des **fichiers déjà prêts à remplir dans `livrables/`** — tu les complètes, tu n'as pas à les créer.
 
 ## Tes commandes Claude Code
 Dans le terminal, ouvre `claude` à la racine du repo. Six commandes sont prêtes pour toi :
@@ -41,6 +41,6 @@ Tu n'as jamais fini seul. Si tu es en avance, tu aides ton binôme — tu le dé
 | 6 | [Setup technique : local + Vercel](stage/jour6.md) | Local OK + prod Vercel | `jour6-setup-technique` |
 | 7 | [MVP — coder TES features](stage/jour7.md) | livrables/mvp.md + 3 features | `jour7-mvp` |
 | 8 | [Base de données : tables + RLS](stage/jour8.md) | Tables + RLS actives | `jour8-db` |
-| 9 | [Polish, design et tests](stage/jour9.md) | v1.0 + livrables/bugs.md | `jour9-polish` |
-| 10 | [Mise en prod, Stripe test, pitch](stage/jour10.md) | Prod + README + pitch | `jour10-prod` |
+| 9 | [Finitions, Stripe, prod finale & pitch](stage/jour9.md) | v1.0 en prod + bugs.md + README + pitch.md | `jour9-final` |
+| 10 | [Roue libre](stage/jour10.md) | Améliorations libres | `roue-libre-...` |
 
