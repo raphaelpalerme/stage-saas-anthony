@@ -482,11 +482,11 @@ Puis itère en langage naturel (« rends le hero plus aéré », « inverse l'or
 
 > Mon code ne marche pas comme attendu. Voici le code : [colle le fichier]. Voici l'erreur dans la console / le comportement observé : [description]. Diagnostique étape par étape, et propose un fix avec explication.
 
-### Phase Stripe (jour 10)
+### Phase Stripe (jour 9)
 
 **Configurer Stripe en mode test**
 
-> Je dois configurer Stripe pour mon SaaS. Je suis en mode test. Guide-moi pour : 1) créer 2 produits dans le dashboard Stripe (Free 0€/mois et Pro 9€/mois), 2) récupérer leurs price IDs, 3) lister les variables d'env Stripe à mettre dans Vercel (clé publique, clé secrète, webhook secret), 4) tester le parcours d'upgrade avec la carte 4242. Le code billing est déjà câblé dans le boilerplate.
+> Je veux activer la facturation Stripe en mode TEST dans mon projet Makerkit, étape par étape, sans rien casser : 1) créer 2 produits **Free (0€)** et **Pro (9€/mois)** dans le dashboard Stripe et récupérer leurs **price IDs** ; 2) m'indiquer EXACTEMENT où mettre les price IDs (la **config billing** de Makerkit) et les clés Stripe (publishable + secret) dans les variables d'env, **local ET Vercel**, en séparant publiques et secrètes ; 3) configurer le **webhook** : l'URL à donner à Stripe en prod, l'événement à écouter, et le **webhook secret** à mettre en env ; 4) tester l'upgrade avec la carte `4242 4242 4242 4242` et vérifier que mon compte passe bien en **Pro**. Attends ma confirmation à chaque étape avant la suivante ; si une commande échoue, je te colle l'erreur.
 
 **Tester les webhooks Stripe en local**
 
