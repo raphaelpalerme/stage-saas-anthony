@@ -1,21 +1,25 @@
-# Jour 10 — Roue libre 🚀
+# Jour 10 — Dernier jour : roue libre, vrais utilisateurs & célébration 🎉
 
 ## C'est ton produit
-Tu as un SaaS qui tourne en prod, avec facturation. Ce temps est **à toi** pour l'améliorer comme tu veux.
+Tu as un SaaS complet qui tourne en prod, avec facturation. Ce dernier jour : améliore-le une dernière fois, **confronte-le à de vrais utilisateurs**, fais le bilan, et **réalise ce que tu as accompli**. (Si tu as 2 journées d'avance, étale ces 3 temps dessus.)
 
-## Le rythme des 2 derniers jours
-- **Aujourd'hui (jour 10)** : 1) **teste le SaaS de ton binôme** et donne ton avis (voir ton coaching), 2) livre **UNE** amélioration de ton menu, **finie proprement** (pas trois à moitié).
-- **Demain (jour 11)** : tu confrontes ton produit à de **vrais utilisateurs** de ta cible (fiche `jour11`).
+## 1. Roue libre — une dernière amélioration
+- [ ] **Teste le SaaS de ton binôme** et donne ton avis honnête (voir ton coaching).
+- [ ] Livre **UNE** amélioration de ton menu, **finie proprement** (pas trois à moitié) — ton coaching a des pistes perso.
+- Cadre : branche `roue-libre-...`, PR que **tu merges toi-même**, ne casse pas la prod (le harness te protège), reste dans **ta zone**.
 
-## Le cadre (léger)
-- Continue en **branches** (`roue-libre-...`), PR que **tu merges toi-même**.
-- **Ne casse pas la prod** : le pre-commit (typecheck + lint) et Vercel te protègent.
-- Reste dans **TA zone** (`home/(user)/`, ta landing, tes tables).
+## 2. Le test utilisateur (le plus important)
+Montre ton produit à **1-2 personnes de ta cible réelle** — **pas** le binôme, **pas** le tuteur (ton coaching te dit qui viser).
+- [ ] **Ne vends pas, observe.** Laisse la personne utiliser sans l'aider. Note où elle bloque.
+- [ ] **Questions ouvertes** : « qu'est-ce que tu ferais là ? », « ça te servirait quand ? », « qu'est-ce qui te manque ? »
+- [ ] **Note les réactions BRUTES** dans `livrables/retours-users.md` — même celles qui piquent. Une critique vaut dix compliments.
+- [ ] **La question qui tue** : « tu l'utiliserais *vraiment* ? » (et si oui, « *quand*, concrètement ? »)
 
-## Des pistes (ton coaching en a des perso)
-- Une **4e feature** de ton hors-scope du jour 7
-- **Polish++** : animations, responsive, accessibilité
-- **Performance**, **marketing**, petit **dashboard de stats**
+## 3. Rétrospective + célébration
+- [ ] Qu'ai-je **appris** (technique ET produit) ? Qu'est-ce que je **referais autrement** ? Mon produit a-t-il un **avenir** ?
+- [ ] Mets à jour ton « et après ? » du pitch à la lumière des retours réels.
+- [ ] README impeccable (pitch, capture, lien prod) — ta vitrine portfolio.
+- [ ] **Prends le temps de réaliser ce que tu as fait** : un SaaS complet, en ligne, en 2 semaines, depuis zéro. Montre-le autour de toi. 🎉
 
-## Le but
-T'approprier ton produit et **prendre du plaisir**.
+## Livrable
+`livrables/retours-users.md` (retours bruts + ce que tu en tires) + ton produit prêt à montrer.
