@@ -72,9 +72,7 @@ function Home() {
             </span>
           </div>
 
-          <h1
-            className="grad-title font-heading mb-5 max-w-5xl text-[3.25rem] leading-[0.86] font-normal tracking-wide sm:text-7xl md:text-8xl lg:text-[8rem]"
-          >
+          <h1 className="grad-title font-heading mb-5 max-w-5xl text-[3.25rem] leading-[0.86] font-normal tracking-wide sm:text-7xl md:text-8xl lg:text-[8rem]">
             TROUVE TA PROCHAINE PARTIE ET TES JOUEURS EN 30S
           </h1>
 
@@ -87,6 +85,12 @@ function Home() {
             <OrangeButton href="/auth/sign-up">
               Je rejoins Pickify <span className="text-lg">→</span>
             </OrangeButton>
+            <Link
+              href="/auth/sign-in"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-7 py-4 text-base font-bold text-white transition hover:-translate-y-0.5 hover:border-white/40"
+            >
+              Je me connecte
+            </Link>
             <span className="text-sm text-[#7c7c82]">
               Gratuit · iOS &amp; Android
             </span>
@@ -146,9 +150,7 @@ function Home() {
       >
         <SectionLabel centered>Tarifs</SectionLabel>
 
-        <h2
-          className="grad-title font-heading mb-4 text-4xl leading-[0.9] font-normal sm:text-6xl lg:text-7xl"
-        >
+        <h2 className="grad-title font-heading mb-4 text-4xl leading-[0.9] font-normal sm:text-6xl lg:text-7xl">
           COMMENCE GRATUIT,
           <br />
           <span className="grad-blue">ÉVOLUE QUAND TU VEUX</span>
@@ -221,9 +223,7 @@ function Home() {
       >
         <div className="md:sticky md:top-24">
           <SectionLabel>FAQ</SectionLabel>
-          <h2
-            className="grad-title font-heading text-4xl leading-[0.9] font-normal sm:text-5xl lg:text-6xl"
-          >
+          <h2 className="grad-title font-heading text-4xl leading-[0.9] font-normal sm:text-5xl lg:text-6xl">
             TES QUESTIONS,
             <br />
             <span className="grad-orange">NOS RÉPONSES</span>
@@ -253,9 +253,7 @@ function Home() {
       {/* ===== CTA FINAL ===== */}
       <section className="relative z-10 px-5 py-20 text-center sm:px-8 lg:px-14 lg:py-28">
         <div className="mx-auto max-w-3xl">
-          <h2
-            className="grad-title font-heading mb-8 text-5xl leading-[0.88] font-normal tracking-wide text-balance sm:text-7xl lg:text-8xl"
-          >
+          <h2 className="grad-title font-heading mb-8 text-5xl leading-[0.88] font-normal tracking-wide text-balance sm:text-7xl lg:text-8xl">
             TA PROCHAINE PARTIE{' '}
             <span className="grad-orange">T&apos;ATTEND</span>
           </h2>
