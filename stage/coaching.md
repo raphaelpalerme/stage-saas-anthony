@@ -88,3 +88,10 @@
 ## Jour 6 — intégration
 - **Ta landing n'est pas responsive** (tailles en pixels fixes, aucune media query) — or ta cible est à 100 % sur mobile. Au moment où Claude Code convertit ta landing en JSX/Tailwind, fais-lui tout passer en **mobile-first responsive** (classes `sm:`/`md:`/`lg:`, plus de largeurs fixes). **Teste sur l'émulateur mobile** (Chrome DevTools) avant de valider — c'est l'écran de tes utilisateurs.
 - **Déploiement en autonomie** : suis la sous-checklist « Déployer en prod » de la fiche jour 6, **vérifie à chaque palier** avant de passer au suivant, et colle tes erreurs à Claude Code (Supabase CLI, build Vercel, login qui boucle). N'appelle le tuteur que si vraiment bloqué après 2 essais.
+
+## Jour 10 — Roue libre
+- 🥇 **Montre Pickify à de vrais ados basketteurs** : est-ce qu'ils l'utiliseraient vraiment ? Ça teste ta vraie limite (le réseau) — plus précieux que n'importe quelle feature.
+- **Le système de réputation** que tu avais mis en hors-scope (noter un joueur après une partie) — la couche de confiance qui manque à ton appli.
+- **Notifications** quand quelqu'un rejoint ta dispo.
+- **Dispos récurrentes** (« tous les mercredis 18h »).
+- Rappel : c'est un **menu, pas une to-do**. Choisis UNE chose et finis-la bien.
