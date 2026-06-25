@@ -24,6 +24,12 @@ export const STYLE_DEFAUT = 'adventurer';
 // (Si `style` contient une vieille valeur invalide — ex. un ancien emoji — on
 //  retombe proprement sur le style par défaut.)
 export function avatarUrl(pseudo: string, style?: string | null) {
+  // Si `style` est une URL (= une photo importée par le joueur), on la renvoie
+  // telle quelle → la vraie photo s'affiche partout dans l'app.
+  if (style && /^https?:\/\//.test(style)) {
+    return style;
+  }
+
   const styleValide = STYLES_AVATAR.some((s) => s.id === style);
   const s = styleValide ? style : STYLE_DEFAUT;
   const seed = encodeURIComponent(pseudo || 'pickify');

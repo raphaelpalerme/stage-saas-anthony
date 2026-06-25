@@ -34,6 +34,67 @@ export type Database = {
   }
   public: {
     Tables: {
+      abonnements: {
+        Row: {
+          created_at: string | null
+          follower_id: string
+          suivi_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          follower_id: string
+          suivi_id: string
+        }
+        Update: {
+          created_at?: string | null
+          follower_id?: string
+          suivi_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "abonnements_follower_id_fkey"
+            columns: ["follower_id"]
+            isOneToOne: false
+            referencedRelation: "accounts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "abonnements_follower_id_fkey"
+            columns: ["follower_id"]
+            isOneToOne: false
+            referencedRelation: "user_account_workspace"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "abonnements_follower_id_fkey"
+            columns: ["follower_id"]
+            isOneToOne: false
+            referencedRelation: "user_accounts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "abonnements_suivi_id_fkey"
+            columns: ["suivi_id"]
+            isOneToOne: false
+            referencedRelation: "accounts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "abonnements_suivi_id_fkey"
+            columns: ["suivi_id"]
+            isOneToOne: false
+            referencedRelation: "user_account_workspace"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "abonnements_suivi_id_fkey"
+            columns: ["suivi_id"]
+            isOneToOne: false
+            referencedRelation: "user_accounts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       accounts: {
         Row: {
           created_at: string | null
@@ -263,6 +324,55 @@ export type Database = {
           },
         ]
       }
+      highlights: {
+        Row: {
+          account_id: string
+          created_at: string | null
+          fichier_path: string
+          id: string
+          legende: string
+          media_type: string
+        }
+        Insert: {
+          account_id: string
+          created_at?: string | null
+          fichier_path: string
+          id?: string
+          legende?: string
+          media_type?: string
+        }
+        Update: {
+          account_id?: string
+          created_at?: string | null
+          fichier_path?: string
+          id?: string
+          legende?: string
+          media_type?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "highlights_account_id_fkey"
+            columns: ["account_id"]
+            isOneToOne: false
+            referencedRelation: "accounts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "highlights_account_id_fkey"
+            columns: ["account_id"]
+            isOneToOne: false
+            referencedRelation: "user_account_workspace"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "highlights_account_id_fkey"
+            columns: ["account_id"]
+            isOneToOne: false
+            referencedRelation: "user_accounts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       invitations: {
         Row: {
           account_id: string
@@ -325,6 +435,234 @@ export type Database = {
             isOneToOne: false
             referencedRelation: "roles"
             referencedColumns: ["name"]
+          },
+        ]
+      }
+      lectures: {
+        Row: {
+          autre_id: string
+          lecteur_id: string
+          lu_le: string
+        }
+        Insert: {
+          autre_id: string
+          lecteur_id: string
+          lu_le?: string
+        }
+        Update: {
+          autre_id?: string
+          lecteur_id?: string
+          lu_le?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "lectures_autre_id_fkey"
+            columns: ["autre_id"]
+            isOneToOne: false
+            referencedRelation: "accounts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "lectures_autre_id_fkey"
+            columns: ["autre_id"]
+            isOneToOne: false
+            referencedRelation: "user_account_workspace"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "lectures_autre_id_fkey"
+            columns: ["autre_id"]
+            isOneToOne: false
+            referencedRelation: "user_accounts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "lectures_lecteur_id_fkey"
+            columns: ["lecteur_id"]
+            isOneToOne: false
+            referencedRelation: "accounts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "lectures_lecteur_id_fkey"
+            columns: ["lecteur_id"]
+            isOneToOne: false
+            referencedRelation: "user_account_workspace"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "lectures_lecteur_id_fkey"
+            columns: ["lecteur_id"]
+            isOneToOne: false
+            referencedRelation: "user_accounts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      likes: {
+        Row: {
+          account_id: string
+          created_at: string | null
+          highlight_id: string
+        }
+        Insert: {
+          account_id: string
+          created_at?: string | null
+          highlight_id: string
+        }
+        Update: {
+          account_id?: string
+          created_at?: string | null
+          highlight_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "likes_account_id_fkey"
+            columns: ["account_id"]
+            isOneToOne: false
+            referencedRelation: "accounts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "likes_account_id_fkey"
+            columns: ["account_id"]
+            isOneToOne: false
+            referencedRelation: "user_account_workspace"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "likes_account_id_fkey"
+            columns: ["account_id"]
+            isOneToOne: false
+            referencedRelation: "user_accounts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "likes_highlight_id_fkey"
+            columns: ["highlight_id"]
+            isOneToOne: false
+            referencedRelation: "highlights"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      messages: {
+        Row: {
+          account_id: string
+          contenu: string
+          created_at: string | null
+          dispo_id: string
+          id: string
+        }
+        Insert: {
+          account_id: string
+          contenu: string
+          created_at?: string | null
+          dispo_id: string
+          id?: string
+        }
+        Update: {
+          account_id?: string
+          contenu?: string
+          created_at?: string | null
+          dispo_id?: string
+          id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "messages_account_id_fkey"
+            columns: ["account_id"]
+            isOneToOne: false
+            referencedRelation: "accounts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "messages_account_id_fkey"
+            columns: ["account_id"]
+            isOneToOne: false
+            referencedRelation: "user_account_workspace"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "messages_account_id_fkey"
+            columns: ["account_id"]
+            isOneToOne: false
+            referencedRelation: "user_accounts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "messages_dispo_id_fkey"
+            columns: ["dispo_id"]
+            isOneToOne: false
+            referencedRelation: "disponibilites"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      messages_directs: {
+        Row: {
+          contenu: string
+          created_at: string | null
+          destinataire_id: string
+          expediteur_id: string
+          id: string
+        }
+        Insert: {
+          contenu: string
+          created_at?: string | null
+          destinataire_id: string
+          expediteur_id: string
+          id?: string
+        }
+        Update: {
+          contenu?: string
+          created_at?: string | null
+          destinataire_id?: string
+          expediteur_id?: string
+          id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "messages_directs_destinataire_id_fkey"
+            columns: ["destinataire_id"]
+            isOneToOne: false
+            referencedRelation: "accounts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "messages_directs_destinataire_id_fkey"
+            columns: ["destinataire_id"]
+            isOneToOne: false
+            referencedRelation: "user_account_workspace"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "messages_directs_destinataire_id_fkey"
+            columns: ["destinataire_id"]
+            isOneToOne: false
+            referencedRelation: "user_accounts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "messages_directs_expediteur_id_fkey"
+            columns: ["expediteur_id"]
+            isOneToOne: false
+            referencedRelation: "accounts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "messages_directs_expediteur_id_fkey"
+            columns: ["expediteur_id"]
+            isOneToOne: false
+            referencedRelation: "user_account_workspace"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "messages_directs_expediteur_id_fkey"
+            columns: ["expediteur_id"]
+            isOneToOne: false
+            referencedRelation: "user_accounts"
+            referencedColumns: ["id"]
           },
         ]
       }
@@ -549,36 +887,95 @@ export type Database = {
           },
         ]
       }
+      participants: {
+        Row: {
+          account_id: string
+          created_at: string | null
+          dispo_id: string
+          id: string
+        }
+        Insert: {
+          account_id: string
+          created_at?: string | null
+          dispo_id: string
+          id?: string
+        }
+        Update: {
+          account_id?: string
+          created_at?: string | null
+          dispo_id?: string
+          id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "participants_account_id_fkey"
+            columns: ["account_id"]
+            isOneToOne: false
+            referencedRelation: "accounts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "participants_account_id_fkey"
+            columns: ["account_id"]
+            isOneToOne: false
+            referencedRelation: "user_account_workspace"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "participants_account_id_fkey"
+            columns: ["account_id"]
+            isOneToOne: false
+            referencedRelation: "user_accounts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "participants_dispo_id_fkey"
+            columns: ["dispo_id"]
+            isOneToOne: false
+            referencedRelation: "disponibilites"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profils: {
         Row: {
           account_id: string
           avatar: string
           bio: string
           created_at: string | null
+          messages_vus_le: string
           niveau: string
           poste: string
           pseudo: string
           quartier: string
+          style_jeu: string
+          taille: string
         }
         Insert: {
           account_id: string
           avatar?: string
           bio?: string
           created_at?: string | null
+          messages_vus_le?: string
           niveau?: string
           poste?: string
           pseudo: string
           quartier?: string
+          style_jeu?: string
+          taille?: string
         }
         Update: {
           account_id?: string
           avatar?: string
           bio?: string
           created_at?: string | null
+          messages_vus_le?: string
           niveau?: string
           poste?: string
           pseudo?: string
           quartier?: string
+          style_jeu?: string
+          taille?: string
         }
         Relationships: [
           {
@@ -878,6 +1275,7 @@ export type Database = {
           isSetofReturn: false
         }
       }
+      est_dans_la_partie: { Args: { dispo: string }; Returns: boolean }
       get_account_invitations: {
         Args: { account_slug: string }
         Returns: {

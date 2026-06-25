@@ -1,8 +1,10 @@
 'use client';
 
+import Link from 'next/link';
+
 import { useState, useTransition } from 'react';
 
-import { Trash2 } from 'lucide-react';
+import { Sparkles, Trash2 } from 'lucide-react';
 
 import { Badge } from '@kit/ui/badge';
 import { Button } from '@kit/ui/button';
@@ -48,6 +50,8 @@ export function DispoForm({ dispos: disposInitiales }: { dispos: Dispo[] }) {
   // Petits états d'interface : confirmation, chargement, erreur.
   const [confirme, setConfirme] = useState(false);
   const [erreur, setErreur] = useState<string | null>(null);
+  // Limite du plan gratuit atteinte → on propose de passer Pro.
+  const [limitePro, setLimitePro] = useState(false);
   const [enCours, startTransition] = useTransition();
 
   // Quand on clique sur "Publier" : on envoie à la base via la server action.
@@ -64,6 +68,7 @@ export function DispoForm({ dispos: disposInitiales }: { dispos: Dispo[] }) {
     }
 
     setErreur(null);
+    setLimitePro(false);
 
     startTransition(async () => {
       const resultat = await publierDispoAction({
@@ -73,6 +78,12 @@ export function DispoForm({ dispos: disposInitiales }: { dispos: Dispo[] }) {
         places: Number(places),
         note,
       });
+
+      // Limite du plan gratuit atteinte : on affiche l'invitation à passer Pro.
+      if (resultat?.data?.limiteAtteinte) {
+        setLimitePro(true);
+        return;
+      }
 
       if (resultat?.serverError ?? resultat?.validationErrors) {
         setErreur('Oups, la publication a échoué. Réessaie.');
@@ -122,7 +133,7 @@ export function DispoForm({ dispos: disposInitiales }: { dispos: Dispo[] }) {
       <PageBackground />
       <div
         className={
-          'relative z-10 mx-auto my-auto flex w-full max-w-xl flex-col gap-7 py-10'
+          'relative z-10 mx-auto my-auto flex w-full max-w-xl flex-col gap-7 pt-10 pb-28'
         }
       >
         <BoutonRetour />
@@ -228,6 +239,36 @@ export function DispoForm({ dispos: disposInitiales }: { dispos: Dispo[] }) {
 
             {erreur ? (
               <p className={'text-sm font-medium text-red-400'}>{erreur}</p>
+            ) : null}
+
+            {/* Limite gratuite atteinte → invitation à passer Pro */}
+            {limitePro ? (
+              <div
+                className={
+                  'flex flex-col gap-2 rounded-xl border border-[#EA580C]/40 bg-[#EA580C]/10 p-4'
+                }
+              >
+                <span
+                  className={
+                    'flex items-center gap-2 text-sm font-bold text-[#fdba74]'
+                  }
+                >
+                  <Sparkles className={'size-4'} /> Limite du plan gratuit
+                  atteinte
+                </span>
+                <p className={'text-muted-foreground text-sm'}>
+                  Le plan gratuit permet 2 dispos actives à la fois. Passe en{' '}
+                  <strong>Pro</strong> pour en poster autant que tu veux.
+                </p>
+                <Link
+                  href={'/home/billing'}
+                  className={
+                    'inline-flex w-fit items-center gap-2 rounded-full bg-[#EA580C] px-4 py-2 text-sm font-extrabold text-black transition hover:brightness-110'
+                  }
+                >
+                  <Sparkles className={'size-4'} /> Passer en Pro
+                </Link>
+              </div>
             ) : null}
 
             <Button

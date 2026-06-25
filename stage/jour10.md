@@ -23,3 +23,9 @@ Montre ton produit à **1-2 personnes de ta cible réelle** — **pas** le binô
 
 ## Livrable
 `livrables/retours-users.md` (retours bruts + ce que tu en tires) + ton produit prêt à montrer.
+
+## Récap (rempli le soir)
+- **Ce que j'ai fait :** j'ai transformé Pickify en réseau social (chat de partie en temps réel, highlights vidéos/photos avec likes, messages privés avec « Vu » et badge de non-lus, abonnés/abonnements, notifications, profil enrichi avec photo, et les avantages du plan Pro).
+- **Ce qui m'a bloqué :** rien ne m'a bloqué.
+- **Ce que j'ai appris :** le temps réel.
+- **Temps Toggl :** non suivi aujourd'hui.

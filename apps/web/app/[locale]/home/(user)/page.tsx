@@ -1,6 +1,15 @@
 import Link from 'next/link';
 
-import { ArrowRight, CalendarPlus, User, Users } from 'lucide-react';
+import {
+  ArrowRight,
+  CalendarPlus,
+  Clapperboard,
+  MapPin,
+  MessageCircle,
+  Ruler,
+  User,
+  Users,
+} from 'lucide-react';
 
 import { getSupabaseServerClient } from '@kit/supabase/server-client';
 import { Avatar, AvatarFallback, AvatarImage } from '@kit/ui/avatar';
@@ -13,6 +22,7 @@ import { requireUserInServerComponent } from '~/lib/server/require-user-in-serve
 import { avatarUrl } from './_lib/avatars';
 import { MenuAccueil } from './_components/menu-accueil';
 import { PageBackground } from './_components/page-background';
+import { UserNotifications } from './_components/user-notifications';
 
 export const metadata = {
   title: 'Pickify',
@@ -28,12 +38,41 @@ async function UserHomePage() {
 
   const { data: profil } = await client
     .from('profils')
-    .select('pseudo, niveau, poste, quartier, bio, avatar')
+    .select('pseudo, niveau, poste, quartier, bio, avatar, taille, style_jeu')
     .eq('account_id', user.id)
     .maybeSingle();
 
   // A-t-on déjà un profil rempli ? (on se base sur le pseudo)
   const aUnProfil = Boolean(profil?.pseudo);
+
+  // Stats sociales (highlights postés + likes reçus) pour la carte de joueur.
+  const { data: mesHighlights } = await client
+    .from('highlights')
+    .select('id')
+    .eq('account_id', user.id);
+
+  const idsHighlights = (mesHighlights ?? []).map((h) => h.id);
+
+  let likesRecus = 0;
+  if (idsHighlights.length > 0) {
+    const { count } = await client
+      .from('likes')
+      .select('*', { count: 'exact', head: true })
+      .in('highlight_id', idsHighlights);
+    likesRecus = count ?? 0;
+  }
+
+  // Abonnés (qui me suit) + Abonnements (qui je suis).
+  const [{ count: abonnes }, { count: abonnements }] = await Promise.all([
+    client
+      .from('abonnements')
+      .select('*', { count: 'exact', head: true })
+      .eq('suivi_id', user.id),
+    client
+      .from('abonnements')
+      .select('*', { count: 'exact', head: true })
+      .eq('follower_id', user.id),
+  ]);
 
   // Les 3 raccourcis vers les features, dans l'ordre du parcours :
   // d'abord se créer un profil, puis poster une dispo, puis trouver des joueurs.
@@ -56,6 +95,18 @@ async function UserHomePage() {
       desc: 'Vois qui est dispo dans ton quartier et rejoins une partie.',
       Icon: Users,
     },
+    {
+      href: '/home/highlights',
+      titre: 'Highlights',
+      desc: 'Poste tes vidéos de basket et regarde celles des autres.',
+      Icon: Clapperboard,
+    },
+    {
+      href: '/home/messages',
+      titre: 'Messages',
+      desc: 'Cherche un joueur et discute avec lui en privé.',
+      Icon: MessageCircle,
+    },
   ];
 
   return (
@@ -63,7 +114,7 @@ async function UserHomePage() {
       <PageBackground />
       <div
         className={
-          'relative z-10 mx-auto flex w-full max-w-2xl flex-col gap-8 py-10'
+          'relative z-10 mx-auto flex w-full max-w-2xl flex-col gap-8 pt-10 pb-28'
         }
       >
         {/* ===== En-tête ===== */}
@@ -80,8 +131,11 @@ async function UserHomePage() {
               </span>
             </div>
 
-            {/* Menu ☰ : thème + déconnexion */}
-            <MenuAccueil />
+            {/* Cloche de notifications + menu ☰ (en haut à droite) */}
+            <div className={'flex items-center gap-1'}>
+              <UserNotifications userId={user.id} />
+              <MenuAccueil />
+            </div>
           </div>
           <h1
             className={
@@ -108,28 +162,37 @@ async function UserHomePage() {
               >
                 Ta carte de joueur
               </span>
-              <div className={'flex items-center gap-3'}>
-                <Avatar className={'size-12'}>
+              <div className={'flex items-center gap-4'}>
+                <Avatar
+                  className={
+                    'size-16 ring-2 ring-[#EA580C]/40 ring-offset-2 ring-offset-background'
+                  }
+                >
                   <AvatarImage
                     src={avatarUrl(profil?.pseudo ?? '', profil?.avatar)}
                     alt={profil?.pseudo ?? ''}
                   />
-                  <AvatarFallback className={'bg-white/5 uppercase'}>
+                  <AvatarFallback className={'bg-white/5 text-xl uppercase'}>
                     {profil?.pseudo?.charAt(0)}
                   </AvatarFallback>
                 </Avatar>
-                <span className={'font-heading text-2xl tracking-wide'}>
-                  {profil?.pseudo}
-                </span>
+                <div className={'flex flex-col gap-1'}>
+                  <span className={'font-heading text-2xl tracking-wide'}>
+                    {profil?.pseudo}
+                  </span>
+                  {profil?.quartier ? (
+                    <span
+                      className={
+                        'text-muted-foreground flex items-center gap-1 text-sm'
+                      }
+                    >
+                      <MapPin className={'size-3.5'} />
+                      {profil.quartier}
+                    </span>
+                  ) : null}
+                </div>
               </div>
-              <div className={'flex flex-wrap gap-2'}>
-                {profil?.poste ? (
-                  <Badge
-                    className={'border-[#EA580C]/40 bg-[#EA580C]/15 text-[#fdba74]'}
-                  >
-                    {profil.poste}
-                  </Badge>
-                ) : null}
+              <div className={'flex flex-wrap items-center gap-2'}>
                 {profil?.niveau ? (
                   <Badge
                     className={'border-[#0284C7]/40 bg-[#0284C7]/15 text-[#7dd3fc]'}
@@ -137,10 +200,29 @@ async function UserHomePage() {
                     {profil.niveau}
                   </Badge>
                 ) : null}
-                {profil?.quartier ? (
-                  <Badge className={'border-white/20 bg-white/10 text-[#a3a3a8]'}>
-                    {profil.quartier}
+                {profil?.poste ? (
+                  <Badge
+                    className={'border-[#EA580C]/40 bg-[#EA580C]/15 text-[#fdba74]'}
+                  >
+                    {profil.poste}
                   </Badge>
+                ) : null}
+                {profil?.style_jeu ? (
+                  <Badge
+                    className={'border-[#a855f7]/40 bg-[#a855f7]/15 text-[#d8b4fe]'}
+                  >
+                    {profil.style_jeu}
+                  </Badge>
+                ) : null}
+                {profil?.taille ? (
+                  <span
+                    className={
+                      'text-muted-foreground flex items-center gap-1 text-xs'
+                    }
+                  >
+                    <Ruler className={'size-3.5'} />
+                    {profil.taille}
+                  </span>
                 ) : null}
               </div>
               {profil?.bio ? (
@@ -148,6 +230,41 @@ async function UserHomePage() {
                   « {profil.bio} »
                 </p>
               ) : null}
+              {/* Stats sociales (façon Insta) */}
+              <div
+                className={
+                  'grid grid-cols-4 gap-2 border-t border-white/10 pt-4 text-center'
+                }
+              >
+                <div className={'flex flex-col'}>
+                  <span className={'font-heading text-xl'}>{abonnes ?? 0}</span>
+                  <span className={'text-muted-foreground text-[11px]'}>
+                    Abonnés
+                  </span>
+                </div>
+                <div className={'flex flex-col'}>
+                  <span className={'font-heading text-xl'}>
+                    {abonnements ?? 0}
+                  </span>
+                  <span className={'text-muted-foreground text-[11px]'}>
+                    Abonnements
+                  </span>
+                </div>
+                <div className={'flex flex-col'}>
+                  <span className={'font-heading text-xl'}>
+                    {idsHighlights.length}
+                  </span>
+                  <span className={'text-muted-foreground text-[11px]'}>
+                    Highlights
+                  </span>
+                </div>
+                <div className={'flex flex-col'}>
+                  <span className={'font-heading text-xl'}>{likesRecus}</span>
+                  <span className={'text-muted-foreground text-[11px]'}>
+                    Likes reçus
+                  </span>
+                </div>
+              </div>
             </CardContent>
           </Card>
         ) : (
@@ -173,8 +290,8 @@ async function UserHomePage() {
           </Card>
         )}
 
-        {/* ===== Les 3 features ===== */}
-        <div className={'grid gap-4 sm:grid-cols-3'}>
+        {/* ===== Les features ===== */}
+        <div className={'grid gap-4 sm:grid-cols-2'}>
           {features.map(({ href, titre, desc, Icon }) => (
             <Link key={href} href={href} className={'block'}>
               <Card
