@@ -25,7 +25,11 @@ Montre ton produit à **1-2 personnes de ta cible réelle** — **pas** le binô
 `livrables/retours-users.md` (retours bruts + ce que tu en tires) + ton produit prêt à montrer.
 
 ## Récap (rempli le soir)
-- **Ce que j'ai fait :** j'ai transformé Pickify en réseau social (chat de partie en temps réel, highlights vidéos/photos avec likes, messages privés avec « Vu » et badge de non-lus, abonnés/abonnements, notifications, profil enrichi avec photo, et les avantages du plan Pro).
-- **Ce qui m'a bloqué :** rien ne m'a bloqué.
-- **Ce que j'ai appris :** le temps réel.
+- **Ce que j'ai fait :**
+  - (réseau social) j'ai transformé Pickify en réseau social : chat de partie en temps réel, highlights vidéos/photos avec likes, messages privés avec « Vu » et badge de non-lus, abonnés/abonnements, notifications, profil enrichi avec photo, et les avantages du plan Pro.
+  - (dernier jour) après l'avoir testé sur mobile, j'ai corrigé les bugs trouvés : la barre du bas affiche bien les 7 boutons (Profil compris), le scroll n'est plus bloqué, et le chat de partie s'ouvre en plein écran. J'ai ajouté une **page profil joueur** pour voir un autre joueur et s'abonner en retour (avant, la notif « s'est abonné à toi » renvoyait au mauvais endroit).
+  - j'ai **déployé Pickify en production** : https://stage-saas-anthony.vercel.app
+  - et surtout, j'ai fait **le test utilisateur** avec 2 personnes (1 basketteur, 1 non-basketteur).
+- **Ce qui m'a bloqué :** le paiement Stripe plantait (« Error requesting checkout ») : il manquait la variable `STRIPE_WEBHOOK_SECRET` — réglé en local (reste à le faire en prod avec Matis). Le déploiement automatique Vercel ne partait pas tout seul, je l'ai lancé à la main avec la CLI.
+- **Ce que j'ai appris :** le temps réel ; déployer en prod ; et surtout (test utilisateur) **qu'un compliment (« je kiffe ») n'est pas un vrai besoin** — la personne de ma cible n'en avait pas besoin, et celle qui l'utiliserait n'est pas dans ma cible. Ma vraie piste : les joueurs isolés.
 - **Temps Toggl :** non suivi aujourd'hui.
