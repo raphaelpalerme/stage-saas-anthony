@@ -44,8 +44,10 @@ export const suivreAction = authActionClient
     await creerNotification({
       pour: parsedInput.suiviId,
       acteur: ctx.user.id,
+      // On envoie vers le profil de CELUI qui vient de s'abonner (l'acteur),
+      // pour pouvoir voir qui c'est et s'abonner en retour.
       body: `${moi?.pseudo ?? 'Un joueur'} s'est abonné à toi`,
-      link: '/home/messages',
+      link: `/home/joueur/${ctx.user.id}`,
     });
 
     revalidatePath('/home/messages');

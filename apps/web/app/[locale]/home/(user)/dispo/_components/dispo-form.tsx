@@ -129,7 +129,7 @@ export function DispoForm({ dispos: disposInitiales }: { dispos: Dispo[] }) {
   const disposVisibles = dispos.filter((d) => d.places > 0);
 
   return (
-    <PageBody className={'relative -mx-4 overflow-hidden px-4 lg:mx-0'}>
+    <PageBody className={'relative -mx-4 overflow-x-clip px-4 lg:mx-0'}>
       <PageBackground />
       <div
         className={

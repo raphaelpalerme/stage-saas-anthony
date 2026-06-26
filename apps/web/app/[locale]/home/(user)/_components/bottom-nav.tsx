@@ -86,7 +86,7 @@ export function BottomNav() {
     >
       <div
         className={
-          'mx-auto flex w-full max-w-xl items-center justify-around px-2 pt-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))]'
+          'mx-auto flex w-full max-w-xl items-center gap-0.5 px-1 pt-2 pb-[calc(0.5rem+env(safe-area-inset-bottom))]'
         }
       >
         {ONGLETS.map(({ href, label, Icon, central }) => {
@@ -108,7 +108,7 @@ export function BottomNav() {
                 href={href}
                 aria-label={label}
                 className={
-                  'flex flex-col items-center gap-1 text-[10px] font-medium text-white'
+                  'flex shrink-0 flex-col items-center gap-1 text-[10px] font-medium text-white'
                 }
               >
                 <span
@@ -127,7 +127,7 @@ export function BottomNav() {
               key={href}
               href={href}
               aria-label={label}
-              className={`flex flex-col items-center gap-1 rounded-lg px-3 py-1 text-[10px] font-medium transition ${
+              className={`flex min-w-0 flex-1 flex-col items-center gap-0.5 rounded-lg px-0.5 py-1 text-[9px] font-medium transition ${
                 actif ? 'text-[#EA580C]' : 'text-[#a3a3a8] hover:text-white'
               }`}
             >
@@ -143,7 +143,7 @@ export function BottomNav() {
                   </span>
                 ) : null}
               </span>
-              {label}
+              <span className={'w-full truncate text-center'}>{label}</span>
             </Link>
           );
         })}

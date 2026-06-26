@@ -9,6 +9,7 @@ import { useSupabase } from '@kit/supabase/hooks/use-supabase';
 import { Avatar, AvatarFallback, AvatarImage } from '@kit/ui/avatar';
 import { Button } from '@kit/ui/button';
 import { Input } from '@kit/ui/input';
+import { toast } from '@kit/ui/sonner';
 
 import { avatarUrl } from '../../_lib/avatars';
 import { envoyerMessageAction } from '../_lib/server/chat-actions';
@@ -138,9 +139,11 @@ export function ChatPartie(props: {
         contenu,
       });
 
-      // En cas d'échec, on remet le texte pour ne pas le perdre.
+      // En cas d'échec, on remet le texte pour ne pas le perdre ET on prévient
+      // l'utilisateur (sinon le bouton a l'air de "ne rien faire").
       if (resultat?.serverError ?? resultat?.validationErrors) {
         setTexte(contenu);
+        toast.error("Le message n'a pas pu être envoyé. Réessaie.");
         return;
       }
 
