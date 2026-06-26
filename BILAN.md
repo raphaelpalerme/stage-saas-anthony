@@ -21,6 +21,22 @@ Ton réflexe, c'est de builder — c'est confortable. Mais tu as failli finir sa
 
 **Tu as démarré le plus loin et fait le plus de chemin. Sois fier. Vraiment.** 🙌
 
+## La grille investisseur — la lentille de ton tuteur
+> ⚠️ **À lire d'abord, c'est important :** c'est la **lentille d'un investisseur** (« est-ce que *je* financerais ce projet ? »), **pas ta note de stage.** Le stage, tu l'as réussi haut la main — et tu as quasi le **meilleur score « passion & exécution » possible**. La grille pénalise lourdement le **B2C ado** (×3, « pas de marché gratuit ») : c'est ton **modèle** qui est dur à financer, **pas ton travail**, qui est excellent. Et le **mentorat est pour toi quoi qu'il arrive.**
+
+| # | Critère (coef) | Note | Pondéré |
+|---|---|---|---|
+| 1 | Problème réel et urgent (×3) | 2 / 5 | 6 |
+| 2 | Marché qui paye (×3) | 1,5 / 5 | 4,5 |
+| 3 | Différenciation claire (×2) | 3 / 5 | 6 |
+| 4 | Faisabilité technique (×2) | 4 / 5 | 8 |
+| 5 | Passion et exécution (×2) | 4,5 / 5 | 9 |
+| 6 | Premier client accessible (×1) | 1,5 / 5 | 1,5 |
+| 7 | Modèle éco scalable (×1) | 1,5 / 5 | 1,5 |
+| | **Total** | | **≈ 36,5 / 70** |
+
+**Verdict : « Intéressant ».** Traduction honnête : ton exécution est top, mais ton **marché cible n'a pas encore prouvé qu'il payait** — et tu l'as découvert toi-même au test. Ta porte, c'est le **joueur isolé**. Le jour où tu prouves qu'il existe et qu'il paie, ce score grimpe vite. **Rien n'est figé.**
+
 ## La suite — ma proposition (ton tuteur)
 **1h de mentorat par semaine** (visio ou en vrai) pour avancer sur ta vraie prochaine étape : **tester le joueur isolé** (ton seul vrai filon) et résoudre le démarrage à froid (de la densité sur **un** quartier / un lycée).
 
