@@ -20,3 +20,10 @@ Ton réflexe, c'est de builder — c'est confortable. Mais tu as failli finir sa
 3. Le **partage de dispo sur WhatsApp** = ton levier pour grandir.
 
 **Tu as démarré le plus loin et fait le plus de chemin. Sois fier. Vraiment.** 🙌
+
+## La suite — ma proposition (ton tuteur)
+**1h de mentorat par semaine** (visio ou en vrai) pour avancer sur ta vraie prochaine étape : **tester le joueur isolé** (ton seul vrai filon) et résoudre le démarrage à froid (de la densité sur **un** quartier / un lycée).
+
+Pas de soutien financier pour l'instant — mais ça **se débloque avec la traction** : le jour où tu as **5 vrais utilisateurs actifs au même endroit** (ou un premier qui paie), on rediscute du reste.
+
+*Je crois assez en toi pour investir mon temps dès maintenant. L'argent suit la preuve.*
