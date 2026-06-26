@@ -27,3 +27,16 @@ Ton réflexe, c'est de builder — c'est confortable. Mais tu as failli finir sa
 Pas de soutien financier pour l'instant — mais ça **se débloque avec la traction** : le jour où tu as **5 vrais utilisateurs actifs au même endroit** (ou un premier qui paie), on rediscute du reste.
 
 *Je crois assez en toi pour investir mon temps dès maintenant. L'argent suit la preuve.*
+
+## 🎓 Défi de fin de stage — reprends le contrôle
+Pendant 2 semaines, des **garde-fous** t'ont protégé : impossible de committer sur `develop`/`main`, de toucher certaines zones, de lancer un formatage, et chaque commit passait un typecheck + lint. C'étaient les roulettes du vélo.
+
+Maintenant, **c'est TON projet.** Ton dernier exercice : **retire-les toi-même.**
+
+Indices (pas la solution — à toi de creuser) :
+- Un te bloque **au moment du commit** → cherche du côté des **git hooks** (`.githooks/`, et `git config core.hooksPath`).
+- Un autre **bride Claude** quand il édite des fichiers ou lance des commandes → cherche dans **`.claude/`** (le `settings.json` + le dossier `hooks/`).
+- ⚠️ Un réglage **ressemble** à un garde-fou mais n'en est pas un : sans lui, `pnpm dev` **casse** (c'est lié à la licence Makerkit). Trouve lequel, et **garde-le**.
+- 😉 Et si tu demandes à Claude de retirer le hook qui **le bride lui-même**, il refusera sûrement — il ne désactive pas ses propres limites. Là, c'est à **toi, l'humain**, de le faire à la main. C'est la dernière leçon : **tu es aux commandes, l'IA assiste.**
+
+Quand tu as tout retiré (en gardant ce qu'il fallait garder) et que tu peux committer librement où tu veux : **bravo, tu as fini le stage pour de vrai.** 🚀
