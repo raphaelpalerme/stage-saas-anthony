@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 import { useState, useTransition } from 'react';
 
 import {
@@ -151,7 +153,7 @@ export function TrouverListe(props: {
   const resultats = [...filtrees].sort((a, b) => pertinence(b) - pertinence(a));
 
   return (
-    <PageBody className={'relative -mx-4 overflow-hidden px-4 lg:mx-0'}>
+    <PageBody className={'relative -mx-4 overflow-x-clip px-4 lg:mx-0'}>
       <PageBackground />
       <div
         className={
@@ -301,25 +303,34 @@ export function TrouverListe(props: {
                 >
                   <CardContent className={'flex flex-col gap-4 pt-6'}>
                     <div className={'flex items-center gap-4'}>
-                      {/* Avatar généré du joueur (style choisi, basé sur le pseudo) */}
-                      <Avatar className={'size-12'}>
-                        <AvatarImage
-                          src={avatarUrl(d.pseudo, d.avatar)}
-                          alt={d.pseudo}
-                        />
-                        <AvatarFallback className={'bg-white/5 uppercase'}>
-                          {d.pseudo.charAt(0)}
-                        </AvatarFallback>
-                      </Avatar>
+                      {/* Avatar du joueur → clic = sa page profil (pour voir
+                          qui c'est et s'abonner). */}
+                      <Link
+                        href={`/home/joueur/${d.organisateurId}`}
+                        aria-label={`Voir le profil de ${d.pseudo}`}
+                      >
+                        <Avatar className={'size-12 transition hover:opacity-80'}>
+                          <AvatarImage
+                            src={avatarUrl(d.pseudo, d.avatar)}
+                            alt={d.pseudo}
+                          />
+                          <AvatarFallback className={'bg-white/5 uppercase'}>
+                            {d.pseudo.charAt(0)}
+                          </AvatarFallback>
+                        </Avatar>
+                      </Link>
 
                       {/* Pseudo + badges */}
                       <div className={'flex flex-1 flex-col gap-1'}>
                         <div className={'flex flex-wrap items-center gap-2'}>
-                          <span
-                            className={'font-heading text-xl tracking-wide'}
+                          <Link
+                            href={`/home/joueur/${d.organisateurId}`}
+                            className={
+                              'font-heading text-xl tracking-wide transition hover:text-[#fdba74]'
+                            }
                           >
                             {d.pseudo}
-                          </span>
+                          </Link>
                           {match ? (
                             <Badge
                               className={
@@ -459,7 +470,7 @@ export function TrouverListe(props: {
 
                         <DrawerContent
                           className={
-                            'data-[vaul-drawer-direction=bottom]:max-h-[85vh]'
+                            'data-[vaul-drawer-direction=bottom]:mt-0 data-[vaul-drawer-direction=bottom]:h-[100dvh] data-[vaul-drawer-direction=bottom]:max-h-[100dvh] data-[vaul-drawer-direction=bottom]:rounded-none'
                           }
                         >
                           <DrawerHeader

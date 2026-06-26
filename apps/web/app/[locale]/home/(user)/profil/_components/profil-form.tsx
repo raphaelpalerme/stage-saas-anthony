@@ -1,8 +1,10 @@
 'use client';
 
+import Link from 'next/link';
+
 import { useState, useTransition } from 'react';
 
-import { ImagePlus, MapPin, Pencil, Ruler, X } from 'lucide-react';
+import { ChevronRight, ImagePlus, MapPin, Pencil, Ruler, X } from 'lucide-react';
 
 import { useSupabase } from '@kit/supabase/hooks/use-supabase';
 import { Avatar, AvatarFallback, AvatarImage } from '@kit/ui/avatar';
@@ -173,7 +175,7 @@ export function ProfilForm({
   }
 
   return (
-    <PageBody className={'relative -mx-4 overflow-hidden px-4 lg:mx-0'}>
+    <PageBody className={'relative -mx-4 overflow-x-clip px-4 lg:mx-0'}>
       <PageBackground />
       <div
         className={
@@ -609,10 +611,12 @@ export function ProfilForm({
           >
             {listeOuverte && listeOuverte.joueurs.length > 0 ? (
               listeOuverte.joueurs.map((j) => (
-                <div
+                <Link
                   key={j.id}
+                  href={`/home/joueur/${j.id}`}
+                  onClick={() => setListeOuverte(null)}
                   className={
-                    'flex items-center gap-3 rounded-2xl border border-white/10 p-3'
+                    'flex items-center gap-3 rounded-2xl border border-white/10 p-3 transition hover:border-white/30 hover:bg-white/5'
                   }
                 >
                   <Avatar className={'size-10'}>
@@ -624,10 +628,11 @@ export function ProfilForm({
                       {j.pseudo.charAt(0)}
                     </AvatarFallback>
                   </Avatar>
-                  <span className={'font-heading text-lg tracking-wide'}>
+                  <span className={'font-heading flex-1 text-lg tracking-wide'}>
                     {j.pseudo}
                   </span>
-                </div>
+                  <ChevronRight className={'text-muted-foreground size-5'} />
+                </Link>
               ))
             ) : (
               <p className={'text-muted-foreground py-6 text-center text-sm'}>
