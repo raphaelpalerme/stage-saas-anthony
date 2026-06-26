@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 
 import {
   Clapperboard,
+  CreditCard,
   Home,
   MessageCircle,
   Plus,
@@ -19,6 +20,7 @@ import { useSupabase } from '@kit/supabase/hooks/use-supabase';
 // La barre de navigation du bas, façon Instagram / TikTok : toujours visible,
 // elle permet de passer d'un écran à l'autre d'un seul pouce (mobile-first).
 const ONGLETS = [
+  { href: '/home/billing', label: 'Facturation', Icon: CreditCard },
   { href: '/home', label: 'Accueil', Icon: Home },
   { href: '/home/trouver', label: 'Trouver', Icon: Users },
   { href: '/home/dispo', label: 'Poster', Icon: Plus, central: true },
