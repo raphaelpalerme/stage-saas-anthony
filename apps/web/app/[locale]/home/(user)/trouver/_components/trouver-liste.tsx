@@ -1,13 +1,29 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useTransition } from 'react';
 
-import { ArrowRight, Check, MapPin, Users, Zap } from 'lucide-react';
+import {
+  ArrowRight,
+  Check,
+  MapPin,
+  MessageCircle,
+  Users,
+  X,
+  Zap,
+} from 'lucide-react';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@kit/ui/avatar';
 import { Badge } from '@kit/ui/badge';
 import { Button } from '@kit/ui/button';
 import { Card, CardContent } from '@kit/ui/card';
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from '@kit/ui/drawer';
 import { Input } from '@kit/ui/input';
 import { Label } from '@kit/ui/label';
 import { NativeSelect, NativeSelectOption } from '@kit/ui/native-select';
@@ -16,11 +32,17 @@ import { PageBody } from '@kit/ui/page';
 import { avatarUrl } from '../../_lib/avatars';
 import { BoutonRetour } from '../../_components/bouton-retour';
 import { PageBackground } from '../../_components/page-background';
+import {
+  quitterDispoAction,
+  rejoindreDispoAction,
+} from '../_lib/server/chat-actions';
+import { ChatPartie } from './chat-partie';
 
 // Le "type" d'une dispo affichée dans "Trouver" : une vraie annonce de joueur.
 // L'id est maintenant un uuid (texte), car il vient de la base.
 export type DispoJoueur = {
   id: string;
+  organisateurId: string; // qui a posté la dispo (account_id de l'organisateur)
   pseudo: string;
   niveau: string;
   poste: string;
@@ -32,11 +54,19 @@ export type DispoJoueur = {
   interesses: number; // joueurs qui ont déjà cliqué "Je suis chaud"
 };
 
+// L'annuaire account_id -> pseudo/avatar (passé au chat pour afficher l'auteur).
+type Pseudos = Record<string, { pseudo: string; avatar: string }>;
+
 // Les niveaux pour le filtre ("Tous" = on ne filtre pas).
 const FILTRES_NIVEAU = ['Tous', 'Débutant', 'Moyen', 'Confirmé'];
 
 // La liste reçoit les vraies dispos en prop (récupérées côté serveur dans page.tsx).
-export function TrouverListe(props: { dispos: DispoJoueur[] }) {
+export function TrouverListe(props: {
+  dispos: DispoJoueur[];
+  moiId: string; // mon account_id (pour savoir quels chats sont à moi)
+  dejaRejoints: string[]; // les dispos que j'ai DÉJÀ rejointes (lues en base)
+  pseudos: Pseudos; // pseudo/avatar de chaque joueur, pour le chat
+}) {
   // La liste vit dans un state : "Rejoindre" modifie les places localement.
   const [dispos, setDispos] = useState<DispoJoueur[]>(props.dispos);
 
@@ -48,27 +78,49 @@ export function TrouverListe(props: { dispos: DispoJoueur[] }) {
   const [recherche, setRecherche] = useState(''); // terrain, quartier, créneau, pseudo
   const [filtreNiveau, setFiltreNiveau] = useState('Tous');
 
-  // Les id des dispos que j'ai rejointes (mémoire temporaire).
-  const [rejoints, setRejoints] = useState<string[]>([]);
+  // Les id des dispos que j'ai rejointes — pré-rempli depuis la BASE.
+  const [rejoints, setRejoints] = useState<string[]>(props.dejaRejoints);
+  const [enCours, startTransition] = useTransition();
 
-  // Cliquer "Je suis chaud" : on rejoint (-1 place, +1 intéressé) ou on annule.
-  function toggleRejoindre(id: string) {
-    const dejaRejoint = rejoints.includes(id);
-
+  // Met à jour l'affichage d'une dispo : +1/-1 place et intéressés.
+  // `rejoindre = true` quand on rejoint, `false` quand on quitte.
+  function majAffichage(id: string, rejoindre: boolean) {
     setDispos((liste) =>
       liste.map((d) => {
         if (d.id !== id) return d;
         return {
           ...d,
-          places: dejaRejoint ? d.places + 1 : d.places - 1,
-          interesses: dejaRejoint ? d.interesses - 1 : d.interesses + 1,
+          places: rejoindre ? d.places - 1 : d.places + 1,
+          interesses: rejoindre ? d.interesses + 1 : d.interesses - 1,
         };
       }),
     );
-
     setRejoints((ids) =>
-      dejaRejoint ? ids.filter((x) => x !== id) : [...ids, id],
+      rejoindre ? [...ids, id] : ids.filter((x) => x !== id),
     );
+  }
+
+  // Cliquer "Je suis chaud" : on rejoint/quitte EN BASE (server action),
+  // et on met à jour l'affichage dans la foulée.
+  function toggleRejoindre(id: string) {
+    const dejaRejoint = rejoints.includes(id);
+    const rejoindre = !dejaRejoint;
+
+    // 1) retour visuel immédiat (optimiste)
+    majAffichage(id, rejoindre);
+
+    // 2) on enregistre vraiment en base
+    startTransition(async () => {
+      const resultat = rejoindre
+        ? await rejoindreDispoAction({ dispoId: id })
+        : await quitterDispoAction({ dispoId: id });
+
+      // 3) si la base a refusé : on ANNULE l'affichage (on revient en arrière),
+      //    sinon l'écran mentirait ("Dans le run" sans ligne en base → chat cassé).
+      if (resultat?.serverError ?? resultat?.validationErrors) {
+        majAffichage(id, !rejoindre);
+      }
+    });
   }
 
   // Un score de pertinence : +2 si même quartier que moi, +1 si même niveau.
@@ -103,7 +155,7 @@ export function TrouverListe(props: { dispos: DispoJoueur[] }) {
       <PageBackground />
       <div
         className={
-          'relative z-10 mx-auto my-auto flex w-full max-w-xl flex-col gap-7 py-10'
+          'relative z-10 mx-auto my-auto flex w-full max-w-xl flex-col gap-7 pt-10 pb-28'
         }
       >
         <BoutonRetour />
@@ -226,6 +278,10 @@ export function TrouverListe(props: { dispos: DispoJoueur[] }) {
             resultats.map((d) => {
               const rejoint = rejoints.includes(d.id);
               const complet = d.places <= 0;
+              // Est-ce MA partie (je l'ai postée) ?
+              const estOrganisateur = d.organisateurId === props.moiId;
+              // Suis-je "dans la partie" ? → j'y ai accès au chat.
+              const dansLaPartie = rejoint || estOrganisateur;
               // "Match" : même quartier ET même niveau que moi.
               const match =
                 !!monQuartier &&
@@ -330,30 +386,115 @@ export function TrouverListe(props: { dispos: DispoJoueur[] }) {
                       ) : null}
                     </div>
 
-                    {/* Bouton pour rejoindre le run */}
-                    <Button
-                      onClick={() => toggleRejoindre(d.id)}
-                      disabled={complet && !rejoint}
-                      className={
-                        rejoint
-                          ? 'font-heading w-full gap-2 bg-[#22C55E] text-base tracking-[0.15em] text-black uppercase hover:bg-[#22C55E] hover:brightness-110'
-                          : 'font-heading w-full gap-2 bg-[#EA580C] text-base tracking-[0.15em] text-black uppercase hover:bg-[#EA580C] hover:brightness-110'
-                      }
-                    >
-                      {rejoint ? (
-                        <>
+                    {/* Si c'est MA partie : pas de bouton "rejoindre", juste un repère.
+                        Sinon : soit "Je suis chaud", soit (si déjà rejoint)
+                        l'état "Dans le run" + un bouton "Quitter la partie". */}
+                    {estOrganisateur ? (
+                      <Badge
+                        className={
+                          'w-full justify-center border-[#0284C7]/40 bg-[#0284C7]/15 py-2 font-bold tracking-widest text-[#7dd3fc] uppercase'
+                        }
+                      >
+                        Ta partie
+                      </Badge>
+                    ) : rejoint ? (
+                      <div className={'flex flex-col gap-2'}>
+                        {/* État : je suis dans la partie */}
+                        <div
+                          className={
+                            'font-heading flex w-full items-center justify-center gap-2 rounded-md bg-[#22C55E]/15 py-2 text-base tracking-[0.15em] text-[#22C55E] uppercase'
+                          }
+                        >
                           <Check className={'size-4'} strokeWidth={3} />
                           Dans le run
-                        </>
-                      ) : complet ? (
-                        'Complet'
-                      ) : (
-                        <>
-                          Je suis chaud
-                          <ArrowRight className={'size-4'} strokeWidth={3} />
-                        </>
-                      )}
-                    </Button>
+                        </div>
+                        {/* Bouton explicite pour quitter */}
+                        <Button
+                          variant={'outline'}
+                          onClick={() => toggleRejoindre(d.id)}
+                          disabled={enCours}
+                          data-test={'quitter-partie'}
+                          className={
+                            'w-full gap-2 border-white/15 text-sm font-medium hover:border-red-400/40 hover:text-red-400'
+                          }
+                        >
+                          <X className={'size-4'} />
+                          Quitter la partie
+                        </Button>
+                      </div>
+                    ) : (
+                      <Button
+                        onClick={() => toggleRejoindre(d.id)}
+                        disabled={complet || enCours}
+                        data-test={'rejoindre-partie'}
+                        className={
+                          'font-heading w-full gap-2 bg-[#EA580C] text-base tracking-[0.15em] text-black uppercase hover:bg-[#EA580C] hover:brightness-110'
+                        }
+                      >
+                        {complet ? (
+                          'Complet'
+                        ) : (
+                          <>
+                            Je suis chaud
+                            <ArrowRight className={'size-4'} strokeWidth={3} />
+                          </>
+                        )}
+                      </Button>
+                    )}
+
+                    {/* Le chat de la partie : un bouton ouvre un panneau qui
+                        glisse depuis le bas. Visible seulement si j'y suis
+                        (organisateur ou joueur qui a rejoint). */}
+                    {dansLaPartie ? (
+                      <Drawer>
+                        <DrawerTrigger
+                          data-test={'ouvrir-chat'}
+                          className={
+                            'inline-flex w-full items-center justify-center gap-2 rounded-md border border-[#EA580C]/40 bg-[#EA580C]/10 px-4 py-2 text-sm font-bold tracking-wide text-[#fdba74] uppercase transition hover:bg-[#EA580C]/20'
+                          }
+                        >
+                          <MessageCircle className={'size-4'} />
+                          Ouvrir le chat
+                        </DrawerTrigger>
+
+                        <DrawerContent
+                          className={
+                            'data-[vaul-drawer-direction=bottom]:max-h-[85vh]'
+                          }
+                        >
+                          <DrawerHeader
+                            className={
+                              'flex flex-row items-center justify-between gap-2'
+                            }
+                          >
+                            <DrawerTitle>
+                              Chat — {d.lieu} · {d.creneau}
+                            </DrawerTitle>
+                            <DrawerClose
+                              aria-label={'Fermer'}
+                              className={
+                                'text-muted-foreground rounded-full p-1 hover:bg-white/10'
+                              }
+                            >
+                              <X className={'size-5'} />
+                            </DrawerClose>
+                          </DrawerHeader>
+
+                          {/* La zone du chat remplit la place restante du panneau */}
+                          <div
+                            className={
+                              'mx-auto flex min-h-0 w-full max-w-xl flex-1 flex-col px-4 pb-6'
+                            }
+                          >
+                            <ChatPartie
+                              dispoId={d.id}
+                              moiId={props.moiId}
+                              pseudos={props.pseudos}
+                            />
+                          </div>
+                        </DrawerContent>
+                      </Drawer>
+                    ) : null}
                   </CardContent>
                 </Card>
               );

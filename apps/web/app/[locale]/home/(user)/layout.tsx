@@ -15,6 +15,7 @@ import pathsConfig from '~/config/paths.config';
 import { personalAccountNavigationConfig } from '~/config/personal-account-navigation.config';
 
 // home imports
+import { BottomNav } from './_components/bottom-nav';
 import { HomeMenuNavigation } from './_components/home-menu-navigation';
 import { HomeMobileNavigation } from './_components/home-mobile-navigation';
 import { HomeSidebar } from './_components/home-sidebar';
@@ -58,6 +59,10 @@ async function SidebarLayout({ children }: React.PropsWithChildren) {
 
           {children}
         </Page>
+
+        {/* Barre de navigation du bas, style Insta/TikTok (hors de <Page>
+            pour ne pas casser sa mise en page ; elle est en position fixe). */}
+        <BottomNav />
       </SidebarProvider>
     </UserWorkspaceContextProvider>
   );
@@ -81,6 +86,10 @@ async function HeaderLayout({ children }: React.PropsWithChildren) {
 
         {children}
       </Page>
+
+      {/* Barre de navigation du bas, style Insta/TikTok (hors de <Page>
+          pour ne pas casser sa mise en page ; elle est en position fixe). */}
+      <BottomNav />
     </UserWorkspaceContextProvider>
   );
 }

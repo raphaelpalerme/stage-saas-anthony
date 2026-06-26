@@ -16,6 +16,8 @@ const ProfilSchema = z.object({
   quartier: z.string(),
   bio: z.string(),
   avatar: z.string(),
+  taille: z.string(),
+  styleJeu: z.string(),
 });
 
 /**
@@ -37,6 +39,8 @@ export const enregistrerProfilAction = authActionClient
       quartier: parsedInput.quartier,
       bio: parsedInput.bio,
       avatar: parsedInput.avatar,
+      taille: parsedInput.taille,
+      style_jeu: parsedInput.styleJeu,
     });
 
     if (error) {

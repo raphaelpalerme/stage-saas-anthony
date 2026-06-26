@@ -7,6 +7,12 @@ import { z } from 'zod';
 import { authActionClient } from '@kit/next/safe-action';
 import { getSupabaseServerClient } from '@kit/supabase/server-client';
 
+import { estPro } from '../../../_lib/server/est-pro';
+
+// Limite du plan GRATUIT : nombre de dispos actives (qui cherchent encore des
+// joueurs) qu'on peut avoir en même temps. Le Pro est illimité.
+const LIMITE_DISPOS_GRATUIT = 2;
+
 // La forme attendue d'une dispo envoyée par le formulaire (validation serveur).
 const DispoSchema = z.object({
   lieu: z.string().min(1, 'Le lieu est obligatoire'),
@@ -25,6 +31,24 @@ export const publierDispoAction = authActionClient
   .inputSchema(DispoSchema)
   .action(async ({ parsedInput, ctx }) => {
     const client = getSupabaseServerClient();
+
+    // Plan gratuit limité : on compte les dispos ACTIVES (places > 0).
+    // Le Pro n'a aucune limite.
+    const pro = await estPro(ctx.user.id);
+
+    if (!pro) {
+      const { count } = await client
+        .from('disponibilites')
+        .select('*', { count: 'exact', head: true })
+        .eq('account_id', ctx.user.id)
+        .gt('places', 0);
+
+      if ((count ?? 0) >= LIMITE_DISPOS_GRATUIT) {
+        // On ne bloque pas brutalement : on renvoie un signal "limite atteinte"
+        // que le formulaire affichera avec une invitation à passer Pro.
+        return { success: false, limiteAtteinte: true };
+      }
+    }
 
     const { data, error } = await client
       .from('disponibilites')
